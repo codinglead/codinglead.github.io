@@ -1,0 +1,23 @@
+---
+layout: default
+title: blog
+---
+
+<article class="proj">
+  <div class="proj__contain">
+    <h1>{{ page.title }}</h1>
+    <div class="social">
+      <a class="social__icon" href="{{ page.author[2] }}">
+        {% include github-svg.html %}
+      </a>
+      <p>
+        <a class="social__author" href="{{ page.author[1] }}">
+          {{ page.author[0] }}
+        </a>
+      </p>
+    </div>
+    {{ content }}
+  </div>
+</article>
+
+{% include blog-footer.html prev=page.previous next=page.next %}

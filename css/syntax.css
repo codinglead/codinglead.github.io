@@ -1,0 +1,168 @@
+/* blog styles */
+p.highlight__file-desc {
+  font-size: 17px;
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+.highlight__code, .social__author {
+  background-color: rgba(236, 48, 48, 0.1);
+  padding: 5px 7px 0;
+  border-bottom: 2px solid rgba(236, 48, 48, 0.3);
+  border-radius: 4px;
+}
+
+.social__author {
+  background-color: rgba(65, 218, 176, 0.2);
+  color: #555;
+  text-decoration: none;
+  border-bottom: 2px solid rgb(65, 218, 176);
+}
+
+
+/* syntax highlighting for the blog */
+p > img {
+  width: 100%;
+}
+
+.highlight {
+  background-color: #272822;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 10px;
+}
+
+/* js syntax highlighting */
+.language-javascript .c1,
+.language-javascript .cm {
+  color: #e1efff;
+  font-style: italic;
+}
+
+.language-javascript .p {
+  color: #fff;
+}
+
+.language-javascript .na {
+  color: #9EFFFF
+}
+
+.language-javascript .mf {
+  color: #ff5e4c;
+}
+
+.language-javascript .nx {
+  color: #5ebcff;
+}
+
+.language-javascript .nb {
+  color: #a5ff90;
+}
+
+.language-javascript .o {
+  color: #fff;
+}
+
+.language-javascript .kd,
+.language-javascript .k {
+  color: #FF9D00;
+}
+
+.language-javascript .s1,
+.language-javascript .s2 {
+  color: #a6e22e;
+}
+
+.language-javascript .mi {
+  color: orange;
+}
+
+.language-javascript .kc,
+.language-javascript .mi {
+  color: #f97162;
+}
+
+.language-javascript .nt {
+  color: #690;
+}
+
+.language-javascript .nl {
+  color: #905;
+}
+
+/* html syntax highlighting */
+.language-html {
+  background-color: #272822;
+  overflow: scroll;
+}
+
+.language-html .nt {
+  color: #9EFFFF;
+}
+
+.language-html .cp {
+  color: #9EFFFF;
+}
+
+.language-html .na {
+  color: #ffc600;
+}
+
+.language-html .s {
+  color: #92fc79;
+}
+
+.language-html .highlight {
+  color: #fff;
+}
+
+/* css syntax highlight */
+.language-css .c {
+  color: #0088ff;
+  font-style: italic;
+}
+
+.language-css .nt {
+  color: #690;
+}
+
+.language-css .nx,
+.language-css .nb {
+  color: #ffee80;
+}
+
+.language-css .nc {
+  color: #3ad900;
+}
+
+.language-css .nl {
+  color: #75e75b;
+}
+
+.language-css .nf {
+  color: #FFB454;
+}
+
+.language-css .no {
+  color: #ffee80;
+}
+
+.language-css .k {
+  color: #FF9D00;
+}
+
+.language-css .p {
+  color: #e1efff;
+}
+
+.language-css .n {
+  color: #ffee80;
+}
+
+.language-css .m {
+  color: #ffee80;
+}
+
+pre.highlight {
+  overflow: auto;
+}

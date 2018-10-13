@@ -1,0 +1,36 @@
+---
+layout: default
+priority: 1.0
+---
+
+<!-- header -->
+<header class="header--home">
+  <!-- logo -->
+  <img class="logo" src="{{ site.baseurl }}/images/logo.svg" alt="Photo of a cartoon frankestein">
+  <h1 class="header__title">
+    Front-End Web Development,
+    <br>
+    coding lead
+  </h1>
+  <p>HTML, CSS, JS... <br> Web Tutorials</p>
+</header>
+
+<!-- blog posts -->
+<main class="main--home">
+  <ul class="posts">
+    {% for post in site.posts %}
+    <li class="post">
+      <div>
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          <div class="post__img" style="background-image: url({{ site.baseurl }}/{{ post.pic }})"></div>
+        </a>
+      </div>
+      <div>
+        <h3 class="post__title"> <a class="post__link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </h3>
+        <p>{{ post.meta }} <a href="{{ site.baseurl }}{{ post.url }}">read more</a>
+        </p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</main>
