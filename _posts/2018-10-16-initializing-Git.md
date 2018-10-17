@@ -71,7 +71,7 @@ Let's change directories again so that we are now in the <em>friends</em> direct
 $ cd git-projects/friends
 ```
 
-To confirm that we are where we think we are, we can always show our location with a <code class="highlight__code">ls</code>:
+To confirm that we are where we think we are, we can always show our location with a <code class="highlight__code">pwd</code>:
 
 <p class="highlight__file-desc">command prompt</p>
 ```bash
