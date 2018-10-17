@@ -4,6 +4,7 @@ title: what are closures
 date:  2018-10-12 4:22 -0700
 meta: A explanation on what closures are in javascript. A closure is a function that refer to variables declared by a parent function. This is only possible because of lexical scoping.
 pic: images/javascript.png
+imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---

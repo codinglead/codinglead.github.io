@@ -55,7 +55,7 @@ p > img {
   color: #5ebcff;
 }
 
-.language-javascript .nb {
+.language-javascript .nb, .language-bash .nb {
   color: #a5ff90;
 }
 
@@ -165,4 +165,8 @@ p > img {
 
 pre.highlight {
   overflow: auto;
+}
+
+.language-bash .nv, .language-bash code {
+  color: #fff;
 }

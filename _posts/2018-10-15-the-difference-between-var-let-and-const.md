@@ -4,6 +4,7 @@ title: the difference between var, let, and const
 date:  2018-10-15 3:19 -0700
 meta: a explanation of why and how to use const, let, and var variable declarations in javascript.
 pic: images/javascript.png
+imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---
