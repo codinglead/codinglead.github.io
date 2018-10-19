@@ -8,6 +8,26 @@
   text-align: center;
 }
 
+.course__link {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #eee;
+  color: #000;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 10px;
+  transition: transform 0.3s ease-out;
+}
+
+.course__img {
+  width: 450px;
+}
+
+.course__link:hover {
+  transform: translateY(-10px);
+}
+
 /* header styles */
 .header--home,
 .header--contact {

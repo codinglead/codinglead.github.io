@@ -4,4 +4,14 @@ meta: courses page.
 title: Courses
 ---
 
-<h1>courses will be here</h1>
+<div class="course">
+  <h1>Courses</h1>
+  {% for course in site.courses %}
+  {% if course.url contains 'index' %}
+  <a class="course__link" href="{{ course.url }}">
+    <img class="course__img" src="{{ site.baseurl }}/courses-images/{{ course.image }}" alt="{{ course.title }}">
+    <p>fetch api</p>
+  </a>
+  {% endif %}
+  {% endfor %}
+</div>

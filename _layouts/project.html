@@ -20,4 +20,6 @@ title: blog
   </div>
 </article>
 
+{% unless page.url contains 'courses' %}
 {% include blog-footer.html prev=page.previous next=page.next %}
+{% endunless %}

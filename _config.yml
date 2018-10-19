@@ -4,3 +4,7 @@ permalink: pretty
 
 description: coding lead web docs provides information about HTML, CSS and JavaScript.
 title: Front End web development - coding lead
+
+collections:
+  courses:
+      output: true
