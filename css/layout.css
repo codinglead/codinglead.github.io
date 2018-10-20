@@ -61,8 +61,8 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
-  /* to fix weird bottom spacing */
-  margin-bottom: -1px;
+  padding: 30px;
+
   max-width: 1360px;
   width: 100%;
 }
@@ -74,6 +74,7 @@
 
   list-style-type: none;
   padding: 0;
+  margin: 0;
   width: 80%;
 }
 
@@ -205,10 +206,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 10px;
-  }
-
-  .nav__home {
-    margin: 0;
   }
 
   .nav__list {
