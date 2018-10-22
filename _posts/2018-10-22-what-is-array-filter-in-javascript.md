@@ -1,15 +1,15 @@
 ---
 layout: project
 title: what is array filter in JavaScript
-date: 2018-10-22 3:26 -0700
+date: 2018-10-22 5:00 -0700
 meta: what is array filter in JavaScript. filter Takes in a callback to filter out elements in a array. filter is a method on array's prototype. It is a javascript array method.
 pic: images/javascript.png
+imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---
 
 ## What is the filter method on a array
-
 
 The <span class="highlight__code">filter()</span> method takes in a function expression as a argument. the function that is passed in has to return a value that evaluate either true or false so the <span class="highlight__code">filter()</span> method knows to keep the element or remove it from the array. <span class="highlight__code">filter()</span> creates a new array and returns the new array, it does not change the original array it is called on.
 
