@@ -4,7 +4,6 @@ title: what is array reduce method in JavaScript
 date: 2018-10-26 5:07 -0700
 meta: Array reduce in javascript. Reduce is a javascript method.
 pic: images/javascript.png
-tags: ["javascript"]
 imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
