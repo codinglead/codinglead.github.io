@@ -8,6 +8,12 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 
 First step is creating the HTML form.
 
+The form will:
+
+* have a label to tell the user what to input
+* take user input
+* have a button to submit the data
+
 <p class="highlight__file-desc">
 HTML
 </p>

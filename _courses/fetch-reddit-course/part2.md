@@ -8,6 +8,11 @@ This is part2 of the javascript fetch reddit api we will be using the fetch func
 
 [starter files for part 2](https://github.com/colorlessenergy/fetch-reddit/tree/part1)
 
+We will be using fetch to:
+
+* hit the reddit subreddit api endpoint
+* get the JSON
+
 <p class="highlight__file-desc">main.js</p>
 
 ```javascript
@@ -28,6 +33,9 @@ This returns a object which looks like this.
 
 when we fetch the json from the endpoint it gives us a nested object. we will be indexing object properties.  We will have to go into data then into children to get the data we need.
 
+Since the data we want is nested we will have to
+
+* index to the children property in the Object
 
 ```javascript
 // The fetch function takes in a endpoint
