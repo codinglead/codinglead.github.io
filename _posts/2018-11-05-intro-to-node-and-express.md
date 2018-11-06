@@ -3,9 +3,9 @@ layout: project
 title: intro to node and express
 date: 2018-11-05 4:30 -0700
 meta: intro to node and express
-pic: images/javascript.png
-imgAlt: the javascript logo
-tags: ["javascript"]
+pic: images/node.svg
+imgAlt: the node logo
+tags: ["backend"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---
 
