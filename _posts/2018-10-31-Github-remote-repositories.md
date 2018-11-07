@@ -62,6 +62,7 @@ With an empty repository awaiting our code, we can now follow the steps to <stro
 In our project directory, we will make sure our code is working. In this case, we open it in the browser and it looks good. We also ensure that there aren't any changes that we need to commit:
 
 <p class="highlight__file-desc">command prompt</p>
+
 ```bash
 $ git status
 ```
@@ -69,6 +70,7 @@ $ git status
 Now we need to tell Git where our remote repository is by providing the web address. We'll use the <code class="highlight__code">git remote</code> command.
 
 <p class="highlight__file-desc">command prompt</p>
+
 ```bash
 $ git remote add dm https://github.com/planeswalker1/friends
 ```
@@ -80,6 +82,7 @@ Note that <em>your</em> command should contain the URL location for your GitHub 
 To see that Git has done this successfully, we can run this command:
 
 <p class="highlight__file-desc">command prompt</p>
+
 ```bash
 $ git remote -v
 dm	https://github.com/planeswalker1/friends (fetch)
@@ -91,6 +94,7 @@ This shows us all the remotes stored in Git for this project. In this case, we o
 To push our code, which means we are copying it from the local to the remote, we run this command:
 
 <p class="highlight__file-desc">command prompt</p>
+
 ```bash
 $ git push dm master
 ```
@@ -110,6 +114,7 @@ So, how do we get our code back to our local from the remote? What if we push ou
 To practice this, let's delete our friends project directory and clone it again from GitHub. To delete a whole directory, we can't be in it, in the terminal, so we'll go up a directory level and then remove it:
 
 <p class="highlight__file-desc">command prompt</p>
+
 ```bash
 $ cd ..
 $ rm -rf friends
@@ -118,6 +123,7 @@ $ rm -rf friends
 Now, if we want to copy it in the exact same location from GitHub, we get the URL for the remote repository and run:
 
 <p class="highlight__file-desc">command prompt</p>
+
 ```bash
 $ git clone https://github.com/planeswalker1/friends
 ```
@@ -125,6 +131,7 @@ $ git clone https://github.com/planeswalker1/friends
 Now, an <code class="highlight__code">ls</code> shows us our directory is there with our code file in it. Let's go into the project directory:
 
 <p class="highlight__file-desc">command prompt</p>
+
 ```bash
 $ cd friends
 ```
@@ -134,6 +141,7 @@ If we do a <code class="highlight__code">git log</code>, we see that our commit 
 If we run <code class="highlight__code">git remote -v</code>, we also see that our newly created local <code class="highlight__code">.git</code> repository is automatically linked - with the nickname <strong>origin</strong> - to the remote repository from which we cloned.
 
 <p class="highlight__file-desc">command prompt</p>
+
 ```bash
 $ git remote -v
 origin  https://github.com/planeswalker1/friends (fetch)
