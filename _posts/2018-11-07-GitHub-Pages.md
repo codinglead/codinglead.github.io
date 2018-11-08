@@ -2,7 +2,7 @@
 layout: project
 title: GitHub Pages · Daniel Munoz
 date: 2018-11-07 6:30 -0700
-pic: git-logo.png
+pic: images/git-logo.png
 imgAlt: the git text logo
 meta: It's more fun to make web pages when we can show them off to our friends. There are a lot of ways to put our pages online, GitHub Pages is one way.
 tags: ["html", "css", "javascript"]
