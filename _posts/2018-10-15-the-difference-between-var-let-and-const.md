@@ -39,7 +39,8 @@ Scope is the way JavaScript finds and locates declarations. Block scope and func
 
 
 ### what is block scope
-a block scope can be defined with curly braces. It is used to hide information in functions and in blocks of our code.
+
+a block scope is defined with curly braces. when using var in a block scope it doesn't conceal the variables from the outside. When using const or let inside curly braces it keeps the variables hidden from the outside.
 
 <p class="highlight__file-desc">
   JavaScript
@@ -51,19 +52,18 @@ a block scope can be defined with curly braces. It is used to hide information i
   var a = 10
   console.log(a) // 10
 }
+console.log(a) // 10
 
 {
   let b = "I am let in a block scoped"
   console.log(b) // I am let in a block scoped
 }
+console.log(b) // Uncaught ReferenceError: b is not defined
 
 {
   const c = "I am a const in a block scoped"
   console.log(c) // I am a const in a block scoped
 }
-
-console.log(a) // 10
-console.log(b) // Uncaught ReferenceError: b is not defined
 console.log(c) // Uncaught ReferenceError: c is not defined
 ```
 
