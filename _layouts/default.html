@@ -39,6 +39,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+    <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
     <script src="{{ site.baseurl }}/main.js" defer> </script>
   </head>
   <body>
@@ -46,6 +47,39 @@
 
     <div class="container">
       {{ content }}
+
+
+      <!-- html for search -->
+
+      <section class="search hide">
+        <ul class="posts" id="results-container">
+          {% for post in site.posts %}
+          <li class="post">
+            <div>
+              <a href="{{ site.baseurl }}{{ post.url }}">
+                <div class="post__img" style="background-image: url({{ site.baseurl }}/{{ post.pic }})" title="{{ post.imgAlt }}"></div>
+              </a>
+            </div>
+            <div>
+              <h3 class="post__title"> <a class="post__link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+              </h3>
+              <p>{{ post.meta }} <a href="{{ site.baseurl }}{{ post.url }}">read more</a>
+              </p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <!-- initialized the search functionality -->
+      <script>
+        SimpleJekyllSearch({
+          searchInput: document.getElementById('search-input'),
+          resultsContainer: document.getElementById('results-container'),
+          json: '/search.json',
+          searchResultTemplate: '<li class="post"> <div> <a href="{{ site.baseurl }}{ url }"> <div class="post__img" style="background-image: url({{ site.baseurl }}/{image})" title="{imageAlt}"></div> </a> </div> <div> <h3 class="post__title"> <a class="post__link" href="{{ site.baseurl }}{url}">{title}</a> </h3> <p>{content} <a href="{{ site.baseurl }}{url}">read more</a> </p> </div> </li>'
+        })
+      </script>
 
       <!-- footer -->
       <footer class="footer">

@@ -168,6 +168,37 @@
 .animate .hamburger-menu__rect2 {
   opacity: 0;
 }
+/* styles for the search results */
+
+.search {
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  top: 88px;
+  min-height: 100%;
+}
+
+.search__input {
+  color: #fff;
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 6%;
+  height: 30px;
+  width: 140px;
+  padding-left: 10px;
+  outline: none;
+}
+
+/* no results found styles */
+
+#result-container {
+  font-size: 20px;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
 
 /* responsive styles */
 @media screen and (max-width: 960px) {
@@ -218,6 +249,11 @@
 
   .logo {
     width: 180px;
+  }
+
+  /* styles for the search results */
+  .search {
+    top: 49px;
   }
 }
 
