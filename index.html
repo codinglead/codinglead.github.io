@@ -20,16 +20,15 @@ priority: 1.0
   <ul class="posts">
     {% for post in site.posts %}
     <li class="post">
-      <div>
-        <a href="{{ site.baseurl }}{{ post.url }}">
+      <a class="post__link" href="{{ site.baseurl }}{{ post.url }}">
+        <div>
           <div class="post__img" style="background-image: url({{ site.baseurl }}/{{ post.pic }})" title="{{ post.imgAlt }}"></div>
-        </a>
-      </div>
-      <div>
-        <h3 class="post__title"> <a class="post__link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </h3>
-        <p>{{ post.meta }} <a href="{{ site.baseurl }}{{ post.url }}">read more</a>
-        </p>
-      </div>
+        </div>
+        <div>
+          <h3 class="post__title">{{ post.title }}</h3>
+          <p>{{ post.meta }} read more </p>
+        </div>
+      </a>
     </li>
     {% endfor %}
   </ul>
