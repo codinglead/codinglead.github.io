@@ -96,7 +96,8 @@ p > img {
   overflow: scroll;
 }
 
-.language-html .nt {
+.language-html .nt,
+.language-css .nd {
   color: #9EFFFF;
 }
 
