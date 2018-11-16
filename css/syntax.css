@@ -19,6 +19,10 @@ p.highlight__file-desc {
   border-bottom: 2px solid rgb(65, 218, 176);
 }
 
+.text-center {
+  text-align: center;
+}
+
 
 /* syntax highlighting for the blog */
 p > img {
