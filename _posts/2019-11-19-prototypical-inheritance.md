@@ -9,7 +9,7 @@ tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---
 
-In javascript non primitive types have methods that you can use on them.
+In JavaScript non primitive types have methods that you can use on them.
 
 Prototypical inheritance is a object with methods and properties that is given to non-primitive types.
 
