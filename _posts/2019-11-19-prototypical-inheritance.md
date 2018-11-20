@@ -10,22 +10,20 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-In JavaScript non primitive types have methods that you can use on them.
+In JavaScript there are non primitive types that have methods that you call on them.
 
-Prototypical inheritance is a object with methods and properties that is given to non-primitive types.
+<span class="highlight__code">non primitive types</span> are functions, objects and arrays.
+
+Prototypical inheritance is just a object with methods and properties that is given to non primitive types.
 
 ## non-primitive types have a few properties or methods associated with them
 
-some examples of methods store on the array prototype are
+Some examples of methods stored on the prototype are.
 
 * Array.prototype.push();
 * string.prototype.toUpperCase();
 
-Almost everything is a object in JavaScript.
-
-Each object stores a reference to its prototype.
-
-Properties or methods defined most tightly to the instance have priority of being called.
+Almost everything is a object in JavaScript. Each object stores a reference to its prototype. Properties or methods defined most tightly to the instance have priority of being called.
 
 ```javascript
 let arr = [2];
@@ -35,15 +33,15 @@ Array.prototype.test = function () { console.log('hi somewhere else') }
 arr.test() // hi
 ```
 
-"hi" was console logged instead of "hi somewhere else" because it was defined closer to the array that was created.
+"hi" was console logged instead of "hi somewhere else" because it was defined closer to the instance of the array that was created.
 
 ## prototype chain
 
 Every object stores a reference to its prototype.
 
-In the example above the array stored a test method and in the Array prototype also stored a test method.
+In the example above the array stored a test method and in the Array prototype and also stored a test method on the array instance.
 
-When calling the test method on the array, JavaScript looks for method on the prototype chain starting from the variable instances in this case it is the array. When the first method is found JavaScript stops looking in the prototype chain.
+When calling the test method on the array, JavaScript looks for method on the prototype chain starting from the variable instance. When the method we are looking is found JavaScript stops looking for it in the prototype chain and uses it.
 
 ```javascript
 arr.test() // hi
@@ -62,7 +60,7 @@ You can think of the prototype chain as the way JavaScript looks for a method wh
 
 note: almost everything in JavaScript is a object.
 
-This is way the test method on the array was called and executed instead of the test methond on the array prototype because it found the test method on the array instance first so it stopped looking for it.
+JavaScript found the test method on the array instance, this is why the test method on the array was executed instead of the test method on the Array prototype.
 
 ## primitive types have object wrappers
 
@@ -72,9 +70,9 @@ This is way the test method on the array was called and executed instead of the 
 * Object()
 * (Symbol())
 
-JavaScript have object wrappers that you can declare so you have access to methods.
+JavaScript has object wrappers that you can declare so you have access to methods on the prototype.
 
-JS will automatically "box" wrap primitives values so you have access to methods
+JavaScript will automatically "box" wrap primitives values so you have access to methods
 
 ```javascript
 42.toString() // Error
