@@ -7,6 +7,7 @@ pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+permalink: /javascript/:title
 ---
 
 

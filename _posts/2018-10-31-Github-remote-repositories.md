@@ -7,6 +7,7 @@ pic: images/git-logo.png
 imgAlt: the git text logo
 tags: ["html", "css", "javascript"]
 author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com/planeswalker1"]
+permalink: /github/:title
 ---
 
 When we want to publish our code online (save it on the cloud so we can access it from any device), we want to store it in a remote repository. In this blog, we'll dive in to using GitHub to store our code remotely.

@@ -7,6 +7,7 @@ pic: images/javascript.png
 imgAlt: the JavaScript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+permalink: /javascript/:title
 ---
 
 In JavaScript non primitive types have methods that you can use on them.

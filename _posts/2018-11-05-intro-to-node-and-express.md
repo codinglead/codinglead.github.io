@@ -7,6 +7,7 @@ pic: images/node.svg
 imgAlt: the node logo
 tags: ["backend"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+permalink: /backend/:title
 ---
 
 Node and Express is a easy way to get into the backend.

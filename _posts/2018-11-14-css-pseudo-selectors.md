@@ -5,8 +5,9 @@ date: 2018-11-14 6:30 -0700
 meta: CSS introduces both pseudo-elements and pseudo-classes. A pseudo-element acts like an extra element is in the code. A pseudo-class acts like an extra value for a class attribute.
 pic: images/css-logo.png
 imgAlt: the CSS3 logo
-tags: ["html", "css", "javascript"]
+tags: ["css"]
 author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com/planeswalker1"]
+permalink: /css/:title
 ---
 
 CSS introduces both pseudo-elements and pseudo-classes. A pseudo-element acts like an extra element is in the code. A pseudo-class acts like an extra value for a class attribute.

@@ -7,6 +7,7 @@ pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+permalink: /javascript/:title
 ---
 
 what are the different types in javascript ? All of them but objects are primitives which includes undefined, null, boolean, number, (symbol), and of course object.

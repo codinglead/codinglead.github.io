@@ -7,6 +7,7 @@ pic: images/css-logo.png
 imgAlt: the CSS3 logo
 tags: ["html", "css"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+permalink: /css/:title
 ---
 
 <span class="highlight__code">flexbox</span> and <span class="highlight__code">css grid</span> are the new boys in the block but you will never know when you are going to need to know how <span class="highlight__code">float</span> and <span class="highlight__code">clear</span> works.

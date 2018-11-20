@@ -7,6 +7,7 @@ pic: images/git-logo.png
 imgAlt: the git text logo
 tags: ["html", "css", "javascript"]
 author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com/planeswalker1"]
+permalink: /github/:title
 ---
 
 Now that we know how to setup Git, lets see how we can track changes.

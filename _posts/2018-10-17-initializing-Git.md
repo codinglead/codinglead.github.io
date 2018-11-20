@@ -7,6 +7,7 @@ pic: images/git-logo.png
 imgAlt: the git text logo
 tags: ["html", "css", "javascript"]
 author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com/planeswalker1"]
+permalink: /github/:title
 ---
 
 Git is a tool that we can use to save all changes and additions to our code on the computer we're working on.
