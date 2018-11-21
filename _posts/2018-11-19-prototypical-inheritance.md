@@ -25,6 +25,8 @@ Some examples of methods stored on the prototype are.
 
 Almost everything is a object in JavaScript. Each object stores a reference to its prototype. Properties or methods defined most tightly to the instance have priority of being called.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 let arr = [2];
 arr.test = function () { console.log('hi') }
@@ -42,6 +44,8 @@ Every object stores a reference to its prototype.
 In the example above the array stored a test method and in the Array prototype and also stored a test method on the array instance.
 
 When calling the test method on the array, JavaScript looks for method on the prototype chain starting from the variable instance. When the method we are looking is found JavaScript stops looking for it in the prototype chain and uses it.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 arr.test() // hi
@@ -73,6 +77,8 @@ JavaScript found the test method on the array instance, this is why the test met
 JavaScript has object wrappers that you can declare so you have access to methods on the prototype.
 
 JavaScript will automatically "box" wrap primitives values so you have access to methods
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 42.toString() // Error
