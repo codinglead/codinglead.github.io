@@ -54,6 +54,19 @@
   padding: 0;
 }
 
+.header__cta {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.header__cta:hover {
+  font-size: 18px;
+  text-decoration: underline;
+}
+
 /* nav styles */
 .nav {
   display: flex;
