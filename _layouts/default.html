@@ -31,6 +31,7 @@
       {% endif %}
     </title>
 
+    <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html',''}}">
 
     <meta itemprop="keywords" content="{{ page.tags | join: ',' }}" />
     {% for tag in page.tags %}
