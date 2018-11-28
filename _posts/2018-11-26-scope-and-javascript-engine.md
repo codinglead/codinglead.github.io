@@ -25,6 +25,8 @@ Function definition are hoisted, variable initialization are not.
 
 which means that function can be used anywhere in your code even before it is defined. only the variable declaration is hoisted not the value.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
  greet() // hi
  function greet() {
@@ -43,6 +45,8 @@ before executing the code, the engine reads the entire file and will throw a syn
 
 ## the execution and creation phase
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 console.log(i);
 greet();
@@ -55,6 +59,8 @@ function greet() {
 ```
 
 creation and execution phase
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 

@@ -35,6 +35,8 @@ When something is undefined it means it was declared but not initialized.
 
 For example when you console.log a variable before it was initialized.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 console.log(hello); // undefined
 
@@ -53,6 +55,8 @@ Which means that function can be used anywhere in your code even before it is de
 
 Here is how it looks like before JavaScript hoists your code.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 console.log(x);
 greet();
@@ -65,6 +69,8 @@ function greet() {
 ```
 
 Here is how it looks like after hoisting.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 
@@ -95,6 +101,8 @@ It exists but has no value explicitly set, JavaScript sets the value.
 
 Is just a number. You do not have to put int, float, double. everything is a double. There is floating point imprecision because there is no designated type for accurate decimals. but everything is a double so it's ok. Only have 64 bit to store numbers. Includes exponent notation.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 // don't have to put the type
 // just use a variable declaration
@@ -106,6 +114,8 @@ console.log(10e3) // 10000
 ## strings
 
 Is just a string.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 var string = "string"
@@ -120,6 +130,7 @@ It is a way to store related things. It can store all the types in key value pai
 * object literal
 * object constructor
 
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 var obj = new Object();
