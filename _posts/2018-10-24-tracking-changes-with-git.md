@@ -14,7 +14,7 @@ Now that we know how to setup Git, lets see how we can track changes.
 
 ## Goal
 
-Follow along to see how changes are tracked using Git.This blog is a continuation of the last one. <a href="{{ site.baseurl }}/2018/10/17/initializing-Git">If you haven't read the last blog here's a link to it</a>. In this blog we will practice tracking changes in our <em>friends</em> project directory. We will create a one-page website that will list our friends. The steps we follow will reflect the daily workflow you might see when using Git.
+Follow along to see how changes are tracked using Git.This blog is a continuation of the last one. <a href="https://codinglead.github.io/github/initializing-Git">If you haven't read the last blog here's a link to it</a>. In this blog we will practice tracking changes in our <em>friends</em> project directory. We will create a one-page website that will list our friends. The steps we follow will reflect the daily workflow you might see when using Git.
 
 ## Create Files
 We have our project directory created and our Git repository initialized. Now, we can create the HTML file that will list our friends. Let's make an empty file in the command prompt in our project directory:

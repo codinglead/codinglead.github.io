@@ -18,7 +18,7 @@ When we want to publish our code online (save it on the cloud so we can access i
 
 ## Goal
 
-Follow along to see how we can publish code being tracked by git online. This blog is a continuation of the last one. <a href="https://codinglead.github.io/2018/10/24/tracking-changes-with-git/">If you haven’t read the last blog here’s a link to it</a>. In this blog we will practice uploading the changes of our <em>friends</em> project directory. The steps we follow will reflect the daily workflow you might see when publishing on GitHub.
+Follow along to see how we can publish code being tracked by git online. This blog is a continuation of the last one. <a href="https://codinglead.github.io/github/tracking-changes-with-git">If you haven’t read the last blog here’s a link to it</a>. In this blog we will practice uploading the changes of our <em>friends</em> project directory. The steps we follow will reflect the daily workflow you might see when publishing on GitHub.
 
 <!-- ============================= -->
 <!-- REMOTE AND LOCAL REPOSITORIES -->
