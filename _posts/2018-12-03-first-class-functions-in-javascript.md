@@ -21,7 +21,7 @@ Functions can be assigned to variables, assigned as array values, and assigned a
 
 A higher order function either takes one or more function as arguments or returns a function.
 
-some examples of higher order functions
+Some examples of higher order functions
 
 map(), filter(), reduce()
 
