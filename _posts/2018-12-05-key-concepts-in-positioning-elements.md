@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Key Concepts In Positioning Elements with CSS
-date: 2018-12-02 3:35 -0700
+date: 2018-12-05 3:35 -0700
 meta: CSS treats each HTML element as if it is in its own box. This box will either be a block-level box or an inline box. It has the following positioning schemes that allow you to control the layout of a page <strong>normal</strong> flow, <strong>relative</strong> positioning, and <strong>absolute</strong> positioning.
 pic: images/javascript.png
 imgAlt: the javascript logo
