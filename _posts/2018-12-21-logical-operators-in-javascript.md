@@ -1,7 +1,7 @@
 ---
 layout: project
 title: logical operators in javascript
-date: 2018-12-18 2:46 -0700
+date: 2018-12-21 4:00 -0700
 meta: Logical operators are used when doing comparisons of boolean values. if Booleans are being used it will either return true or false. If non-boolean values are used for operands if will return one of the specified operands. The logical operators look like (||) or (&&).
 pic: images/javascript.png
 imgAlt: the javascript logo
