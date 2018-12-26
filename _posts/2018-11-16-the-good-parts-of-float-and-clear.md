@@ -3,7 +3,7 @@ layout: project
 title: the good parts of float and clear
 date: 2018-11-14 6:30 -0700
 meta: floats and clear is still important to know because you never know when you are going to be working on legacy code.
-pic: images/css-logo.png
+pic: images/css-logo.svg
 imgAlt: the CSS3 logo
 tags: ["html", "css"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
