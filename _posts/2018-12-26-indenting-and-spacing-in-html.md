@@ -20,7 +20,7 @@ Follow along to learn:
 
 ## Why Indenting and Spacing Matter
 
-Here is an example of some HTML with poor indentation and spacing:
+Here is an example of some HTML with inconsistent indentation and spacing:
 
 ```html
 <!DOCTYPE html>
