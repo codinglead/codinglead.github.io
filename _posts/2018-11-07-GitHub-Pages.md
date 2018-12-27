@@ -1,6 +1,6 @@
 ---
 layout: project
-title: GitHub Pages · Daniel Munoz
+title: GitHub Pages
 date: 2018-11-07 6:30 -0700
 pic: images/git-logo.png
 imgAlt: the git text logo

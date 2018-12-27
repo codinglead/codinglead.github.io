@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Initializing Git · Daniel Munoz
+title: Initializing Git
 date: 2018-10-17 4:12 -0700
 meta: Git is a tool that we can use to save all changes and additions to our code on the computer we're working on.
 pic: images/git-logo.png

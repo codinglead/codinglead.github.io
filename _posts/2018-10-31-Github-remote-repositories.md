@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Github Remote Repositories · Daniel Munoz
+title: Github Remote Repositories
 date: 2018-10-31 3:30 -0700
 meta: When we want to publish our code online (save it on the cloud so we can access it from any device), we want to store it in a remote repository.
 pic: images/git-logo.png

@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Tracking changes with Git · Daniel Munoz
+title: Tracking changes with Git
 date: 2018-10-24 3:38 -0700
 meta: Now that we know how to setup Git, lets see how we can track changes.
 pic: images/git-logo.png

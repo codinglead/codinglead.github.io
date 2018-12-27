@@ -1,9 +1,9 @@
 ---
 layout: project
-title: CSS Pseudo Selectors · Daniel Munoz
+title: CSS Pseudo Selectors
 date: 2018-11-14 6:30 -0700
 meta: CSS introduces both pseudo-elements and pseudo-classes. A pseudo-element acts like an extra element is in the code. A pseudo-class acts like an extra value for a class attribute.
-pic: images/css-logo.png
+pic: images/css-logo.svg
 imgAlt: the CSS3 logo
 tags: ["css"]
 author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com/planeswalker1"]

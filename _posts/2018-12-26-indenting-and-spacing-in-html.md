@@ -10,14 +10,15 @@ author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com
 permalink: /html/:title
 ---
 
-When you are writing HTML (or any other programming language), well-written code follows consistent indentation and spacing patterns. In some languages, indentation and spacing are required for the code to function properly. In HTML, inconsistent indentation and spacing will not impact the functionality of a website but will cause your code to be difficult to read and understand.
+When you are writing HTML (or any other programming language), well-written code follows consistent indentation and spacing patterns. In some languages, indentation and spacing are required for the code to function properly. In HTML, inconsistent indentation and spacing will not impact the functionality of a website, but will cause your code to be difficult to read and understand.
 
 ## Goal
+
 Follow along to learn:
 
 * Best practices for spacing HTML
 
-## Indenting and Spacing
+## Why Indenting and Spacing Matter
 
 Here is an example of some HTML with poor indentation and spacing:
 
@@ -81,6 +82,8 @@ Here is the same code with standard indentation and spacing:
 </html>
 ```
 
+## How to Properly Indent and Space HTML
+
 In HTML, the beginning and ending tags of an element on multiple lines should always be left-aligned. For example, when you see <div>, you should be able to visually scan the page straight down to find its closing tag (the same for <code><header></code>, <code><main></code> and <code><footer></code>). One way to implement this is to create opening and closing tags at the same time and then add the contents.
 
 When elements are nested within another element, they should be indented two or four spaces from the opening tag. For example, I chose to indent my HTML with two spaces. <code><header></code> is indented two spaces from <code><div></code> and <code><h1></code> is indented two spaces from <code><header></code>. Make sure that your HTML indenting is consistent throughout the page.
@@ -100,6 +103,5 @@ In HTML:
 * If you use the tab key to space over, make sure it is set to your chosen spacing.
 * If a tag takes a single line of text there should be no space between the text content of an element and its tags.
 * If a tag has multi line text you could choose to indent it with a new line so it is spaced nicely, but it is not neccessary if it isn't possible (ie: it's pasted content). A fix to this is having the pasted text indented two spaces from the opening tag like with <code><div></code> and <code><header></code>.
-
 
 Practice consistency so that your code is easily readable to other coders as well as your future self.
