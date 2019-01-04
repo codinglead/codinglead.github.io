@@ -3,7 +3,7 @@ layout: project
 title: function declarations
 date: 2019-01-04 6:00 -0700
 meta: JavaScript has 3 ways to declare functions. They are the normal function declaration, anonymous function, and arrow function.
-pic: images/javacript-logo.svg
+pic: images/javascript.png
 imgAlt: the JavaScript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
