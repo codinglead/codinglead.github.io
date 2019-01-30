@@ -10,6 +10,22 @@ author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com
 permalink: /css/:title
 ---
 
+Let's briefly note the difference between assigning a class to an HTML tag and assigning an id to an HTML tag.
+
+<!-- ==== -->
+<!-- GOAL -->
+<!-- ==== -->
+
+## Goal
+
+Follow along to learn when to use classes or Ids in CSS.
+
+<!-- =========== -->
+<!-- CLASS VS ID -->
+<!-- =========== -->
+
+## Class Vs Id
+
 Both classes and ids can be targeted by CSS rules (classes with a <span class="highlight__code">.</span> and id's with a <span class="highlight__code">#</span> symbol). For example, both paragraph tags below are styled the same, though one is referenced by class and the other by id.
 
 <p class="highlight__file-desc">HTML</p>
@@ -26,7 +42,7 @@ Both classes and ids can be targeted by CSS rules (classes with a <span class="h
 </head>
 <body>
   <p class="blue">This text will appear blue.</p>
-  <p id="line2">This text will also be blue. </p>
+  <p id="also-blue">This text will also be blue. </p>
 </body>
 </html>
 ```
@@ -39,7 +55,7 @@ Both classes and ids can be targeted by CSS rules (classes with a <span class="h
   color: blue;
 }
 
-#line2 {
+#also-blue {
   color: blue;
 }
 ```
@@ -57,16 +73,22 @@ Both classes and ids can be targeted by CSS rules (classes with a <span class="h
       color: blue !important;
     }
 
-    #line2 {
+    #also-blue {
       color: blue;
     }
   </style>
 </head>
 <body>
   <p class="blue">This text will appear blue.</p>
-  <p id="line2">This text will also be blue. </p>
+  <p id="also-blue">This text will also be blue. </p>
 </body>
 </html>
+
+<!-- ========== -->
+<!-- CONCLUSION -->
+<!-- ========== -->
+
+## Conclusion
 
 The important difference is that <strong>ids are unique</strong>, while <strong>classes are not unique</strong>. We can use the same class on multiple elements, while id's must be unique to a single element on the page. Id's may appear to work even when duplicated on the same page, but duplicate id's will lead to inconsistent behavior and difficult-to-find bugs.
 
