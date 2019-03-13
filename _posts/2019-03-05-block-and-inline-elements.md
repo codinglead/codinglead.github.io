@@ -73,7 +73,7 @@ Inline elements do not appear on their own line, but share a line with other inl
   Inline Elements <strong>can</strong> be nested inside a block or inline element.
 </p>
 
-The <code class="highlight__code"><strong></code> tag indicates that something is important. By default, it will make the text inside it bold. Something to note is that you <strong>can not</strong> set a width or height to an inline element. If you do, it won't apply the applied style.
+The <code class="highlight__code">&lt;strong&gt;</code> tag indicates that something is important. By default, it will make the text inside it bold. Something to note is that you <strong>can not</strong> set a width or height to an inline element. If you do, it won't apply the applied style.
 
 ## Conclusion
 
