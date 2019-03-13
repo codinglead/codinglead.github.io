@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Re-writing A Git Commit
-date: 2019-03-12 22:04 -0700
+date: 2019-03-13 10:46 -0700
 pic: images/git-logo.png
 imgAlt: the git text logo
 meta: We always want to include clear and detailed messages with our commits. However, even the most careful developers can make mistakes. Git has several options to re-write git history, including a git commit.
