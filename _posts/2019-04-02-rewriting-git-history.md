@@ -33,6 +33,8 @@ We can check the git history of a git repo with <code class="highlight__code">gi
   9300b10 Initial commit
 ```
 
+If the project has a lot of commits, the git log history will be long. If this happens, to exit out of this command you press <code class="highlight__code">q</code>.
+
 Now, let's reword our second-to-last commit's message. If we type <code class="highlight__code">git rebase -i HEAD~2</code> it will launch the system editor, where we'll see a Git rebase file containing the two most recent commits. It will look something like this:
 
 <p class="highlight__file-desc">Command Prompt</p>
