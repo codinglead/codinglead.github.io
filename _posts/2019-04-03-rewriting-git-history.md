@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Re-writing Git History
-date: 2019-03-20 16:38 -0700
+date: 2019-04-03 20:13 -0700
 pic: images/git-logo.png
 imgAlt: the git text logo
 meta: git commit --amend is an easy way to modify the most recent commit, but if we need to modify history going further back then we'll need to use the git rebase -i command.
