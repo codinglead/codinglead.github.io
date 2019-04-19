@@ -10,7 +10,7 @@ author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com
 permalink: /javascript/:title
 ---
 
-JavaScript has <span class="highlight__code">destructuringd asssignment</span> that makes it possible to assign multiple variables to elements of an array or properties of an object. It is very useful when you are trying to assign multiple variables to values of an array or object.
+JavaScript has <span class="highlight__code">destructuring asssignment</span> that makes it possible to assign multiple variables to elements of an array or properties of an object. It is very useful when you are trying to assign multiple variables to values of an array or object.
 
 ## Syntax
 

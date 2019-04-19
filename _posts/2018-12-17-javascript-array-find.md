@@ -14,7 +14,7 @@ Javascript array find. Functional way of finding the the first element that pass
 
 ## What is Array.prototype.find()
 
-The <span class="highlight__code">find()</span> method is called on an array and takes in a function expression that returns a truthy or falsy value. <span class="highlight__code">find()</span> takes in a function as a callback and checks the value that was returned. If is returned true it returns that value and if is falsed it keeps looking until the returned value is true. If it gets to the end and no value was returned it will return undefined <span class="highlight__code">find()</span> method makes it really easy to find the first element that passes a condition. The method is stored in the Array's prototype.
+The <span class="highlight__code">find()</span> method is executed on an array and takes in a function expression that has to return a truthy or falsy value. <span class="highlight__code">find()</span> takes in a function as a callback and checks the value that was returned. If is returned true it will return that value and if is falsed it keeps looking until the returned value is true. If it gets to the end and no value was returned it will return undefined <span class="highlight__code">find()</span> method makes it really easy to find the first element that passes a condition. The method is stored in the Array's prototype.
 
 ```javascript
 
@@ -24,12 +24,12 @@ let firstBiggestNumber = arr.find(function (num) {
   return num >= 50;
 });
 
-firstBiggestNumber
+console.log(firstBiggestNumber);
   // 90
 
 ```
 
-In the example above the array calls the <span class="highlight__code">find()</span> method on it. we passed in a function expression to find the first value that is greater than or equal to 50. we stored it into a variable.
+In the example above the array method<span class="highlight__code">find()</span> is executed on the array. we passed in a function expression thats returns a condition to find the first value that is greater than or equal to 50. we stored it into a variable.
 
 
 ## The power of find

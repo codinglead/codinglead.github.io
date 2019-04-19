@@ -10,7 +10,7 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-a explanation of the concept dry, don't repeat yourself, in programming. It is important for your code to be dry because it will make it easier to read the next time you look at it
+A explanation of the concept dry, don't repeat yourself, in programming. It is important for your code to be dry because it will make it easier to read the next time you look at it.
 
 ## what is DRY
 
@@ -20,7 +20,7 @@ DRY stands for don't repeat yourself. This way of programming is really powerful
 
 First I am going to show you without following the principles of DRY.
 
-lets says we are making sandwiches and for every sandwiches we need 3 different variable declarations to store the different foods that will go on the sandwich. the variables will store the bread type, condiment, and type of meat.
+lets says we are making sandwiches and for every sandwiches we need 3 different variable declarations to store the different foods that will go on the sandwich. The variables will store the bread type, condiment, and type of meat.
 
 ```javascript
 
