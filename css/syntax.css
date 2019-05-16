@@ -168,6 +168,7 @@ p > img {
 }
 
 .highlighter-rouge {
+  background-color: #1b1b31;
   border-radius: 0 0 10px 10px;
   overflow: auto;
 }
