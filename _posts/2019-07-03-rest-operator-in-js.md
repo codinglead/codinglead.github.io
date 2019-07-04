@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Rest Operator In JavaScript
-date: 2019-04-17 21:45 -0700
+date: 2019-07-03 21:00 -0700
 meta: The rest operator actually uses the same syntax as the spread operator. It's usage determines whether you're using it as the spread or rest operator.
 pic: images/javascript.png
 imgAlt: the JavaScript logo
@@ -14,20 +14,20 @@ The rest operator actually uses the same syntax as the spread operator: <code c
 
 ## Refresher on the Spread operator
 
-The spread operator allows you to pull elements out of an array (split the array into a list of its elements) or pull the properties out of an object.
+The spread operator allows you to pull elements out of an array (split the array into a list of its elements) or pull the properties and values out of an object.
 
 <p class="highlight__file-desc">Here's the spread operator used on an array:</p>
 
 ```javascript
   const oldArray = [1, 2, 3];
-  const newArray = [...oldArray, 4, 5]; // This is now [1, 2, 3, 4, 5]; 
+  const newArray = [...oldArray, 4, 5]; // [1, 2, 3, 4, 5]; 
 ```
 
 <p class="highlight__file-desc">Here's the spread operator used on an object:</p>
 
 ```javascript
   const oldObject = {name: 'Daniel'};
-  const newObject = {...oldObject, age: 22}; //This is now {name: 'Daniel', age: 22} 
+  const newObject = {...oldObject, age: 22}; // {name: 'Daniel', age: 22} 
 ```
 
 The spread operator is useful for cloning arrays and objects. Since both are stored by reference (a reference is created to the object/array in memory), copying them safely (i.e. not making another reference) can be tricky. With the spread operator you have an easy way of creating a clone of the object or array.
@@ -45,9 +45,9 @@ function addAllNumbers(...numbers) {
   });
 }
 
-console.log(addAllNumbers(1, 2, 3, 4, 5)); //15
+console.log(addAllNumbers(1, 2, 3, 4, 5)); // 15
 ```
 
 ## Conclusion
 
-Some might argure that the rest operator is not as useful as the spread operator, but it provides a simple way to turn arguments into an array.
+Some might argure that the rest operator is not as useful as the spread operator, but it provides a nice way to turn arguments of a function into an array.
