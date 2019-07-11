@@ -1,8 +1,8 @@
 ---
 layout: project
 title: Key Concepts In Positioning Elements with CSS
-date: 2018-12-05 3:35 -0700
-meta: CSS treats each HTML element as if it is in its own box. This box will either be a block-level box or an inline box. It has the following positioning schemes that allow you to control the layout of a page <strong>normal</strong> flow, <strong>relative</strong> positioning, and <strong>absolute</strong> positioning.
+date: 2019-07-10 22:59 -0700
+meta: CSS treats each HTML element as if it is in its own box. This box will either be a block-level box or an inline box. It has the following positioning types that allow you to control the layout of a page <strong>normal</strong> flow, <strong>relative</strong> positioning, and <strong>absolute</strong> positioning.
 pic: images/css-logo.svg
 imgAlt: the CSS3 logo
 tags: ["css"]
@@ -10,7 +10,7 @@ author: ["Daniel Munoz", "https://planeswalker1.github.io/", "https://github.com
 permalink: /css/:title
 ---
 
-CSS treats each HTML element as if it is in its own box. This box will either be a block-level box or an inline box. It has the following positioning schemes that allow you to control the layout of a page <strong>normal</strong> flow, <strong>relative</strong> positioning, and <strong>absolute</strong> positioning.
+CSS treats each HTML element as if it is in its own box. This box will either be a block-level box or an inline box. It has the following positioning types that allow you to control the layout of a page <strong>normal</strong> flow, <strong>relative</strong> positioning, and <strong>absolute</strong> positioning.
 
 ## Goal
 
@@ -21,9 +21,9 @@ Follow along to learn:
 
 ## Building Blocks
 
-CSS treats each HTML element as if it is in its own box. This box will either be a block-level box or an inline box.
+CSS treats each HTML element as if it is in its own box. This box will either be a block or an inline box.
 
-Block-level boxes start on a new line and act as the main building blocks of any layout, while inline boxes flow between surrounding text. You can control how much space each box takes up by setting the width of the boxes (and sometimes the height, too). To separate boxes, you can use borders, margins, padding, and background colors.
+<strong>Block-level</strong> boxes start on a new line and act as the main building blocks of any layout, while <strong>inline boxes</strong> flow between surrounding text. You can control how much space each box takes up by setting the width of the boxes (and sometimes the height, too). To separate boxes, you can use borders, margins, padding, and background colors.
 
 ### Block Level Elements
 
@@ -112,11 +112,11 @@ Examples include:
 <body>
   <div class="inline">
     <p class="inline__text">
-      <em>Lorem ipsum dolor sit amet</em>, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. <strong>Sed at tellus lacinia</strong>, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
+      <em>This is text wrapped by an em tag</em>, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. <strong>This is text wrapped by a strong tag</strong>, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
     </p>
 
     <p class="inline__text">
-      <img class="inline__image" src="{{ site.baseurl }}/images/html-logo.png" alt="An image of the HTML5 logo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
+      <img class="inline__image" src="{{ site.baseurl }}/images/html-logo.svg" alt="HTML5 logo">Some text wrapping an image. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
     </p>
   </div>
 </body>
@@ -183,15 +183,15 @@ It is common to group a number of elements together inside a <code class="highli
     </div>
     <div class="contain__main">
       <p class="contain__text">
-        <em>Lorem ipsum dolor sit amet</em>, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. <strong>Sed at tellus lacinia</strong>, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
+        <em>This is text wrapped by an em tag</em>, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. <strong>This is text wrapped by a strong tag</strong>, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
       </p>
 
       <p class="contain__text">
-        <img class="inline__image" src="{{ site.baseurl }}/images/html-logo.png" alt="An image of the HTML5 logo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
+        <img class="inline__image" src="{{ site.baseurl }}/images/html-logo.svg" alt="HTML5 logo">Some text wrapping an image. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
       </p>
     </div>
     <div class="contain__footer">
-      <p class="contain__text">&copy; Lorem 2018</p>
+      <p class="contain__text">&copy; Lorem 2019</p>
     </div>
   </div>
 </body>
@@ -202,7 +202,7 @@ A box may be nested inside several other block-level elements. The containing el
 
 ## Controlling the Position of Elements
 
-CSS has the following positioning schemes that allow you to control the layout of a page: <strong>normal</strong> flow, <strong>relative</strong> positioning, and <strong>absolute</strong> positioning. You specify the positioning scheme using the <code class="highlight__code">position</code> property in CSS.
+CSS has the following positioning types that allow you to control the layout of a page: <strong>normal</strong> flow, <strong>relative</strong> positioning, and <strong>absolute</strong> positioning. You specify the positioning type using the <code class="highlight__code">position</code> property in CSS.
 
 To indicate where a box should be positioned, you may also need to use <strong>box offset</strong> properties to tell the browser how far from the top or bottom and left or right it should be placed.
 
@@ -217,10 +217,6 @@ To indicate where a box should be positioned, you may also need to use <strong>b
 ```html
 <body>
   <h1>Lorem Ipsum</h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
-
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
@@ -283,10 +279,6 @@ p {
   <p class="normal__text">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
-
-  <p class="normal__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
   </div>
 </body>
 
@@ -298,7 +290,7 @@ The paragraphs appear one after the other, vertically down the page.
 
 #### <span class="highlight__code">position: relative</span>
 
-<code class="highlight__code">Relative</code> positioning moves an element in relation to where it would have been in normal flow. For example, you can move it 5 pixels lower than it would have been in normal flow or 10% to the right. You can indicate that an element should be relatively positioned using the <code class="highlight__code">position</code> property with a value of <code class="highlight__code">relative</code>. You then use the offset properties (<code class="highlight__code">top</code> or <code class="highlight__code">bottom</code> and <code class="highlight__code">left</code> or <code class="highlight__code">right</code>) to indicate how far to move the element from where it would have been in normal flow. To move the box up or down, you can use either the <code class="highlight__code">top</code> or <code class="highlight__code">bottom</code> properties. To move the box horizontally, you can use either the <code class="highlight__code">left</code> or <code class="highlight__code">right</code> properties. The values of the box offset properties are usually given in pixels, percentages or ems. <strong>This does not affect the position of surrounding elements; they stay in the position they would be in in normal flow.</strong>
+<code class="highlight__code">Relative</code> positioning moves an element in relation to where it would have been in normal flow. For example, you can move it 10 pixels lower than it would have been in normal flow or 10% to the right. You can indicate that an element should be relatively positioned using the <code class="highlight__code">position</code> property with a value of <code class="highlight__code">relative</code>. You then use the offset properties (<code class="highlight__code">top</code> or <code class="highlight__code">bottom</code> and <code class="highlight__code">left</code> or <code class="highlight__code">right</code>) to indicate how far to move the element from where it would have been in normal flow. To move the box up or down, you can use either the <code class="highlight__code">top</code> or <code class="highlight__code">bottom</code> properties. To move the box horizontally, you can use either the <code class="highlight__code">left</code> or <code class="highlight__code">right</code> properties. The values of the box offset properties are usually given in pixels, percentages or ems. <strong>This does not affect the position of surrounding elements; they stay in the position they would be in in normal flow.</strong>
 
 <p class="highlight__file-desc">HTML: </p>
 
@@ -310,10 +302,6 @@ The paragraphs appear one after the other, vertically down the page.
   </p>
 
   <p class="example">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
-
-  <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
 </body>
@@ -380,10 +368,6 @@ The paragraphs appear one after the other, vertically down the page.
   <p class="relative__text relative__example">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
-
-  <p class="relative__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
   </div>
 </body>
 
@@ -401,10 +385,6 @@ When the position property is given a value of <code class="highlight__code">abs
 ```html
 <body>
   <h1>Lorem Ipsum</h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
-
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
@@ -472,10 +452,6 @@ When the position property is given a value of <code class="highlight__code">abs
   <p class="absolute__text">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
-
-  <p class="absolute__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
   </div>
 </body>
 
@@ -492,10 +468,6 @@ This is a form of absolute positioning that positions the element in relation to
 ```html
 <body>
   <h1>Lorem Ipsum</h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
-
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
@@ -572,30 +544,22 @@ This is a form of absolute positioning that positions the element in relation to
   <p class="fixed__text">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
-
-  <p class="fixed__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
   </div>
 </body>
 
-In this example, the heading has been positioned to the top left hand corner of the browser window. When the user scrolls down the page, the paragraphs disappear behind the heading. The <p> elements are in normal flow and ignore the space that the <code class="highlight__code">&lt;h1&gt;</code> element would have taken up. Therefore, the margin-top property has been used to push the first <code class="highlight__code">&lt;p&gt;</code> element below where the fixed position <code class="hightlight__code">&lt;h1&gt;</code> element is sitting.
+In this example, the heading has been positioned to the top left hand corner of the browser window. When the user scrolls down the page, the paragraphs disappear behind the heading. The <p> elements are in normal flow and ignore the space that the <code class="highlight__code">&lt;h1&gt;</code> element would have taken up. Therefore, the <code>margin-top</code> property has been used to push the first <code class="highlight__code">&lt;p&gt;</code> element below where the fixed position <code class="highlight__code">&lt;h1&gt;</code> element is sitting.
 
 ## Overlapping Elements
 
 #### <span class="highlight__code">z-index</span>
 
-When you use <code class="highlight__code">relative</code>, <code class="highlight__code">fixed</code>, or <code class="highlight__code">absolute</code> positioning, boxes can overlap. If boxes do overlap, the elements that appear later in the HTML code sit on top of those that are earlier in the page. If you want to control which element sits on top, you can use the <code class="highlight__code">z-index</code> property. Its value is a number, and the higher the number the closer that element is to the front. For example, an element with a z-index of 10 will appear over the top of one with a z-index of 5. To ensure that the <code class="highlight__code">&lt;h1&gt;</code> element stays on top, we use the z-index property on the rule for the <code class="highlight__code">&lt;h1&gt;</code> element.
+When you use <code class="highlight__code">relative</code>, <code class="highlight__code">fixed</code>, or <code class="highlight__code">absolute</code> positioning, boxes can overlap. If boxes do overlap, the elements that appear later in the HTML code sit on top of those that are earlier in the page. If you want to control which element sits on top, you can use the <code class="highlight__code">z-index</code> property. Its value is a number, and the higher the number the closer that element is to the front. For example, an element with a z-index of 10 will appear over the top of one with a z-index of 5.
 
 <p class="highlight__file-desc">HTML: </p>
 
 ```html
 <body>
   <h1>Lorem Ipsum</h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
-
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
@@ -671,13 +635,10 @@ When you use <code class="highlight__code">relative</code>, <code class="highlig
   <p class="index__text">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
   </p>
-
-  <p class="index__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis pharetra quam. In at convallis arcu, et semper tellus. Pellentesque feugiat mi libero, eget faucibus lacus ultricies sit amet. Vestibulum sagittis nec est a tincidunt. Sed at tellus lacinia, efficitur elit sed, ornare justo. Aliquam nec pretium quam. Sed sit amet nibh et urna elementum feugiat. Fusce a turpis eget tortor malesuada luctus eget sit amet sapien. Fusce quis posuere sem, sit amet imperdiet eros. Cras consequat fringilla consequat.
-  </p>
   </div>
 </body>
 
+To ensure that the <code class="highlight__code">&lt;h1&gt;</code> element stays on top, we use the z-index property on the rule for the <code class="highlight__code">&lt;h1&gt;</code> element.
 ## Conclusion
 
 the position property is really useful if you want to layout parts of your website offset from where they should appear since they do not affect how other elements are laid out.
