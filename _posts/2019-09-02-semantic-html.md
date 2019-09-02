@@ -25,7 +25,7 @@ The <code class="highlight__code"><header></code> element is used to introduce c
 
 ## nav
 
-The <code class="highlight__code"><nav></code> element is used to contain links in your web page.
+The <code class="highlight__code"><nav></code> element is used to contain links on your web page.
 
 <div class="center">
   <img src="{{ site.baseurl }}/images/semantic-html-container/nav-example.png" alt="nav example" title="nav example">
@@ -34,7 +34,7 @@ The <code class="highlight__code"><nav></code> element is used to contain links 
 
 ## sections
 
-A section element should be used as containers or wrappers that separate different parts of your page instead of using a div element. Sections elements typically have a heading in them.
+The <code class="highlight__code"><section></code> element is used as containers or wrappers that separate different parts of your page instead of using a div element. Sections elements typically have a heading in them.
 
 
 <div class="center">
@@ -43,7 +43,7 @@ A section element should be used as containers or wrappers that separate differe
 
 ## article
 
-The <code class="highlight__code"><article></code> element is used to wrap content that can be taken away from your web page and make sense when it is alone such as blog content.
+The <code class="highlight__code"><article></code> element is used to wrap content that can be isolated and make sense such as a article.
 
 <div class="center">
   <img src="{{ site.baseurl }}/images/semantic-html-container/article-example.png" alt="article example" title="article example">
@@ -60,7 +60,7 @@ The <code class="highlight__code"><footer></code> element is used at the end of 
 
 ## div for layout
 
-Semantic HTML tags should be used whenever you can. It is ok to use <code class="highlight__code"><div></code> tag for layout purposes. If the semantic HTML tag doesn't make sense just use a div. 
+Semantic HTML tags should be used whenever you can. It is ok to use <code class="highlight__code"><div></code> tag for layout purposes. If you are unsure about using a semantic HTML tag, use a div.
 
 An example of using a <code class="highlight__code"><div></code> over semantic elements is when you are centering content by using the <code class="highlight__code">margin: auto</code> technique.
 
