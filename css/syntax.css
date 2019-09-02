@@ -29,6 +29,11 @@ p > img {
   width: 100%;
 }
 
+div.center {
+  display: flex;
+  justify-content: center;
+}
+
 .highlight {
   background-color: #1b1b31;
   font-size: 16px;
