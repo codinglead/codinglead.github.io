@@ -17,7 +17,7 @@ Semantic HTML are HTML tags that provide meaning to your code. There are many ad
 
 ## header
 
-The <code class="highlight__code"><header></code> element is used to introduce content on your websites. headers can be used more than once. It is usually used to introduce section, article or the web page.
+The <code class="highlight__code"><header></code> element is used to introduce content on your websites. The header element can be used more than once. It is usually used to introduce sections, articles or the web page.
 
 <div class="center">
   <img src="{{ site.baseurl }}/images/semantic-html-container/header-example.png" alt="header example" title="header example">
@@ -51,7 +51,7 @@ The <code class="highlight__code"><article></code> element is used to wrap conte
 
 ## footer 
 
-The <code class="highlight__code"><footer></code> element is used at the end of a webpage or another element. They are usually used to include copyright notices or links to related web pages.
+The <code class="highlight__code"><footer></code> element is used at the end of a webpage or another element. They usually include copyright notices or links to related web pages.
 
 <div class="center">
   <img src="{{ site.baseurl }}/images/semantic-html-container/footer-example.png" alt="footer example" title="footer example">
@@ -60,7 +60,7 @@ The <code class="highlight__code"><footer></code> element is used at the end of 
 
 ## div for layout
 
-Semantic HTML tags should be used whenever you can. It is ok to use <code class="highlight__code"><div></code> tag for layout purposes. If the semantic HTML doesn't fit just use a div. 
+Semantic HTML tags should be used whenever you can. It is ok to use <code class="highlight__code"><div></code> tag for layout purposes. If the semantic HTML tag doesn't make sense just use a div. 
 
 An example of using a <code class="highlight__code"><div></code> over semantic elements is when you are centering content by using the <code class="highlight__code">margin: auto</code> technique.
 
