@@ -2,7 +2,7 @@
 layout: project
 title: JavaScript Objects
 date:  2019-5-15 20:57 -0700
-meta: Objects are containers that encapsulate data - meaning all of the relevant data and functions for the thing that the variable name represents are kept together in a "capsule", better known as an object that can be created and manipulated in our programs as a single unit.
+meta: Objects are containers that encapsulate data - meaning all of the relevant data and functions for the thing that the variable name represents are kept together in a 'capsule', better known as an object that can be created and manipulated in our programs as a single unit.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
