@@ -78,7 +78,8 @@ div.center {
 }
 
 .language-javascript .s1,
-.language-javascript .s2 {
+.language-javascript .s2,
+.language-javascript .dl {
   color: #a6e22e;
 }
 
