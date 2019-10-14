@@ -105,7 +105,7 @@ localStorage.setItem('age', 18);
 localStorage.setItem('youAreCool', 'yes');
 
 localStorage
-  // Storage { niceDay: "true", howManyRacksIHave: "18", youAreCool: "yes", length: 3 }
+  // Storage { niceDay: "true", age: "18", youAreCool: "yes", length: 3 }
 
 localStorage.clear();
 
