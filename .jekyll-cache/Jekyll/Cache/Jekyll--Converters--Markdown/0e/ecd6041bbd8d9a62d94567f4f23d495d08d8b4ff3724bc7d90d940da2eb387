@@ -1,0 +1,84 @@
+I"!<h2 id="what-is-the-filter-method-on-a-array">What is the filter method on a array</h2>
+
+<p>The <span class="highlight__code">filter()</span> method takes in a function expression as a argument. the function that is passed in has to return a value that evaluate either true or false so the <span class="highlight__code">filter()</span> method knows to keep the element or remove it from the array. <span class="highlight__code">filter()</span> creates a new array and returns the new array, it does not change the original array it is called on.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="kd">let</span> <span class="nx">newNumbers</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">number</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span> <span class="c1">// [3, 10, 40, 3]</span>
+
+<span class="nx">conosle</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newNumbers</span><span class="p">)</span> <span class="c1">// [10, 40]</span>
+</code></pre></div></div>
+
+<p>When the <span class="highlight__code">filter()</span> method gets invoked its callback gets 3 arguments</p>
+
+<ul>
+  <li>the value of the element</li>
+  <li>the index of the element</li>
+  <li>the original array being looped through</li>
+</ul>
+
+<h2 id="practical-uses-of-filter-in-javascript">practical uses of filter in JavaScript</h2>
+
+<h3 id="makes-it-really-easy-to-remove-duplicates-in-a-array">makes it really easy to remove duplicates in a array.</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// array with duplicates we want to remove them.</span>
+<span class="kd">let</span> <span class="nx">arrayWithDuplicates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+
+<span class="c1">// we have access to the current element of the array,</span>
+<span class="c1">// the current index of the array, and the original array that is being looped through</span>
+<span class="kd">let</span> <span class="nx">arrayWithoutDuplicates</span> <span class="o">=</span> <span class="nx">arrayWithDuplicates</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">index</span> <span class="o">!==</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arrayWithoutDuplicates</span><span class="p">)</span> <span class="c1">// [1, 2, 3, 4];</span>
+
+</code></pre></div></div>
+<p>What is happening ??</p>
+
+<ul>
+  <li><span class="highlight__code">filter()</span> keeps or remove elements if the value returned from the callback is true or false</li>
+  <li><span class="highlight__code">indexOf()</span> tells us where the element was first seen in the array it was called on</li>
+</ul>
+
+<p>the logic is checking if the index of the current element is not the same as the index where it was first seen.</p>
+
+<h3 id="keep-elements-that-have-a-specific-class">keep elements that have a specific class</h3>
+
+<p>Let say you are making a todo app and want to show todos that are finish. We also decided that to tell if it is finish or not by seeing if it has the class of done.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// returns a array of elements with a class of todo</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">todosToArray</span><span class="p">();</span>
+
+<span class="c1">// remove all elements that does not have the className of done</span>
+<span class="kd">var</span> <span class="nx">removeCheckedElements</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">done</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p><span class="highlight__code">filter()</span> is removng all elements in the array that doesn’t include done as a class.
+<span class="highlight__code">includes()</span> just checks if whatever is passed in as a argument is included in a string.</p>
+
+<h2 id="the-power-of-filter">The power of filter</h2>
+
+<p><span class="highlight__code">filter()</span> is powerful when you are trying to filter a array to only have certain items.</p>
+
+<p>the basics</p>
+
+<p>A callback is needed</p>
+
+<ul>
+  <li>checks every element in the array and checks that to a condition to know if it should be kept or removed from the array.</li>
+  <li>have access to the element, the index, and the original array being looped.</li>
+  <li>makes and returns a new array, doesn’t alter the original array.</li>
+</ul>
+
+<p>happy coding :)</p>
+
+<p>Any question feel free to contact me brianmunozdev@gmail.com</p>
+:ET

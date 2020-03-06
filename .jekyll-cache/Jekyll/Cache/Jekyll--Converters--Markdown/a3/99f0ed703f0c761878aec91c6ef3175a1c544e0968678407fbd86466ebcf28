@@ -1,0 +1,188 @@
+I"M<p>What we want to do now is display the title and a picture of the post if it has one.</p>
+
+<p><a href="https://github.com/colorlessenergy/fetch-reddit/tree/part2">starter files for part 3</a></p>
+
+<p>We will send the array of objects we got from the reddit api to a external function so it makes it easier to understand and read.</p>
+
+<p>go the main.js file it will look like this</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.reddit.com/r/programmerhumor.json</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+  <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span>
+  <span class="p">})</span>
+</code></pre></div></div>
+
+<p>Now we will make a function that takes in data as a parameter and displays it on the browser. We will pass in the array with objects with the data we got with the <span class="highlight__code">fetch()</span> call.</p>
+
+<p>We will store the data we want to display in an array then pass the array and the link to the post to another function which will display it on the browser. The data we want is the title of the post and the image if it exist.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">dataToDom</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// we will put all the data</span>
+  <span class="c1">// we want from the object here</span>
+  <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="c1">// looping through the array of objects</span>
+  <span class="c1">// that we got from the reddit api</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// pass in a object with the data</span>
+    <span class="c1">// we want and the element ot append</span>
+    <span class="c1">// the data with</span>
+
+    <span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="na">data</span><span class="p">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+      <span class="na">element</span><span class="p">:</span> <span class="dl">'</span><span class="s1">h1</span><span class="dl">'</span>
+    <span class="p">});</span>
+
+    <span class="c1">// checking if a image exist</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">url</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">jpg</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="na">data</span><span class="p">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">preview</span><span class="p">.</span><span class="nx">images</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">source</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span>
+        <span class="na">element</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img</span><span class="dl">'</span>
+      <span class="p">});</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="na">data</span><span class="p">:</span> <span class="dl">'</span><span class="s1">no image</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">element</span><span class="p">:</span> <span class="dl">'</span><span class="s1">div</span><span class="dl">'</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="c1">// we will pass in the data array</span>
+    <span class="c1">// and the link to the post to another function</span>
+    <span class="nx">createElementsAndAppendElements</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">permalink</span><span class="p">);</span>
+
+    <span class="c1">// need to reset the data array</span>
+    <span class="c1">// because we only want to pass</span>
+    <span class="c1">// the title and image of individual post</span>
+    <span class="nx">data</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We will need to add a div to the html so we can populate it with data from the reddit post.</p>
+
+<p class="highlight__file-desc">
+ html
+</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- populated by javascript --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"posts"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>now we need to create the <span class="highlight__code">createElementsAndAppendElements()</span> function. You may be wondering why I passed in the url for the post as a single argument instead of in the data array, I did this because we needed it to be the container of the other elements.</p>
+
+<p>First we need to get the div to populate data with. We also have to create the a element and give it the link to the post.</p>
+
+<p class="highlight__file-desc">
+ JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// get the container to populate</span>
+<span class="c1">// data with. Put this at the top of the file</span>
+<span class="c1">// we are going to be using this somewhere else</span>
+<span class="kd">let</span> <span class="nx">posts</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#posts</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">createElementsAndAppendElements</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// have the a tag be the container, so the whole content</span>
+  <span class="c1">// is clickable to the reddit post</span>
+  <span class="kd">let</span> <span class="nx">createA</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">createA</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://www.reddit.com/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">url</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Now we have to loop through the array of objects we will pass into the <span class="highlight__code">createElementsAndAppendElements()</span> function. For every element in the array we will create a <span class="highlight__code">DOM Element</span> with the element specified in the object. We will check the <span class="highlight__code">obj.element</span> property of the object to see if it has a img or not. If it does pass in the data to the source if not pass the data as text. Then we will append the elements we created into the <span class="highlight__code">a</span> tag we created earlier. After the <span class="highlight__code">a</span> tag is populated with data it will be appended to the <span class="highlight__code">div with id of post</span>.</p>
+
+<p class="highlight__file-desc">
+ JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">createElementsAndAppendElements</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">obj</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">createElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+    <span class="c1">// if it is an image add a source to the image otherwise give it text</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">element</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">img</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">createElement</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">createElement</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">createA</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">createElement</span><span class="p">);</span>
+
+    <span class="c1">// populate the posts div with post</span>
+    <span class="nx">posts</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">createA</span><span class="p">)</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<p>the whole code togther looks like this</p>
+
+<p class="highlight__file-desc">
+ JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// get the div with the post id from the dom</span>
+<span class="c1">// this is at the very top of the file..</span>
+<span class="kd">let</span> <span class="nx">posts</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#posts</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">createElementsAndAppendElements</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// have the a tag be the container, so the whole content</span>
+  <span class="c1">// is clickable to the reddit post</span>
+  <span class="kd">let</span> <span class="nx">createA</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">createA</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://www.reddit.com/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">url</span><span class="p">;</span>
+
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">obj</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">createElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+    <span class="c1">// if it is an image add a</span>
+    <span class="c1">// source to the image otherwise give it text</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">element</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">img</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">createElement</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">createElement</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">createA</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">createElement</span><span class="p">);</span>
+
+    <span class="c1">// populate the posts div with post</span>
+    <span class="nx">posts</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">createA</span><span class="p">)</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>now lets call the <span class="highlight__code">dataToDom()</span> inside the fetch function.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.reddit.com/r/programmerhumor.json</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// an array of objects with data about posts</span>
+      <span class="kd">let</span> <span class="nx">postFromFrontPage</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span>
+
+      <span class="nx">dataToDom</span><span class="p">(</span><span class="nx">postFromFrontPage</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div></div>
+
+<p>We will now throw the whole fetch function into another function. We will do this so it is easier to search for different subreddits by passing in a argument and concatenating it into the search query.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pass in a string of the subreddit</span>
+<span class="kd">function</span> <span class="nx">search</span><span class="p">(</span><span class="nx">subreddit</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// concat the subreddit with the url</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.reddit.com/r/</span><span class="dl">"</span><span class="o">+</span> <span class="nx">subreddit</span> <span class="o">+</span><span class="dl">"</span><span class="s2">.json</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// an array of objects with data about posts</span>
+      <span class="kd">let</span> <span class="nx">postFromFrontPage</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span>
+
+      <span class="nx">dataToDom</span><span class="p">(</span><span class="nx">postFromFrontPage</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now we can use the <span class="highlight__code">search()</span> function to get data from any subreddit and have it show up on the page.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">search</span><span class="p">(</span><span class="dl">'</span><span class="s1">programmerhumor</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>now we need to make the input function to let the user put a subreddit in and they will get the post from that subreddit. in <a href="../part4">part 4</a> we will make the input work with any subreddit that the user puts in.</p>
+:ET

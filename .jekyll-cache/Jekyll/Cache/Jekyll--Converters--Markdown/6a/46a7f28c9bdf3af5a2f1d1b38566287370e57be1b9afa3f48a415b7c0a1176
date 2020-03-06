@@ -1,0 +1,77 @@
+I"<p>When requests to a web sever come in you have this process called <strong>authentication</strong> that lets the server figure out exactly who made that request.</p>
+
+<h2 id="goal">Goal</h2>
+
+<p>Follow along to learn what is:</p>
+
+<ul>
+  <li>Authentication</li>
+  <li>Authorization</li>
+  <li>Token Based Authentication</li>
+</ul>
+
+<h2 id="what-is-authentication">What is Authentication</h2>
+
+<p>It’s the process of identifying a user. When requests to a web sever come in you have this process called <strong>authentication</strong> that lets the server figure out exactly who made that request. It is generally followed by <strong>authorization</strong> which is a process by which the server figures out if that user has the correct permissions to do what they want to do.</p>
+
+<h2 id="types-of-authentication-methods">Types of Authentication Methods</h2>
+
+<p>There are a various number of authentication methods:</p>
+
+<p>HTTP Basic authentication</p>
+<ul>
+  <li>username:password in the Authorization header</li>
+</ul>
+
+<p>Cookies</p>
+<ul>
+  <li>Users are tagged with a unique identifier (cookie), and their state (previous requests) is stored on the server</li>
+</ul>
+
+<p>Tokens</p>
+<ul>
+  <li>Users are given an access token which they send with every request</li>
+</ul>
+
+<h2 id="token-based-authentication">Token-Based Authentication</h2>
+
+<p>In token based authentication a user recieves a token upon login. With every single request to the server, they send that token just as a reminder ‘this is who I am, I am allowed to do this’. The server will compare that token against what they expected the token to look like and authorize the user if they have the correct permissions.</p>
+
+<h2 id="what-are-the-benefits-of-using-tokens">What are the benefits of using tokens</h2>
+
+<p>Some benefits to using tokens are:</p>
+
+<ul>
+  <li>stateless: The server will just make sure that the user has the correct permissions and won’t remember any previous requests.</li>
+  <li>stores information within the token itself</li>
+  <li>can use with web or mobile users</li>
+</ul>
+
+<h2 id="jwts">JWTs</h2>
+
+<p>Stands for json web tokens and its the most basic form of a token. What this looks like is there are three parts, each one seperated by a period.</p>
+
+<ul>
+  <li>Header (type of token, hashing algorithm)</li>
+  <li>Payload (Information server embeds to the token - could include user info)</li>
+  <li>Signature (ensures token is no modified)</li>
+</ul>
+
+<p>Information in the tokens are all base64 encoded which is just some different encoding method.</p>
+
+<h2 id="using-jwts">Using JWTs</h2>
+
+<p>There are three ways to send information (tokens) to a server:</p>
+
+<ul>
+  <li>Body</li>
+  <li>URL parameter</li>
+  <li>Headers</li>
+</ul>
+
+<p>The preferred way is to use the header. It is preffered because GET requests don’t have a Body. It is more secure to not use URL parameters because they get saved to the user’s history.</p>
+
+<h2 id="conclusion">conclusion</h2>
+
+<p>Authentication is the process that lets a server figure out exactly who made a request to it. Authorization is a process by which the server figures out if that user has the correct permissions to do what they want to do. Tokens are a form of authentication in which users send a token, that contains information about them, with every request they make.</p>
+:ET

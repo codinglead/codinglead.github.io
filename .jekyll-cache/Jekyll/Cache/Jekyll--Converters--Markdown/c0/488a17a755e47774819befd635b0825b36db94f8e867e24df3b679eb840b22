@@ -1,0 +1,77 @@
+I"�<h2 id="what-is-sort-on-a-array">What is sort on a array</h2>
+
+<p>The <span class="highlight__code">sort()</span> method can take in a function to compare value. If no function is given to the <span class="highlight__code">sort()</span> method it turns the values into strings and orders them by string Unicode value. <span class="highlight__code">sort()</span> compares it the values in pairs. <span class="highlight__code">sort()</span> method makes it really easy to make changes to an array. The method is stored in the Array’s prototype.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">()</span> <span class="c1">// [90, 8]</span>
+
+</code></pre></div></div>
+
+<p>In the example above you saw that the order of the array changed from lowest to highest to highest to lowest because what sort does is convert the values into strings and compares them. The value “80” comes before “9” in string Unicode values.</p>
+
+<p>If you wanted to sort by numbers instead of strings you can pass in a function expression to compare numbers instead.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// I want to order this by least to greatest</span>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">})</span>
+
+<span class="nx">arr</span> <span class="c1">// [3, 8, 9, 10]</span>
+
+</code></pre></div></div>
+
+<h2 id="what-is-happening-under-the-roof-when-passing-in-a-function-expression">what is happening under the roof when passing in a function expression</h2>
+
+<p>What <span class="highlight__code">sort()</span> does is look at the value that was returned from the function expression and use that to sort the array. If the returned value was negative, move a before b, if it was positive move b before a, and if it is 0 leave it how it is.</p>
+
+<p>a example</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// least to greatest</span>
+<span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+
+<span class="nx">array</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span> <span class="c1">// [3, 2] =&gt; [2, 3]</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="c1">// greatest to least</span>
+<span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="nx">array</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span> <span class="c1">// [2, 3] =&gt; [3, 2]</span>
+  <span class="k">return</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="the-power-of-sort">The power of sort</h2>
+
+<p>Sort is powerful when you are trying to organize numbers in a certain way.</p>
+
+<p>the basics</p>
+
+<p>if no callback was given to the sort method as a argument</p>
+
+<ul>
+  <li>makes every element of the array to a string</li>
+  <li>It is sorted according to unicode</li>
+</ul>
+
+<p>if a callback was given to the sort method as a argument</p>
+
+<ul>
+  <li>checks what was returned then uses that to sort the array.
+    <ul>
+      <li>if the returned value is negative, move a before b</li>
+      <li>if the returned value is positive, move b before a</li>
+      <li>if the returned value is 0, leave it how it is</li>
+    </ul>
+  </li>
+</ul>
+
+<p>happy coding :)</p>
+:ET

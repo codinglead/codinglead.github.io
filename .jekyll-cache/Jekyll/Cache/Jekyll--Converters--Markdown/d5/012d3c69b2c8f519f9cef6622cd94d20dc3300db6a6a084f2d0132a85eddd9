@@ -1,0 +1,146 @@
+I"�$<p>It’s more fun to make web pages when we can show them off to our friends. There are a lot of ways to put our pages online, GitHub Pages is one way.</p>
+
+<!-- ==== -->
+<!-- GOAL -->
+<!-- ==== -->
+
+<h2 id="goal">Goal</h2>
+
+<p>Follow along to see how we can host a website online. In this blog, we will be: making a GitHub repository, make and publish a website to our Github, and host it wih GitHub Pages. The steps we follow will reflect the daily workflow you might see when publishing on GitHub.</p>
+
+<!-- ===== -->
+<!-- SETUP -->
+<!-- ===== -->
+
+<h2 id="setup">Setup</h2>
+
+<p>First, make sure to have a GitHub account set up. If you don’t you can <a href="https://github.com/join">sign up for a GitHub account here</a>. The awesome thing about GitHub Pages is that you get one main site per account and as many project pages as you would like. That means that when you are ready to create a portfolio of all of your coding work, you can have a main page all about you and a page for each of your coding projects that you do! Also we are going to need Git. If you dont have Git, you can <a href="https://git-scm.com/downloads">install Git here</a>.</p>
+
+<!-- ================= -->
+<!-- PROJECT STRUCTURE -->
+<!-- ================= -->
+
+<h2 id="project-structure">Project Structure</h2>
+
+<p>A quick note about structuring projects before we begin. When we start a new project, it is a good idea to create a folder to hold the HTML file and the css and img folders. You might have been using a descriptive name for your HTML file, such as favorite-things.html or my-first-webpage.html. Often, though, you’ll want to give the descriptive name for your folder, and name the web page’s main HTML file index.html. As we start to add pages to our web site, the index.html file will serve as the home page of your site. Also, if you don’t name your main HTML file index.html, GitHub Pages won’t recognize it as the main page.</p>
+
+<!-- ============================ -->
+<!-- CREATING A GITHUB REPOSITORY -->
+<!-- ============================ -->
+
+<h2 id="creating-a-github-repository">Creating a GitHub repository</h2>
+
+<p>First, we need to create the repository on GitHub.</p>
+
+<p><img src="/images/repo-page.png" alt="Photo of my GitHub profile's repositories page" title="My GitHub profile's repositories page" /></p>
+
+<p>Once logged in, we’ll select the <em>New Repository</em> or <em>New</em> button to go to the <em>Create a new repository screen</em>:</p>
+
+<p><img src="/images/repo-new.png" alt="Photo of GitHub's Create a new repository screen" title="Create a new GitHub repository screen" /></p>
+
+<p>Let’s walk through the options we need to complete for our new repository.</p>
+
+<p>First, we enter a repository name. For this project you can enter whatever you like. I’m going to name it ‘cool-website’. Though the description is optional, it can be helpful to our future selves and anyone else looking at our repository to see a quick description of its content.</p>
+
+<p>Since I am using a free GitHub account, Public is the only option for my repositories. As it notes, everyone can see the contents of the repository but as the owner of it, I will be the only person who can determine what code can be committed to it.</p>
+
+<p>The last option asks whether or not to initialize the repository with a README. A README file is a detailed description of the repository including information like authors, usage instructions and licensing. Let’s check it.</p>
+
+<p><img src="/images/repo-cool-website.png" alt="Photo of GitHub's Create a new repository screen filled in" title="Create a new GitHub repository screen filled in" /></p>
+
+<h2 id="cloning-a-github-repository-to-your-machine">Cloning A GitHub Repository To Your Machine.</h2>
+<p>Go to your newly created repository page on your GitHub and click on the <em>Clone or download</em>button and then click on the clipboard to copy the location of the repository.</p>
+
+<p><img src="/images/repo-clone.png" alt="Photo of my cool-website repository page clone or download button" title="My cool-website repository page clone or download button" /></p>
+
+<p>Open your terminal and use the <code class="highlight__code">cd</code> command to change to the Desktop directory.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>Desktop
+</code></pre></div></div>
+<p>Then, run the <code class="highlight__code">git clone</code> command with the link you copied earlier</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/planeswalker1/cool-website.git
+</code></pre></div></div>
+
+<p>Note that your link will be different from my link. It is the location of your repository on GitHub</p>
+
+<h2 id="adding-html-to-the-cloned-repository">Adding HTML To The Cloned Repository</h2>
+
+<p>After you cloned your repository, <code class="highlight__code">cd</code> into it and use the <code class="highlight__code">touch</code> command to create an index.html file</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>cool-website
+<span class="nv">$ </span><span class="nb">touch </span>index.html
+</code></pre></div></div>
+
+<p>Then, open index.html with your text editor of choice, I like to use Visual Studio Code. You can <a href="https://code.visualstudio.com/download">download Visual Studio Code Here</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>code <span class="nb">.</span>
+</code></pre></div></div>
+<p>This command opens everything in the directory in Visual Studio Code</p>
+
+<p>Lets add some starter html for this website. Feel free to add your own HTML.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Potatoes<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  There are dozens of different potato varieties.
+  They are usually described as early, second early and maincrop.
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<!-- ========================= -->
+<!-- TRACKING CHANGES WITH GIT -->
+<!-- ========================= -->
+
+<h2 id="tracking-changes-with-git">Tracking changes with git</h2>
+
+<p>We can use the <code class="highlight__code">git status</code> command to check for any changes made to the repository</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
+</code></pre></div></div>
+<p>Let’s add, commit and push our changes to GitHub.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nb">.</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"add HTML file with a description about potatoes"</span>
+<span class="nv">$ </span>git push
+</code></pre></div></div>
+
+<p>When you run the <code class="highlight__code">git push</code> command, the terminal will prompt you with your GitHub login info. For security reasons, only the owner of the GitHub repository is able to push code to it. This means that we need to enter our login information to confirm our ownership. Once entered, the code is copied to the GitHub repository and we can see it online if we go to our GitHub repository.</p>
+
+<!-- ========================= -->
+<!-- HOSTING WITH GITHUB PAGES -->
+<!-- ========================= -->
+
+<h2 id="hosting-with-github-pages">Hosting with Github Pages</h2>
+
+<p>Now that we have our repository setup with an HTML page we can tell Github to host our site using GitHub Pages.</p>
+
+<p>Go to your repository page, then click on the settings tab.</p>
+
+<p><img src="/images/repo-settings.png" alt="Photo of my cool-website repository settings page" title="My cool-website repository settings page" /></p>
+
+<p>Then scroll down to GitHub Pages and on the source heading click on the drop down and select master branch and save.</p>
+
+<p><img src="/images/repo-GitHub-pages-pending.png" alt="Photo of my cool-website repository settings page" title="My cool-website repository settings page" /></p>
+
+<p>If everything is successful GitHub Will notify you with a link of the repository below the GitHub Pages tab.</p>
+
+<p><img src="/images/repo-GitHub-pages-success.png" alt="Photo of my cool-website repository settings page" title="My cool-website repository settings page" /></p>
+
+<p>Congrats now you have your website on the internet for everyone to see. Great Job.</p>
+
+<!-- ===================== -->
+<!-- UPDATING GITHUB PAGES -->
+<!-- ===================== -->
+
+<h2 id="updating-github-pages">Updating GitHub Pages</h2>
+
+<p>Note that if you make further changes to your project, GitHub will automatically update the site with your changes.</p>
+
+<!-- ========== -->
+<!-- CONCLUSION -->
+<!-- ========== -->
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>GitHub Pages is a great way to host your website online for the world to see. Make sure that your main HTML file is called index.html because GitHub Pages won’t recognize it as the main page and your website will not be hosted.</p>
+:ET

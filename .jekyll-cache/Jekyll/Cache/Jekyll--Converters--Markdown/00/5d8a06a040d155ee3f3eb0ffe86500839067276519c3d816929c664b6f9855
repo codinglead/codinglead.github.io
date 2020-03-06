@@ -1,0 +1,100 @@
+I"�<p>In JavaScript there are non primitive types that have methods that you call on them.</p>
+
+<p><span class="highlight__code">non primitive types</span> are functions, objects and arrays.</p>
+
+<p>Prototypical inheritance is just a object with methods and properties that is given to non primitive types.</p>
+
+<h2 id="non-primitive-types-have-a-few-properties-or-methods-associated-with-them">non-primitive types have a few properties or methods associated with them</h2>
+
+<p>Some examples of methods stored on the prototype are.</p>
+
+<ul>
+  <li>Array.prototype.push();</li>
+  <li>string.prototype.toUpperCase();</li>
+</ul>
+
+<p>Almost everything is a object in JavaScript. Each object stores a reference to its prototype. Properties or methods defined most tightly to the instance have priority of being called.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">)</span> <span class="p">}</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi somewhere else</span><span class="dl">'</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="nx">arr</span><span class="p">.</span><span class="nx">test</span><span class="p">()</span> <span class="c1">// hi</span>
+</code></pre></div></div>
+
+<p>“hi” was console logged instead of “hi somewhere else” because it was defined closer to the instance of the array that was created.</p>
+
+<h2 id="prototype-chain">prototype chain</h2>
+
+<p>Every object stores a reference to its prototype.</p>
+
+<p>In the example above the array stored a test method and in the Array prototype and also stored a test method on the array instance.</p>
+
+<p>When calling the test method on the array, JavaScript looks for method on the prototype chain starting from the variable instance. When the method we are looking is found JavaScript stops looking for it in the prototype chain and uses it.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">arr</span><span class="p">.</span><span class="nx">test</span><span class="p">()</span> <span class="c1">// hi</span>
+</code></pre></div></div>
+
+<p>The prototype chain will look like this for the example above. JavaScript starts looking from the bottom and looks upwards.</p>
+
+<ul>
+  <li>null</li>
+  <li>object</li>
+  <li>array</li>
+  <li>instance of variable</li>
+</ul>
+
+<p>instance of variable =&gt; array =&gt; object =&gt; null</p>
+
+<p>You can think of the prototype chain as the way JavaScript looks for a method when it is being called on a object.</p>
+
+<p>note: almost everything in JavaScript is a object.</p>
+
+<p>JavaScript found the test method on the array instance, this is why the test method on the array was executed instead of the test method on the Array prototype.</p>
+
+<h2 id="primitive-types-have-object-wrappers">primitive types have object wrappers</h2>
+
+<ul>
+  <li>String()</li>
+  <li>Number()</li>
+  <li>Boolean()</li>
+  <li>Object()</li>
+  <li>(Symbol())</li>
+</ul>
+
+<p>JavaScript has object wrappers that you can declare so you have access to methods on the prototype.</p>
+
+<p>JavaScript will automatically “box” wrap primitives values so you have access to methods</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">42</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// Error</span>
+
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// "42"</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">_proto__</span> <span class="c1">// access to proto</span>
+<span class="nx">x</span><span class="p">.</span><span class="k">instanceof</span> <span class="nb">Number</span> <span class="c1">// false</span>
+</code></pre></div></div>
+
+<p>When declaring a variable to be a primitive type it will wrap the primitive object wrapper.</p>
+
+<p>In this case we declare the variable to be equal to 42 which then gets wrapped by the Number() object wrapper. This will give us access to the Number prototype.</p>
+
+<h2 id="why-use-reference-to-prototype">why use reference to prototype</h2>
+
+<p>it saves spaces.</p>
+
+<p>The alternative is storing it at the instance instead on the prototype.</p>
+
+<h2 id="the-danger-of-using-reference-to-the-prototype">the danger of using reference to the prototype</h2>
+
+<p>Change something on one prototype changes it in every single instance.</p>
+
+<p>happy coding :)</p>
+
+<p>Any question feel free to contact me brianmunozdev@gmail.com</p>
+:ET
