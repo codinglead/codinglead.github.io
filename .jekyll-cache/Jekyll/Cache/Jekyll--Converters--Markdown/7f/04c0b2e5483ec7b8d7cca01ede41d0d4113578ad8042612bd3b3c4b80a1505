@@ -1,0 +1,107 @@
+I"N<p>Node and Express is a easy way to get started with using the backend.</p>
+
+<p>Node is an asynchronous event driven JavaScript runtime. Express is a minimalist web application framework. Express has a very powerful routing system.</p>
+
+<h2 id="exporting-an-node-script">exporting an node script</h2>
+
+<p>To use anything from other libaries or from own code export code from node module.</p>
+
+<p>use <span class="highlight__code">module.exports</span> and <span class="highlight__code">exports</span>.</p>
+
+<p>exports is an alias to module export.</p>
+
+<p class="highlight__file-desc">
+  node
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">message</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hi there</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="import-into-node-script">import into node script</h2>
+<p>To import a node module you will have to use the require method to fetch the script.</p>
+
+<p>If you pass in a path, it will run the script. if you pass in a string, it will look in node module folder. Everything you exported from the module will be put into the variable.</p>
+
+<p class="highlight__file-desc">
+  node
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// will look in the node module folder</span>
+<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// will look in the same directory and run it</span>
+<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./message</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="node-modules">Node Modules</h2>
+
+<p>Similar to libaries in c or python. There are more than 350k modules in NPM.</p>
+
+<p>NPM is hub for libaries.</p>
+
+<h3 id="npm">NPM</h3>
+<p>Node Package Manager</p>
+
+<p>Automates installing, upgrading, removing modules</p>
+
+<p>Install packages with <span class="highlight__code">npm install [-g] package_name</span></p>
+
+<p><span class="highlight__code">-g</span>: Installs the package globally instead in a certain directory.</p>
+
+<h3 id="packagejson">Package.json</h3>
+
+<p>Defines configuration for application</p>
+
+<p>Some tags defined metadata:</p>
+<ul>
+  <li>manadatory name</li>
+  <li>version</li>
+</ul>
+
+<p>Define scripts in “scripts” object which are commands that you can store and just call simply by running <span class="highlight__code">npm run [script-name]</span></p>
+
+<h3 id="how-to-add-to-packagejson">how to add to package.json</h3>
+
+<p>use <span class="highlight__code">npm install –save [package name]</span> to add a dependency in the package.json file. This will also allow you to use the node module.</p>
+
+<h3 id="why-have-a-packagejson-file">why have a package.json file?</h3>
+
+<p>A package.json file is included because if you release the code people that are trying to download your code wouldn’t have to download all the node packages. They will only need to download your code and run <span class="highlight__code">npm install</span> to get all the node packages needed for your code.</p>
+
+<h2 id="npm-commands">NPM commands</h2>
+
+<p><span class="highlight__code">npm install</span> installs all dependencies in your directory in the node modules folder.
+<span class="highlight__code">npm install –save [package]</span> installs a node package into the directory you are in. It also adds it to the package.json file.</p>
+
+<p><span class="highlight__code">npm run [script_name]</span> this runs the scripts you have defined from the scripts object in the package.json file.</p>
+
+<h2 id="express">express</h2>
+
+<p>It is a minimalist web application framework. Similar to flask in python. It has a very powerful routing system.</p>
+
+<h3 id="express-routing">express routing</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">http</span><span class="o">-</span><span class="nx">method</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Most common http methods.</p>
+<ul>
+  <li>get</li>
+  <li>post</li>
+  <li>put</li>
+  <li>delete</li>
+</ul>
+
+<p>A http method is a lowercase HTTP request method. path is the visited path usually made by a user. Callback is a function that takes 2 - 3 parameters.</p>
+
+<p>In the callback function it has 3 parameters that are passed in.</p>
+
+<ul>
+  <li>req - request object</li>
+  <li>res - response object</li>
+  <li>next - optional callback function</li>
+</ul>
+
+:ET

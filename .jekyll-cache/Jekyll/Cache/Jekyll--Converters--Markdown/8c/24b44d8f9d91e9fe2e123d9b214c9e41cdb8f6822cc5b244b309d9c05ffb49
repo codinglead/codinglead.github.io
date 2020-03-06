@@ -1,0 +1,161 @@
+I"�(<p>All data types are primitives except for objects. The data types includes undefined, null, boolean, number, symbol and object. Variables in JavaScript can contain any type and can be changed to a different type later.</p>
+
+<h2 id="dynamic-typing">dynamic typing</h2>
+
+<p>The JavaScript interpreter figures out the typing of declarations in your code. If you put the number 42 and run it JavaScript will know that it is a number.</p>
+
+<h2 id="primitive-types">primitive types</h2>
+
+<ul>
+  <li>undefined</li>
+  <li>null</li>
+  <li>boolean</li>
+  <li>number</li>
+  <li>string</li>
+  <li>(symbol) don’t worry about this.</li>
+</ul>
+
+<h2 id="non-primitive-type">non primitive type</h2>
+
+<ul>
+  <li>object</li>
+</ul>
+
+<h2 id="undefined">undefined</h2>
+
+<p>When something is undefined it means it was declared but not initialized.</p>
+
+<p>For example when you console.log a variable before it was initialized.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">);</span> <span class="c1">// undefined</span>
+
+<span class="kd">var</span> <span class="nx">hello</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>It prints out undefined instead of throwing a reference error because of hoisting in JavaScript.</p>
+
+<h2 id="what-is-hoisting">what is hoisting</h2>
+
+<p>Hoisting means that all function definition and variable declarations are put to the top of the nearest scope.</p>
+
+<p>Function definition are hoisted, variable initialization are not.</p>
+
+<p>Which means that function can be used anywhere in your code even before it is defined. Only the variable declaration is hoisted not the value this is why we get undefined when trying to run <span class="higlight__code">console.log(hello)</span>.</p>
+
+<p>Here is how it looks like before JavaScript hoists your code.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">greet</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here is how it looks like after hoisting.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// x is declared but not assigned</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>
+
+<span class="c1">// greet function moves to the top</span>
+<span class="kd">function</span> <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// x is console log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+  <span class="c1">// undefined</span>
+
+<span class="nx">greet</span><span class="p">();</span>
+<span class="c1">// calls greet</span>
+
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="c1">// now x is assigned 42</span>
+</code></pre></div></div>
+
+<h2 id="null">null</h2>
+
+<p>It exists but has no value explicitly set, JavaScript sets the value.</p>
+
+<h2 id="number">number</h2>
+
+<p>Is just a number. You do not have to put int, float, double. everything is a double. There is floating point imprecision because there is no designated type for accurate decimals. but everything is a double so it’s ok. Only have 64 bit to store numbers. Includes exponent notation.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// don't have to put the type</span>
+<span class="c1">// just use a variable declaration</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span><span class="nx">e3</span><span class="p">)</span> <span class="c1">// 10000</span>
+</code></pre></div></div>
+
+<h2 id="strings">strings</h2>
+
+<p>Is just a string.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="c1">// "string"</span>
+</code></pre></div></div>
+
+<h2 id="objects">objects</h2>
+
+<p>It is a way to store related things. It can store all the types in key value pairs. there is 2 ways to initialize a object.</p>
+
+<ul>
+  <li>object literal</li>
+  <li>object constructor</li>
+</ul>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">)}</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">javascriptIsCool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Brian</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// {age: 22, greet: ƒ, javascriptIsCool: true, firstName: "Brian"}</span>
+
+<span class="c1">// you can initialize it like this and repeat the same from before</span>
+
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">)}</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">javascriptIsCool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Brian</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">);</span> <span class="c1">// {age: 22, greet: ƒ, javascriptIsCool: true, firstName: "Brian"}</span>
+
+<span class="c1">// you can also just add key value pairs when initializing it</span>
+
+<span class="kd">var</span> <span class="nx">obj3</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="na">age</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+ <span class="na">greet</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">)</span>
+ <span class="p">},</span>
+ <span class="na">javascriptIsCool</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+ <span class="na">firstName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Brian</span><span class="dl">"</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj3</span><span class="p">);</span> <span class="c1">// {age: 22, greet: ƒ, javascriptIsCool: true, firstName: "Brian"}</span>
+</code></pre></div></div>
+
+<p>happy coding :)</p>
+
+<p>Any question feel free to contact me brianmunozdev@gmail.com</p>
+
+:ET

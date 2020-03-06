@@ -29,7 +29,7 @@
 /* styles for all the post on the home page */
 
 .post {
-  padding: 20px 5px 40px 5px;
+  padding: 20px 10px 40px 10px;
 
   display: flex;
   justify-content: space-between;
@@ -66,8 +66,13 @@
 }
 
 .post__tags {
-  margin-left: 54px;
   margin-top: 8px;
+}
+
+
+.post__link {
+  flex: 1;
+  padding-right: 54px;
 }
 
 /* tags on every post styles */
@@ -99,6 +104,11 @@
 
 .tag--backend {
   background-color: #b565a7;
+  color: #fff;
+}
+
+.tag--react {
+  background-color: #37a6d4;
   color: #fff;
 }
 

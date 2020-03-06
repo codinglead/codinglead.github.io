@@ -1,0 +1,72 @@
+I"�<p>Keeping track of every single HTML element might become difficult. There’s this CSS naming convention called block element modifier, also known as BEM. What it means is there are three different CSS classes of tags.</p>
+
+<!-- ==== -->
+<!-- GOAL -->
+<!-- ==== -->
+
+<h2 id="goal">Goal</h2>
+
+<p>Follow along to learn what BEM is and how to use it</p>
+
+<!-- === -->
+<!-- CSS -->
+<!-- === -->
+
+<h2 id="css">CSS</h2>
+
+<p>A Quick refresher on what css is:</p>
+
+<p class="highlight__file-desc">CSS Explanation</p>
+
+<ul>
+  <li>Cascading Style Sheet</li>
+  <li>Determines how HTML elements will be displayed</li>
+  <li>Three ways to declare:
+    <ul>
+      <li>Inline</li>
+      <li>Internal (within HEAD)</li>
+      <li>External (within linked stylesheet)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The preferred way to write CSS is external because it’s cleaner. Meaning that it allows you to use the same stylesheet for every singe page in your application. That way you don’t have to cut and paste into every head of every page or even add css into every single tag that is created, which would be very messy and unmaintainable.</p>
+
+<!-- =========== -->
+<!-- WHAT IS BEM -->
+<!-- =========== -->
+
+<h2 id="what-is-bem">What is BEM?</h2>
+
+<p>BEM is a CSS naming convention, short for block element modifier. What it means is there are three different CSS classes of tags.</p>
+
+<p class="highlight__file-desc">BEM Explanation</p>
+
+<ul>
+  <li>Block, Element, Modifier naming convention (BEM)
+    <ul>
+      <li>Block (parent level) elements get normal names (ex: button)</li>
+      <li>Modifier elements get double dashes (ex: button–red, button–inline)</li>
+      <li>Element (child level) elements get double underscores (ex: button__text)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>There is <strong>Block</strong> (parent level) elements that get normal class names. Something like <code class="highlight__code">button</code>. You might have a dedicated CSS block to a button. But what if you wanted to change what that button looks like? You’d have <strong>modifier</strong> elements which get double dashes. Some examples are <code class="highlight__code">button--red</code>, <code class="highlight__code">button--inline</code>, <code class="highlight__code">button--wide</code>. It builds off the <code class="highlight__code">button</code> class. <code class="highlight__code">Button</code> define how it looks like and maybe the modifier only changes a property like: <code>color</code>, <code>width</code>, or <code>height</code>. Then you have <strong>element</strong> (child level) elements which are within block level elements. Something like <code class="highlight__code">button__text</code> or something within that button. With BEM it is very easy to see what you need to change and what that would change on the final HTML page. For example, if you change a block level like a <code class="highlight__code">button</code> it would change every single button on the page. If you wanted to change only one button you would create a modifier for that button, if it didn’t exist. This way you stay organized and you dont accidentally change a line of css and it affects more than you want it to affect. This is just one design scheme of naming classes.</p>
+
+<!-- ====================== -->
+<!-- DO YOU HAVE TO USE BEM -->
+<!-- ====================== -->
+
+<h2 id="do-you-have-to-use-bem">Do you have to use BEM?</h2>
+
+<p>No, you don’t. Its a scheme that is very popular among front end developers. But you should have some sort of system of organization, otherwise code starts to become unmaintainable. You might change one line of css which will change some other tag on a different page that you forgot that you assigned to this tag. Definitely have some sort of system of organization so you can better maintain your page and so other people who start working can better maintain your page.</p>
+
+<!-- ========== -->
+<!-- CONCLUSION -->
+<!-- ========== -->
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>BEM is a popular CSS naming convention. There are three different CSS classes of tags. There are: <strong>Block</strong> (parent level) elements that get normal names (ex: button), <strong>Modifier</strong> elements that get double dashes (ex: button–red, button–inline), and <strong>Element</strong> (child level) elements that get double underscores (ex: button__text). This is one design scheme and you don’t have to use it, but make sure to have a system of organization or else code starts to become unmaintainable.</p>
+:ET

@@ -1,0 +1,39 @@
+I"Ú
+<p>Javascript array find. Functional way of finding the the first element that passes the testing function.</p>
+
+<h2 id="what-is-arrayprototypefind">What is Array.prototype.find()</h2>
+
+<p>The <span class="highlight__code">find()</span> method is executed on an array and takes in a function expression that has to return a truthy or falsy value. <span class="highlight__code">find()</span> takes in a function as a callback and checks the value that was returned. If is returned true it will return that value and if is falsed it keeps looking until the returned value is true. If it gets to the end and no value was returned it will return undefined <span class="highlight__code">find()</span> method makes it really easy to find the first element that passes a condition. The method is stored in the Arrayâ€™s prototype.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="kd">let</span> <span class="nx">firstBiggestNumber</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">num</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstBiggestNumber</span><span class="p">);</span>
+  <span class="c1">// 90</span>
+
+</code></pre></div></div>
+
+<p>In the example above the array method<span class="highlight__code">find()</span> is executed on the array. we passed in a function expression thats returns a condition to find the first value that is greater than or equal to 50. we stored it into a variable.</p>
+
+<h2 id="the-power-of-find">The power of find</h2>
+
+<p>Find is powerful when you are trying to find the first position of an element or check if it exists.</p>
+
+<p>the basics</p>
+
+<ul>
+  <li>checks what was returned from the function expression then uses that to sort the array.
+    <ul>
+      <li>if the returned value is truthy, return that value</li>
+      <li>if the returned value is falsy, keep moving until it gets to the end or find a truthy value</li>
+      <li>if it gets to the end without finding one element that returns true with the comparsion it will return undefined</li>
+    </ul>
+  </li>
+</ul>
+
+<p>happy coding :)</p>
+:ET

@@ -2,7 +2,7 @@
 layout: project
 title: what is localStorage
 date: 2019-10-02 8:00 -0700
-meta: localStorage allows you to access a Storage object that allows you to store key-value pairs that are a string in your browser. local storage does not have an expiration date.
+meta: localStorage allows you to access a Storage object that allows you to store key-value pairs that are a string in your browser. localStorage does not have an expiration date.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]

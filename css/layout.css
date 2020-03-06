@@ -217,8 +217,8 @@
     flex-direction: column;
   }
 
-  .post__tags {
-    margin-left: 0;
+  .post__link {
+    padding-right: 0;
   }
   
   .tag {

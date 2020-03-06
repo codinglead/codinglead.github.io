@@ -60,7 +60,8 @@ div.center {
   color: #ff5e4c;
 }
 
-.language-javascript .nx {
+.language-javascript .nx,
+.language-javascript .sr {
   color: #5ebcff;
 }
 
@@ -68,7 +69,8 @@ div.center {
   color: #a5ff90;
 }
 
-.language-javascript .o {
+.language-javascript .o,
+.language-javascript .err {
   color: #fff;
 }
 

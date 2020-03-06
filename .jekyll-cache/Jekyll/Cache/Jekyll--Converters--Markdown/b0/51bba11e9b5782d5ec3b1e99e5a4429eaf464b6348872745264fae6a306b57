@@ -1,0 +1,214 @@
+I"�5<p><code class="highlight__code">git commit --amend</code> is an easy way to modify the most recent commit, but if we need to modify history going further back then we’ll need to use the <code class="highlight__code">git rebase -i command</code>.</p>
+
+<h2 id="goal">Goal</h2>
+
+<p>Follow along to learn how to re-write git history using <code class="highlight__code">git rebase -i</code>, specifically, how to rewrite a git commit and combine multiple git commits.</p>
+
+<h2 id="what-does-git-rebase--i-do">What does git rebase -i do?</h2>
+
+<p><code class="highlight__code">git rebase -i</code> allows us to change commit messages and combine multiple commits by “squashing” them together. This command permanently deletes all commits from the point you’re modifying onward, replacing them with new commits. This allows you to conveniently edit any previous commits, <strong>except for the root commit</strong>. Make sure to have a backup of the git project when attempting to use <code class="highlight__code">git rebase -i</code>.</p>
+
+<h2 id="changing-old-commit-messages-with-git-rebase--i">Changing old commit messages with git rebase -i</h2>
+
+<p>We can check the git history of a git repo with <code class="highlight__code">git log --oneline</code>. It will look something like this:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  f522f55 <span class="o">(</span>HEAD -&gt; master, origin/master, origin/HEAD<span class="o">)</span> add click event listener to animate nav, routes, and components
+  370bd39 add react files
+  c59872b add start files
+  9300b10 Initial commit
+</code></pre></div></div>
+
+<p>If the project has a lot of commits, the git log history will be long. If this happens, to exit out of this command you press <code class="highlight__code">q</code>.</p>
+
+<p>Now, let’s reword our second-to-last commit’s message. If we type <code class="highlight__code">git rebase -i HEAD~2</code> it will launch the system editor, where we’ll see a Git rebase file containing the two most recent commits. It will look something like this:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  pick 370bd39 add react files
+  pick f522f55 add click event listener to animate nav, routes, and components
+
+  <span class="c"># Rebase c59872b..f522f55 onto c59872b (2 commands)</span>
+  <span class="c">#</span>
+  <span class="c"># Commands:</span>
+  <span class="c"># p, pick = use commit</span>
+  <span class="c"># r, reword = use commit, but edit the commit message</span>
+  <span class="c"># e, edit = use commit, but stop for amending</span>
+  <span class="c"># s, squash = use commit, but meld into previous commit</span>
+  <span class="c"># f, fixup = like "squash", but discard this commit's log message</span>
+  <span class="c"># x, exec = run command (the rest of the line) using shell</span>
+  <span class="c"># d, drop = remove commit</span>
+  <span class="c">#</span>
+  <span class="c"># These lines can be re-ordered; they are executed from top to bottom.</span>
+  <span class="c">#</span>
+  <span class="c"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
+  <span class="c">#</span>
+  <span class="c"># However, if you remove everything, the rebase will be aborted.</span>
+</code></pre></div></div>
+
+<p>To reword some of the commit messages, we can change <code class="highlight__code">pick</code> before those lines to <code class="highlight__code">reword</code>, as follows:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  reword 370bd39 add react files
+  pick f522f55 add click event listener to animate nav, routes, and components
+
+  <span class="c"># Rebase c59872b..f522f55 onto c59872b (2 commands)</span>
+  <span class="c">#</span>
+  <span class="c"># Commands:</span>
+  <span class="c"># p, pick = use commit</span>
+  <span class="c"># r, reword = use commit, but edit the commit message</span>
+  <span class="c"># e, edit = use commit, but stop for amending</span>
+  <span class="c"># s, squash = use commit, but meld into previous commit</span>
+  <span class="c"># f, fixup = like "squash", but discard this commit's log message</span>
+  <span class="c"># x, exec = run command (the rest of the line) using shell</span>
+  <span class="c"># d, drop = remove commit</span>
+  <span class="c">#</span>
+  <span class="c"># These lines can be re-ordered; they are executed from top to bottom.</span>
+  <span class="c">#</span>
+  <span class="c"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
+  <span class="c">#</span>
+  <span class="c"># However, if you remove everything, the rebase will be aborted.</span>
+</code></pre></div></div>
+
+<p>When we save and close that file, we’re immediately presented with a commit message file in the editor, allowing us to update the commit message we marked for rewording:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  add base components and styles
+
+  <span class="c"># Please enter the commit message for your changes. Lines starting</span>
+  <span class="c"># with '#' will be ignored, and an empty message aborts the commit.</span>
+  <span class="c">#</span>
+  <span class="c"># Author:    Daniel Munoz &lt;daniel.munozdev@gmail.com&gt;</span>
+  <span class="c"># Date:      Mon Mar 18 23:18:42 2019 -0700</span>
+  <span class="c">#</span>
+  <span class="c"># interactive rebase in progress; onto c59872b</span>
+  <span class="c"># Last command done (1 command done):</span>
+  <span class="c">#    reword b7a96a9 add base components and styles</span>
+  <span class="c"># Next command to do (1 remaining command):</span>
+  <span class="c">#    pick d996970 add click event listener to animate nav, routes, and componen$</span>
+  <span class="c"># You are currently editing a commit while rebasing branch 'master' on 'c59872b$</span>
+  <span class="c">#</span>
+  <span class="c"># Changes to be committed:</span>
+  <span class="c">#       modified:   package.json</span>
+  <span class="c">#       deleted:    src/App.css</span>
+  <span class="c">#       modified:   src/App.js</span>
+</code></pre></div></div>
+
+<p>Let’s change the commit message at the top to say ‘add base components and styles’. We save and close the file, and now the changes are reflected in the Git history:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git log <span class="nt">--oneline</span>
+  9b46f95 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> add click event listener to animate nav, routes, and components
+  d520581 add base components and styles
+  c59872b add start files
+  9300b10 Initial commit
+</code></pre></div></div>
+
+<p>Note that the last two commits (the two we rebased) now have new id’s, because the old commits were deleted and replaced with new ones.</p>
+
+<h2 id="combining-multiple-commits-with-git-rebase--i">Combining Multiple Commits with git rebase -i</h2>
+
+<p>Now, let’s say we want to combine multiple commits for one feature into a single commit before publishing to Github. We want to combine the “add start files” and “add base components and styles” commits.</p>
+
+<p>We can type <code class="highlight__code">git rebase -i HEAD~3</code> to bring up the three most recent commits in the rebase editor window. To combine a commit with the previous commit, we can change <code class="highlight__code">pick</code> to <code class="highlight__code">squash</code>.</p>
+
+<p>Let’s change <code class="highlight__code">pick</code> to <code class="highlight__code">squash</code> on the “add base components and styles” commit in order to combine that one with the “add start files” commit directly preceding it:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  pick c59872b add start files
+  squash d520581 add base components and styles
+  pick 9b46f95 add click event listener to animate nav, routes, and components
+</code></pre></div></div>
+
+<p>After saving and closing this file, we’re presented with a commit message file. We can write the commit message for the new combined commit in this file:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># This is a combination of 2 commits.</span>
+  <span class="c"># This is the 1st commit message:</span>
+
+  add start files
+
+  <span class="c"># This is the commit message #2:</span>
+
+  add base components and styles
+
+  <span class="c"># Please enter the commit message for your changes. Lines starting</span>
+  <span class="c"># with '#' will be ignored, and an empty message aborts the commit.</span>
+  <span class="c">#</span>
+  <span class="c"># Author:    Daniel Munoz &lt;daniel.munozdev@gmail.com&gt;</span>
+  <span class="c"># Date:      Mon Mar 18 22:55:50 2019 -0700</span>
+  <span class="c">#</span>
+  <span class="c"># interactive rebase in progress; onto 9300b10</span>
+  <span class="c"># Last commands done (2 commands done):</span>
+  <span class="c">#    pick c59872b add start files</span>
+  <span class="c">#    squash d520581 add base components and styles</span>
+</code></pre></div></div>
+
+<p>We can update the first commit message to “add start components and styles” and simply delete the “add base components and styles” line, since we’re eliminating the second commit from our project:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># This is a combination of 2 commits.</span>
+  <span class="c"># This is the 1st commit message:</span>
+
+  add start components and styles
+
+  <span class="c"># This is the commit message #2:</span>
+
+  <span class="c"># Please enter the commit message for your changes. Lines starting</span>
+  <span class="c"># with '#' will be ignored, and an empty message aborts the commit.</span>
+  <span class="c">#</span>
+  <span class="c"># Author:    Daniel Munoz &lt;daniel.munozdev@gmail.com&gt;</span>
+  <span class="c"># Date:      Mon Mar 18 22:55:50 2019 -0700</span>
+  <span class="c">#</span>
+  <span class="c"># interactive rebase in progress; onto 9300b10</span>
+  <span class="c"># Last commands done (2 commands done):</span>
+  <span class="c">#    pick c59872b add start files</span>
+  <span class="c">#    squash d520581 add base components and styles</span>
+</code></pre></div></div>
+
+<p>After saving and closing that file, the Git history reflects the change:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git log <span class="nt">--oneline</span>
+  6b3573d <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> add click event listener to animate nav, routes, and components
+  26fb702 add start components and styles
+  9300b10 Initial commit
+</code></pre></div></div>
+
+<h2 id="pushing-rewritten-history-to-github">Pushing Rewritten History to Github</h2>
+
+<p>Be extremely careful when changing history on a public repository. Do not make history changes to a remote repository being worked on by other developers. However, you may push rewritten history to a public repository if you’re the only developer working on it.</p>
+
+<p>Normally you’ll receive the following error if you push a project to Github, rewrite history, and then attempt to push the project again:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git push origin master
+  To https://github.com/planeswalker1/react-navbar.git
+  <span class="o">!</span> <span class="o">[</span>rejected]        master -&gt; master <span class="o">(</span>non-fast-forward<span class="o">)</span>
+  error: failed to push some refs to <span class="s1">'https://github.com/planeswalker1/react-navbar.git'</span>
+  hint: Updates were rejected because the tip of your current branch is behind
+  hint: its remote counterpart. Integrate the remote changes <span class="o">(</span>e.g.
+  hint: <span class="s1">'git pull ...'</span><span class="o">)</span> before pushing again.
+  hint: See the <span class="s1">'Note about fast-forwards'</span> <span class="k">in</span> <span class="s1">'git push --help'</span> <span class="k">for </span>details.
+</code></pre></div></div>
+
+<p>This is simply because the local commits and remote commits no longer match. In order to force Github to throw away the old version of the project and replace it with the newly-edited local commit history, you must use the <code class="highlight__code">--force</code> option:</p>
+
+<p class="highlight__file-desc">Command Prompt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git push origin master <span class="nt">--force</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p><code class="highlight__code">git rebase -i</code> is a cool command to modify and combine previous commits. Make sure to have a backup of the git project when attempting to change git history because it is irreversible.</p>
+:ET

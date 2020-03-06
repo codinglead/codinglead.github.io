@@ -1,0 +1,55 @@
+I"�<p>This is part2 of the javascript fetch reddit api we will be using the fetch function to make request to the programmerhumor subreddit reddit api.</p>
+
+<p><a href="https://github.com/colorlessenergy/fetch-reddit/tree/part1">starter files for part 2</a></p>
+
+<p>We will be using fetch to:</p>
+
+<ul>
+  <li>hit the reddit subreddit api endpoint</li>
+  <li>get the JSON</li>
+</ul>
+
+<p class="highlight__file-desc">main.js</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// the fetch function takes in a endpoint and returns</span>
+<span class="c1">// a promise</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.reddit.com/r/programmerhumor.json</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+  <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">json</span><span class="p">;</span>
+  <span class="p">})</span>
+</code></pre></div></div>
+
+<p>This returns a object which looks like this.</p>
+
+<p><img src="/courses-images/returned-json.png" alt="json returned" /></p>
+
+<p>when we fetch the json from the endpoint it gives us a nested object. we will be indexing object properties.  We will have to go into data then into children to get the data we need.</p>
+
+<p>Since the data we want is nested we will have to</p>
+
+<ul>
+  <li>index to the children property in the Object</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// The fetch function takes in a endpoint</span>
+<span class="c1">// and returns a promise</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.reddit.com/r/programmerhumor.json</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+  <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// change json =&gt; json.data.children</span>
+    <span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span>
+  <span class="p">})</span>
+</code></pre></div></div>
+
+<p>Now we have access to all the data about every post under the programmerhumor subreddit. You can choose any subreddit of choice just change the ‘programmerhumor’ with your subreddit of choice.</p>
+
+<p><img src="/courses-images/array-with-data-from-reddit.png" alt="json returned" /></p>
+
+<p>Now we have an array of objects with data we want.</p>
+
+<p>in <a href="../part3">part3</a> we will use the data to display it on the browser.</p>
+:ET

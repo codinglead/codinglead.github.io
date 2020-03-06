@@ -1,0 +1,26 @@
+I"~<p>When trying to update an array of objects, using mongoose, you will have to tell MongoDB that there are pending changes by using the <span class="highlight__code">markModified(path)</span> method. after this you will have to call the <span class="highlight__code">save()</span> method.</p>
+
+<h2 id="example">example</h2>
+
+<p>We have the <span class="highlight__code">passwordsArr</span> part of the schema as an array of objects.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// passwordsArr modified</span>
+
+<span class="c1">// mark the path as having changes to write to the DB</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">markModified</span><span class="p">(</span><span class="dl">'</span><span class="s1">passwordsArr</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// now saves the document</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">sucessfully changed password</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>This will sucessfully update the document into the database</p>
+
+<h2 id="conclusion">conclusion</h2>
+
+<p>Use <span class="highlight__code">markModified(path)</span> if the document isn’t updating in the MongoDB. Then use <span class="highlight__code">save()</span>.</p>
+:ET

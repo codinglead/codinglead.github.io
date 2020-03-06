@@ -1,0 +1,69 @@
+I"<p>JavaScript has 3 ways to declare functions, the function statement, anonymous function, and arrow function. We will see how the three types of function declarations are used.</p>
+
+<h2 id="function-statement">function statement</h2>
+
+<p>The function statement starts off with the key word <span class="highlight__code">function</span> then a name for the function. It can take arguments inside parentheses.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">greet</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello, </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">greet</span><span class="p">(</span><span class="dl">'</span><span class="s1">brian</span><span class="dl">'</span><span class="p">);</span>
+  <span class="c1">// print hello, brian</span>
+</code></pre></div></div>
+
+<p>Function statement are hoisted so you can execute the function before declaraing it.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">greet</span><span class="p">(</span><span class="dl">'</span><span class="s1">brian</span><span class="dl">'</span><span class="p">);</span>
+  <span class="c1">// print hello, brian</span>
+
+<span class="kd">function</span> <span class="nx">greet</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello, </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is a powerful way of organizing your code by putting all function delcarations at the bottom and all function calls at the top.</p>
+
+<h2 id="anonymous-function">anonymous function</h2>
+
+<p>The anonymous function is used a lot in JavaScript when using callbacks. It has the same syntax as a regular function statement but you don’t have to add an name for it.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">multiplyBy2</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">multiplyBy2</span><span class="p">);</span>
+ <span class="c1">// [20, 10, 8, 6]</span>
+</code></pre></div></div>
+
+<p>Anonymous functions is just a shorthand way to declare functions. You can still add a name to the function and it will work the same.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">doubleArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="nx">double</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">doubleArr</span><span class="p">);</span>
+ <span class="c1">// [20, 10, 8, 6]</span>
+</code></pre></div></div>
+
+<h2 id="arrow-function">arrow function</h2>
+
+<p>Arrow functions is the shortest way you can delcare a function. The only difference the arrow functions is how <a href="/javascript/this-in-javascript" class="highlight__code">this</a> is defined.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// regular way</span>
+<span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// with arrow notation</span>
+<span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Everyone should declare <span class="highlight__code">functions</span> with a name if it is on the global scope. anonymous or arrow functions if it is being used as a callback.</p>
+:ET

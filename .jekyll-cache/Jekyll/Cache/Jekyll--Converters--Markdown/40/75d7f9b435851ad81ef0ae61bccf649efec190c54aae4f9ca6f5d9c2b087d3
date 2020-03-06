@@ -1,0 +1,8 @@
+I"f<p>Recently I had to load many images with part of the URL coming from an API and display them on the home page. With Create-React-App you can not just do a relative path you have to load them in using <code class="highlight__code">require()</code> or <code class="highlight__code">import</code> because it will tells webpack to include those files when it is built and bundled.</p>
+
+<h2 id="loading-in-the-images-and-displaying-them">loading in the images and displaying them</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+:ET

@@ -1,0 +1,238 @@
+I"�K<h2 id="closures-definition">closures definition</h2>
+
+<p>A closures is when a inner function can remember its lexical scope even if the function is executed outside of it.</p>
+
+<p>Which means if a function is executed outside where it is declared and is using a variable declared around the function it will remember it. I encourage you guys to run the code snippets in the console!</p>
+
+<h2 id="closures-example">closures example</h2>
+
+<p>A example of a closure is when a function is used as a callback to another function.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bar</span> <span class="p">()</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">baz</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">bam</span><span class="p">(</span><span class="nx">baz</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">bam</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">baz</span><span class="p">();</span>
+<span class="c1">// remembers what 'foo' was</span>
+<span class="p">}</span>
+
+<span class="nx">bar</span><span class="p">();</span>
+<span class="c1">// prints 'foo'</span>
+</code></pre></div></div>
+
+<p>When executing bam inside bar it passes in baz as a parameter. baz is executed inside a different scope, it still has reference to foo because of a closure that was made.</p>
+
+<p>The JavaScript timer function could be used as a closure.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span> <span class="p">()</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">bar</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="p">};</span>
+
+<span class="nx">foo</span><span class="p">();</span>
+<span class="c1">// prints 'bar'</span>
+</code></pre></div></div>
+
+<p>The setTimeout is called a second later by the time it is called you would think that the function is done executing and removed. Since closures exist bar is still stored in memory until it is not needed anymore. Once foo is executed and a second later passes it will still remember the value of the variable bar and print ‘bar’.</p>
+
+<p>The event handler callback is enclosed in a function which means it remembers anything declared and defined around it. this is a closure because you never know when the button is going to be clicked and it will always print out ‘bar’ since it has a reference to it. To remove the closure you would have to unbind the event listener.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span> <span class="p">()</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">bar</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.btn</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">()</span>
+<span class="c1">// prints 'bar'</span>
+<span class="c1">// the value of bar is still remembered</span>
+</code></pre></div></div>
+
+<p>Another example would be using a setTimeout inside a for loop. The example below will print 6, 6 times in the console since the for loop is creating and referencing to only one one variable. There are a lot of ways to fix this but, in my opinion the best way to fix this is use ‘let’ instead of ‘var’ in the for loop. This is the easiest way to fix it.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">i: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
+  <span class="c1">// print i: 6, 6 times</span>
+<span class="p">},</span> <span class="nx">i</span><span class="o">*</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Best solution is using let. I would even say
+to just use ‘let’ instead of ‘var’ in every for loop because it creates a block scope and stops pollution of the global scope.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span><span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">i: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
+    <span class="c1">// print i: + the current i</span>
+<span class="p">},</span> <span class="nx">i</span><span class="o">*</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>variables are still remembered if they are reference even after the function is returned.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeHelloFunction</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello, world</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">logMessage</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nx">logMessage</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Within <span class="highlight__code">makeHelloFunction()</span> we are creating the message variable, and using the variable within a new function and returning that function.</p>
+
+<p>in the function <span class="highlight__code">logMessage()</span> no where in it message is defined. It gets it from the parent function.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeHelloFunction</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello, world</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">logMessage</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nx">logMessage</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">sayHello</span> <span class="o">=</span> <span class="nx">makeHelloFunction</span><span class="p">();</span>
+
+<span class="nx">sayHello</span><span class="p">();</span>
+<span class="c1">// 'hello, world'</span>
+</code></pre></div></div>
+
+<p>If we run <span class="highlight__code">makeHelloFunction()</span> it will declare the variable message it will create the function <span class="highlight__code">logMessage()</span> and return the <span class="highlight__code">logMessage()</span>.</p>
+
+<p>It still prints ‘hello, world’ because a closure was made.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeFunctionArray</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">arrWithNumbers</span> <span class="o">=</span> <span class="nx">makeFunctionArray</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>We have a function that creates a array. In the for loop the initializer is declared with the <span class="highlight__code">var</span> keyword. A function is pushed into an array that console logs i then the array is returned.</p>
+
+<p>The array is stored in a variable.</p>
+
+<p>Now lets try calling one of the functions in the array we just created.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeFunctionArray</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">arrWithNumbers</span> <span class="o">=</span> <span class="nx">makeFunctionArray</span><span class="p">();</span>
+
+<span class="nx">arrWithNumbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]();</span>
+<span class="c1">// 5</span>
+</code></pre></div></div>
+<p>What ? it prints 5?</p>
+
+<p>It prints 5 because a closure was made to reference the i that was created in the for loop. It does this because the i isn’t block scoped. Only 1 variable is created and only 1 variable is referenced.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// do stuff</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>the JavaScript compiler while compile the code to look like this.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// do stuff</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The declaration of i is moved to the nearest scope.</p>
+
+<p>To fix this use the variable declarations <span class="highlight__code">let</span> or <span class="highlight__code">const</span> or encapsulate it inside a IIFE.</p>
+
+<p>now what is a IIFE ?</p>
+
+<h2 id="immediately-invoked-function-expression">immediately invoked function expression</h2>
+
+<ul>
+  <li>A function expression that get invoked immediately</li>
+  <li>It creates a closure.</li>
+  <li>Doesn’t add to or modify the global object</li>
+</ul>
+
+<p>This is how a IIFE looks like</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+<span class="c1">// this variable will not exist</span>
+<span class="c1">// after console.log is executed</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">})();</span>
+<span class="c1">// will console log hi</span>
+</code></pre></div></div>
+
+<p>Why use IIFE?</p>
+
+<p>Use IIFE so your global scope doesn’t get polluted or when you want to create a closure.</p>
+
+<p>Now let’s fix the problem we had earlier.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeFunctionArray</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+    <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+     <span class="p">}</span>
+    <span class="p">})(</span><span class="nx">i</span><span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">arrWithNumbers</span> <span class="o">=</span> <span class="nx">makeFunctionArray</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arrWithNumbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]();)</span>
+<span class="c1">// 0</span>
+</code></pre></div></div>
+
+<p>we have a IIFE that returns an anonymous function that console logs x. x is the parameter that is taken from the parent function. the child still has reference to the scope of the parent. primitives are passed by value and not by reference it actually creates a new value for every iteration of the function and creates a closure from the parent to the child.</p>
+
+<h2 id="conclusion">conclusion</h2>
+
+<p>A closure is a function that refer to variables declared by a parent function even when it is executed outside the scope it was created in. This is only possible because of lexical scoping.</p>
+
+<p>happy coding!</p>
+:ET

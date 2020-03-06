@@ -1,0 +1,49 @@
+I"k
+<p>Sometimes when installing software, it might not give you an option to set an environment variable. This happened to me with mongodb.</p>
+
+<h2 id="what-are-environment-variables">What are Environment Variables</h2>
+
+<p>An environment variable can be thought of as a path to an executable program. Having this set is useful if you want to run programs through the command prompt instead of having to open them in a file explorer.</p>
+
+<h2 id="how-to-add-mongod-to-the-environment-variables">How to add mongod to the environment Variables</h2>
+
+<p>Here are the steps to add mongod to the environment variables in Windows 10, <strong>after</strong> installing mongodb.</p>
+
+<ul>
+  <li>Find the path to the mongodb folder in your program files.</li>
+  <li>Then go to the bin folder
+If you’re not sure where it is, it’s probably in <code class="highlight__code">C:\Program Files\MongoDB\Server\4.0\</code>. It should look like this:</li>
+</ul>
+
+<p><img src="/images/mongodb-bin-path.png" alt="Windows 10 MongoDB bin folder in File Explorer" title="Windows 10 File Explorer showing MongoDB bin folder" /></p>
+
+<ul>
+  <li>Copy the path of the bin folder, this should be <code class="highlight__code">C:\Program Files\MongoDB\Server\4.0\bin</code></li>
+  <li>Press the Windows key and then type “env”. (If you dont have a Windows key you can press <kbd>ctrl</kbd> and <kbd>esc</kbd> or 
+navigate to the start window.) Windows will suggest “Edit the system <strong>env</strong>ironment variables”, click it.</li>
+  <li>In the Advanced tab, click “Environment Variables”.</li>
+</ul>
+
+<p><img src="/images/system-properties.png" alt="Windows 10 MongoDB bin folder in File Explorer" title="Windows 10 System Properties Advanced tab" /></p>
+
+<ul>
+  <li>With the <code class="highlight__code">Path</code> variable highlighted in “System Variables”, click “Edit”:</li>
+</ul>
+
+<p><img src="/images/environment-variables.png" alt="Windows 10 MongoDB bin folder in File Explorer" title="Windows 10 Environment Variables tab" /></p>
+
+<ul>
+  <li>Click “New”</li>
+  <li>Paste your path of the copied bin folder from earlier. Make sure it ends with a <code class="highlight__code">\</code> like so:</li>
+</ul>
+
+<p><img src="/images/edit-environment-variables.png" alt="Windows 10 MongoDB bin folder in File Explorer" title="Windows 10 Edit Environment Variables tab" /></p>
+
+<ul>
+  <li>click “OK” until you are out of the system properties</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Now you should be able to run <code class="highlight__code">mongod</code> and <code class="highlight__code">mongo</code> from anywhere in the command prompt.</p>
+:ET

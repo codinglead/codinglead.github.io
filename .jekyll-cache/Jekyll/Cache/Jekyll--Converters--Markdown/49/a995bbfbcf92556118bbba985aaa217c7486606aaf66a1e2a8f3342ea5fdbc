@@ -1,0 +1,318 @@
+I"vZ<h2 id="que-es-var-let-y-const">Que es var, let, y const</h2>
+
+<p><span class="highlight__code">var</span>, <span class="highlight__code">let</span>, y <span class="highlight__code">const</span> son formas para declarar variables. cada uno trabajan differente. es importante a usar las declaraciones correctas para ayudar el desarrollador y hacer el codigo mas facil para leer.</p>
+
+<p class="highlight__file-desc">
+  JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// estan declarados asi</span>
+
+<span class="c1">// estan block scoped</span>
+<span class="c1">// solamente usar cunado el valor es constante</span>
+<span class="c1">// no se puede reasignar</span>
+<span class="kd">const</span> <span class="nx">nombre</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Brian</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// estan block scoped</span>
+<span class="c1">// no se puede reasignar con un nuevo</span>
+<span class="kd">let</span> <span class="nx">anos</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+
+<span class="c1">// como declarar antes de es6</span>
+<span class="kd">var</span> <span class="nx">estado</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">California</span><span class="dl">"</span>
+</code></pre></div></div>
+
+<h2 id="primero-hablar-sobre-scope">primero hablar sobre “scope”</h2>
+
+<p>“scope” es como JavaScript encontra declaraciones. Block Scope y function scope son similares pero tienen una pequeña diferencia.</p>
+
+<h3 id="que-es-block-scope">que es block scope</h3>
+
+<p>Puedes definir un Block scope con “curly braces”. cunado usas let y const en un block scope no puedes usarlo afuera de un block scope. Cuando usas var en un block scope (pero que no sea un function scope) si puedes usarlo afurea de block scope.</p>
+
+<p class="highlight__file-desc">
+  JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// esta es normale javascript</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// 10</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">soy let en block scoped</span><span class="dl">"</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// soy let en block scoped</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">soy const en block scoped</span><span class="dl">"</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="c1">// soy let en block scoped</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// 10</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// Uncaught ReferenceError: b is not defined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="c1">// Uncaught ReferenceError: c is not defined</span>
+</code></pre></div></div>
+
+<p>“curly braces” crea un block scope. otro ejemplos son if-else declaraciones y for-loops.</p>
+
+<h3 id="que-es-function-scope">que es Function Scope</h3>
+
+<p>function scope es cualquier cosa dentro una function. Tiene lo mismo reglas como block scope solamente como se declara es diferente.</p>
+
+<p class="highlight__file-desc">
+  JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hola! Cómo estás</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">saludarPersona</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">la función está diciendo hola</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">saludarPersona</span><span class="p">();</span>
+  <span class="c1">// impresión 'la función está diciendo hola'</span>
+</code></pre></div></div>
+
+<p>cuando llamas <span class="highlight__code">saludarPersona()</span> JavaScript encontrar la función y camina dentro el “scope”. primero JavaScript cheques el “scope” dónde <span class="highlight__code">console.log()</span> estaba ejecutado, cual es  function scope, entonces mira para el variable saludar. si no puede encontrar entro el scope, sigue adelante fuera hasta “global scope”.esta es la razón por saludar declarar dentro el funcion está impreso en la consola en lugar de saludar declarado en el “global scope”.</p>
+
+<h2 id="el-significado-de-var">el significado de var</h2>
+
+<p><span class="highlight__code">var</span> era la primero manera a declarar antes de es6.</p>
+
+<ul>
+  <li>puedes redeclarado y reasignado.</li>
+</ul>
+
+<p class="highlight__file-desc">
+JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hola</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Cómo estás</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">aclamaciones</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">);</span>
+  <span class="c1">// impresión aclamaciones</span>
+</code></pre></div></div>
+
+<p><span class="highlight__code">var</span> esta <span class="highlight__code">hoisted</span> y inicializado a <span class="highlight__code">undefined</span>.</p>
+
+<p class="highlight__file-desc">
+JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hoisted</span><span class="p">)</span> <span class="c1">// undefined</span>
+<span class="kd">var</span> <span class="nx">hoisted</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola</span><span class="dl">"</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<p><span class="highlight__code">var</span> no le importa block scope. si no hay <span class="highlight__code">var</span> declaración JavaScript asume tú querías hacer un variable y pone el variable dentro el “global scope”.</p>
+
+<p class="highlight__file-desc">
+JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">hola</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// nunca hagas esto</span>
+  <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">saludar</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hola</span><span class="p">)</span>
+  <span class="c1">// impresión hola</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">)</span>
+  <span class="c1">// impresión saludar</span>
+</code></pre></div></div>
+
+<h3 id="por-qué-var-es-malo">por qué var es malo</h3>
+
+<p><span class="highlight__code">var</span> contamina el “global scope”.</p>
+
+<p class="highlight__file-desc">
+JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// code</span>
+<span class="p">};</span>
+
+<span class="c1">// i está en el "scope" global, ya no lo necesitamos el variable i</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 10</span>
+</code></pre></div></div>
+
+<p>Ejemplo tenes un mil lines de codigo y no te das cuenta que usastes el mismo variable dos veces. ahora tu tienes un difícil de encontrar error.</p>
+
+<p class="highlight__file-desc">
+JavaScript
+</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">)</span>
+  <span class="c1">// impresión hi</span>
+</code></pre></div></div>
+
+<p>porque <span class="highlight__code">var</span> se puede redefinir, se mete con el “global scope” versión de el variable.</p>
+
+<p>solomante usar <span class="highlight__code">var</span> como una elección estilística al mostrar que vas a usar <span class="highlight__code">var</span> por todas partes tu codigo.</p>
+
+<h2 id="el-significante-de-let">el significante de let</h2>
+
+<p><span class="highlight__code">let</span> es usualmente el variable declaración que se usa sobre <span class="highlight__code">var</span> porque tiene mejores características que <span class="highlight__code">var</span> tiene.</p>
+
+<p>no puedes redeclarado pero puede ser redefinido. esto arregla el problema con var que podríamos accidentalmente redeclar un variable no queríamos.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola, como estas</span><span class="dl">"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">)</span>
+  <span class="c1">// impresión hola, como estas</span>
+
+<span class="kd">let</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola, otra vez</span><span class="dl">"</span><span class="p">;</span>
+<span class="c1">// Uncaught SyntaxError: Identifier 'saludar' has already been declared</span>
+</code></pre></div></div>
+
+<p><span class="highlight__code">let</span> esta hoisted pero no inicializado.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hoisted</span><span class="p">);</span>
+<span class="c1">// Uncaught ReferenceError: hoisted is not defined</span>
+
+<span class="kd">let</span> <span class="nx">hoisted</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hola, estoy hoisted pero no inicializado</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><span class="highlight__code">let</span> usando block scope solamante puede referenciado en el mismo “scope” se definió. Esto soluciona el problema que tuvimos con <span class="highlight__code">var</span>.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">);</span>
+    <span class="c1">// impresión hola</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">);</span>
+<span class="c1">// Uncaught ReferenceError: saludar is not defined</span>
+</code></pre></div></div>
+
+<h3 id="por-que-let-es-mejor-de-var">Por que let es mejor de var</h3>
+
+<p><span class="highlight__code">let</span> no contamina el “global scope”.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// code</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+<span class="c1">// Uncaught ReferenceError: i is not defined</span>
+</code></pre></div></div>
+
+<p><span class="highlight__code">let</span> es block scope el problema que tuvimos with <span class="highlight__code">var</span> no se aplica con <span class="highlight__code">let</span>.</p>
+
+<h2 id="el-significante-de-const">el significante de const</h2>
+
+<p>variables declarado con <span class="highlight__code">const</span> los valores deben ser constants.</p>
+
+<p><span class="highlight__code">const</span> no puede ser redeclarado o redefinido.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola, como estas</span><span class="dl">"</span><span class="p">;</span>
+<span class="c1">// Uncaught TypeError: Assignment to constant variable</span>
+
+<span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hola</span><span class="dl">"</span><span class="p">;</span>
+<span class="c1">// Uncaught SyntaxError: Identifier 'greeting' has already been declared</span>
+</code></pre></div></div>
+<p><span class="highlight__code">const</span> debe ser inicializado cuando se declara.</p>
+
+<p>just like <span class="highlight__code">let</span> <span class="highlight__code">const</span> es hoisted pero no inicializado.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hoisted</span><span class="p">);</span>
+<span class="c1">// Uncaught ReferenceError: hoisted is not defined</span>
+
+<span class="kd">const</span> <span class="nx">hoisted</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hola, estoy hoisted pero no inicializado</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><span class="highlight__code">const</span> variable declaraciones son block scoped como <span class="highlight__code">let</span></p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">saludar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hola</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">saludar</span><span class="p">);</span>
+<span class="c1">// Uncaught ReferenceError: saludar is not defined</span>
+</code></pre></div></div>
+<h3 id="const-no-es-constante">const no es constante</h3>
+
+<p>Todavía puedes cambiar algo de valor con <span class="highlight__code">const</span> variable declaración.</p>
+
+<p>En los objetos todavía puedes cambiar los valores.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Brian</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">nombre</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Brian</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">idioma</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JavaScript</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="nx">Brian</span><span class="p">.</span><span class="nx">idioma</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">HTML</span><span class="dl">"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Brian</span><span class="p">)</span>
+<span class="c1">// {name: "Brian", language: "HTML"}</span>
+</code></pre></div></div>
+
+<p>añadir y eliminar elementos de arrays.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="err">​</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+<span class="err">​</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+  <span class="c1">// [1, 2]</span>
+<span class="err">​</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="err">​</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+  <span class="c1">// [1,2,5]</span>
+</code></pre></div></div>
+
+<h2 id="resumen-de-las-diferencias">resumen de las diferencias</h2>
+
+<p>uso <span class="highlight__code">let</span> y <span class="highlight__code">const</span> la mayor parte del tiempo. solo usa <span class="highlight__code">var</span> Cuando intentas usarlo como una opción estilística.</p>
+
+<ol>
+  <li>
+    <p><span class="highlight__code">let</span> y <span class="highlight__code">var</span> no tiene que ser inicializado cuando se declara. <span class="highlight__code">const</span> Tiene que ser inicializado cuando se declara.</p>
+  </li>
+  <li>
+    <p><span class="highlight__code">var</span> Se puede redefinir y redeclar; <span class="highlight__code">let</span> se puede redfinir pero no redeclarado; <span class="highlight__code">const</span> no puede ser redefinido o redeclarado.</p>
+  </li>
+  <li>
+    <p><span class="highlight__code">var</span>declaraciones son globales o de función, mientras que<span class="highlight__code">let</span> and <span class="highlight__code">const</span> son bloque de ámbito.</p>
+  </li>
+  <li>
+    <p>usar <span class="highlight__code">const</span> cuando querer declarar una variable no debería cambiar.</p>
+  </li>
+</ol>
+
+<p>codificación feliz!</p>
+
+:ET

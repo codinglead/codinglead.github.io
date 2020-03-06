@@ -1,0 +1,22 @@
+I";<p>this is a course made to make get request to the reddit api and display it on a website. You can check out the complete <a href="https://github.com/colorlessenergy/fetch-reddit">app here</a></p>
+
+<p><a href="../part1">part1</a>:</p>
+
+<p>We will make the form to take input from  the user.</p>
+
+<p><a href="../part2">part2</a>:</p>
+
+<p>We will be using the fetch function to make request to the programmerhumor subreddit reddit api.</p>
+
+<p><a href="../part3">part3</a>:</p>
+
+<p>We will Use the data we get from the fetch call to display the title and a picture of the post if it has one.</p>
+
+<p><a href="../part4">part4</a>:</p>
+
+<p>What we will do is make the form work with JavaScript to search different subreddits.</p>
+
+<p><a href="../part5">part5</a>:</p>
+
+<p>We will add styling to the form to make it look nice.</p>
+:ET

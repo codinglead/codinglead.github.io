@@ -1,0 +1,57 @@
+I"´
+<h2 id="what-is-semantic-html">what is semantic HTML</h2>
+
+<p>Semantic HTML are HTML tags that provide meaning to your code. There are many advantages to using semantic HTML tags such as SEO.</p>
+
+<h2 id="header">header</h2>
+
+<p>The <code class="highlight__code">&lt;header&gt;</code> element is used to introduce content on your websites. The header element can be used more than once. It is usually used to introduce sections, articles or the web page.</p>
+
+<div class="center">
+  <img src="/images/semantic-html-container/header-example.png" alt="header example" title="header example" />
+</div>
+
+<h2 id="nav">nav</h2>
+
+<p>The <code class="highlight__code">&lt;nav&gt;</code> element is used to contain links on your web page.</p>
+
+<div class="center">
+  <img src="/images/semantic-html-container/nav-example.png" alt="nav example" title="nav example" />
+</div>
+
+<h2 id="sections">sections</h2>
+
+<p>The <code class="highlight__code">&lt;section&gt;</code> element is used as containers or wrappers that separate different parts of your page instead of using a div element. Sections elements typically have a heading in them.</p>
+
+<div class="center">
+  <img src="/images/semantic-html-container/section-example.png" alt="section example" title="section example" />
+</div>
+
+<h2 id="article">article</h2>
+
+<p>The <code class="highlight__code">&lt;article&gt;</code> element is used to wrap content that can be isolated and make sense such as a article.</p>
+
+<div class="center">
+  <img src="/images/semantic-html-container/article-example.png" alt="article example" title="article example" />
+</div>
+
+<h2 id="footer">footer</h2>
+
+<p>The <code class="highlight__code">&lt;footer&gt;</code> element is used at the end of a webpage or another element. They usually include copyright notices or links to related web pages.</p>
+
+<div class="center">
+  <img src="/images/semantic-html-container/footer-example.png" alt="footer example" title="footer example" />
+</div>
+
+<h2 id="div-for-layout">div for layout</h2>
+
+<p>Semantic HTML tags should be used whenever you can. It is ok to use <code class="highlight__code">&lt;div&gt;</code> tag for layout purposes. If you are unsure about using a semantic HTML tag, use a div.</p>
+
+<p>An example of using a <code class="highlight__code">&lt;div&gt;</code> over semantic elements is when you are centering content by using the <code class="highlight__code">margin: auto</code> technique.</p>
+
+<h2 id="conclusion">conclusion</h2>
+
+<p>Semantic HTMl tags helps the browser identify your pages easier and helps people who use screenreader navigate through the page.</p>
+
+<p>To find out more about semantic HTML tags visit <a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics">MDN</a>.</p>
+:ET

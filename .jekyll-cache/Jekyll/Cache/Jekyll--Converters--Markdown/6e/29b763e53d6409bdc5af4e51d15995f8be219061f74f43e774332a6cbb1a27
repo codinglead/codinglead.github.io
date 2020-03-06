@@ -1,0 +1,98 @@
+I"o#<p>JavaScript has <span class="highlight__code">Spread Syntax</span> which allows you to expand arrays or other iterable objects. It is very useful when you are trying to pass elements of an array as separate arguments to a function.</p>
+
+<h2 id="syntax">Syntax</h2>
+
+<p>for array literals</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arrOfNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">newArray</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">five</span><span class="dl">"</span><span class="p">,</span> <span class="p">...</span><span class="nx">arrOfNumbers</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newArray</span><span class="p">);</span>
+ <span class="c1">// ["five", 0, 2, 3, 4, 10]</span>
+</code></pre></div></div>
+
+<p>for function calls</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">Arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="dl">"</span><span class="s2">five</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="nx">myFunction</span><span class="p">(...</span><span class="nx">Arr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="examples">Examples</h2>
+
+<p>When using the <span class="highlight__code">Spread Syntax</span> you will no longer need to use apply when you have an array of values that you want as arguments for a function call.</p>
+
+<p>with apply</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arrOfNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">biggestNumber</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">arrOfNumbers</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">biggestNumber</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>with Spread Syntax</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arrOfNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="err">​</span>
+<span class="kd">const</span> <span class="nx">biggestNumber</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">arrOfNumbers</span><span class="p">);</span>
+<span class="err">​</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">biggestNumber</span><span class="p">);</span>
+ <span class="c1">// 4</span>
+</code></pre></div></div>
+
+<p>JavaScript <span class="highlight__code">Spread Syntax</span> goes only 1 level when making a copy which means that when objects in a clone array are changed it will alter the objects in the original arr.</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[{</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">brian</span><span class="dl">"</span> <span class="p">}];</span>
+<span class="kd">let</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">arr1</span><span class="p">];</span>
+
+<span class="nx">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Joe</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+ <span class="c1">// {name: "Joe"}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+ <span class="c1">// {name: "Joe"}</span>
+</code></pre></div></div>
+
+<p>JavaScript <span class="highlight__code">Spread Syntax</span> allows you to concat arrays.</p>
+
+<p>without Spread Syntax</p>
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">three</span><span class="dl">"</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="nx">arr1</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">arr2</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr1</span><span class="p">);</span>
+<span class="c1">// [0, [1, 2], "apple", "three", 4, "string"]</span>
+</code></pre></div></div>
+
+<p>with spread syntax</p>
+
+<p class="highlight__file-desc">JavaScript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">three</span><span class="dl">"</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="nx">arr1</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">arr1</span><span class="p">,</span> <span class="p">...</span><span class="nx">arr2</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr1</span><span class="p">);</span>
+<span class="c1">// [0, [1, 2], "apple", "three", 4, "string"]</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The <span class="highlight__code">Spread Syntax</span> is very useful when you are trying to pass the elements of an array as single arguments to a function. It ultimately replaces apply and replaces multiple function on the Array.prototype.</p>
+
+:ET
