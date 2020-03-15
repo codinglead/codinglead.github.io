@@ -29,8 +29,7 @@
 /* styles for all the post on the home page */
 
 .post {
-  padding: 20px 10px 40px 10px;
-
+  padding-right: 10px;
   display: flex;
   justify-content: space-between;
 
@@ -71,8 +70,8 @@
 
 
 .post__link {
+  padding: 20px 54px 40px 10px;  
   flex: 1;
-  padding-right: 54px;
 }
 
 /* tags on every post styles */
