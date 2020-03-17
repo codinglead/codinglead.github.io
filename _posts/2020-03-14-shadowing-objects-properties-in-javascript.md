@@ -3,7 +3,7 @@ layout: project
 title: shadowing objects properties in javascript
 date: 2020-03-14 3:00 -0700
 meta: when creating a property on a object that has the same property name on its prototype it will shadow it.
-pic: images/javascript.jpeg
+pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://brianmunoz.co/", "https://github.com/colorlessenergy"]
