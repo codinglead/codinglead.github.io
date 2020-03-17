@@ -74,7 +74,7 @@ It is recommended to put a name when using functions as callbacks because if the
 
 ## arrow function
 
-Arrow functions is the shortest way you can delcare a function. The only difference the arrow functions is how <a href='/javascript/this-in-javascript' class="highlight__code">this</a> is defined.
+Arrow functions are the shortest way you can declare a function. The only difference the arrow functions is how <a href='/javascript/this-in-javascript' class="highlight__code">this</a> is defined.
 
 When using arrow function the <code class="highlight__code">this</code> is defined by where the arrow function is declared instead of where it is being executed.
 
