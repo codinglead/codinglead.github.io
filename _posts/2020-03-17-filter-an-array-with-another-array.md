@@ -1,6 +1,6 @@
 ---
 layout: project
-title: filter array with another array
+title: filter an array with another array
 date: 2020-03-16 6:20 -0700
 meta: Filtering an array with another array is useful when you have many elements you want to remove from an array.
 pic: images/javascript.png
