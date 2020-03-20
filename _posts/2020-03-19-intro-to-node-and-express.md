@@ -1,7 +1,7 @@
 ---
 layout: project
 title: intro to node and express
-date: 2018-11-05 4:30 -0700
+date: 2020-03-19 8:30 -0700
 meta: intro to node and express
 pic: images/node.svg
 imgAlt: the node logo
@@ -12,7 +12,9 @@ permalink: /backend/:title
 
 Node and Express is a easy way to get started with using the backend.
 
-Node is an asynchronous event driven JavaScript runtime. Express is a minimalist web application framework. Express has a very powerful routing system.
+Node is an asynchronous event driven JavaScript runtime. 
+
+Express is a minimalist web application framework. 
 
 ## exporting an node script
 
@@ -52,18 +54,17 @@ var message = require("./message");
 
 ## Node Modules
 
-Similar to libaries in c or python. There are more than 350k modules in NPM.
+Similar to libaries in c or python. 
 
-NPM is hub for libaries.
+There are more than 350k modules in NPM.
 
-### NPM
-Node Package Manager
+### NPM - Node Package Manager
 
-Automates installing, upgrading, removing modules
+Automates installing, upgrading, removing modules.
 
 Install packages with <span class="highlight__code">npm install [-g] package_name</span>
 
-<span class="highlight__code">-g</span>: Installs the package globally instead in a certain directory.
+<span class="highlight__code">-g</span>: Installs the package globally instead of a certain directory.
 
 ### Package.json
 
@@ -81,7 +82,7 @@ use <span class="highlight__code">npm install --save [package name]</span> to ad
 
 ### why have a package.json file?
 
-A package.json file is included because if you release the code people that are trying to download your code wouldn't have to download all the node packages. They will only need to download your code and run <span class="highlight__code">npm install</span> to get all the node packages needed for your code.
+A package.json file is included because if you were release the code people that are going to download your code wouldn't have to download all the node packages. They will only need to download your code and run <span class="highlight__code">npm install</span> to get all the node packages needed for your code.
 
 ## NPM commands
 
@@ -90,21 +91,21 @@ A package.json file is included because if you release the code people that are 
 
 <span class="highlight__code">npm run [script_name]</span> this runs the scripts you have defined from the scripts object in the package.json file.
 
-## express
 
-It is a minimalist web application framework. Similar to flask in python. It has a very powerful routing system.
 
-### express routing
+## express routing
+
+It is very powerful very quick to setup routes.
 
 ```javascript
 app.http-method(path, callback)
 ```
 
 Most common http methods.
-* get
-* post
-* put
-* delete
+* get - read data
+* post - send data
+* put - update data
+* delete - delete data
 
 A http method is a lowercase HTTP request method. path is the visited path usually made by a user. Callback is a function that takes 2 - 3 parameters.
 
