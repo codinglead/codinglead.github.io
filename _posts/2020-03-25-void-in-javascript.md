@@ -2,7 +2,7 @@
 layout: project
 title: void in JavaScript
 date: 2020-03-25 11:00 -0700
-meta:  When putting the void operator in front of a expression it makes the value returned undefined.
+meta:  When using the void operator in front of a expression it makes the value returned undefined.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
