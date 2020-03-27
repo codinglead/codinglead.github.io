@@ -38,7 +38,7 @@ We could use <code class="highlight__code">isNaN()</code> to check if the value 
 ```javascript
 let division = 1 / 'e';
 
-isNaN(division);
+isNaN(division); // true
 ```
 
 <code class="highlight__code">isNaN()</code> does more than you think.
