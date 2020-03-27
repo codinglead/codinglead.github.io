@@ -2,7 +2,7 @@
 layout: project
 title: testing for NaN
 date: 2020-03-27 6:00 -0700
-meta: NaN, Not a Number, is a value that happens when doing math operations with types that are not numbers
+meta: NaN, Not a Number, is a value that happens when doing math operations with types that are not numbers.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
