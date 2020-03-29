@@ -57,7 +57,7 @@ a.map(function (e, i) {
   return i;
 }); // [empty x3]
 
-a.map(function (e, i) {
+b.map(function (e, i) {
   return i;
 }); // [0, 1, 2]
 ```
