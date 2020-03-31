@@ -2,7 +2,7 @@
 layout: project
 title: using JSON.stringify with values that are not JSON-safe
 date: 2020-03-29 9:00 -0700
-meta: When using JSON.stringify you will most likey run into the issue of having some properties that are not JSON-safe.
+meta: When using JSON.stringify you will most likely run into the issue of having some properties that are not JSON-safe.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
