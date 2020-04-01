@@ -12,7 +12,7 @@ permalink: /javascript/:title
 
 Converting an object to a number has basic steps that are easy to reason with.
 
-When coercing an object to number it will first check if it has a <code class="highlight__code">valueOf()</code>
+When coercing an object to a number it will first check if it has a <code class="highlight__code">valueOf()</code>
 method if it does and returns a primitive value that value will be used for coercion. If <code class="highlight__code">valueOf()</code> doesn't exist or doesn't return a primitive value it will check if it has a <code class="highlight__code">toString()</code> method and use the value that was returned for coercion.
 
 If none of the operations can find a primitive value, a TypeError will be thrown.
