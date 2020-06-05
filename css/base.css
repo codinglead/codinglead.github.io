@@ -23,13 +23,9 @@ ul {
 
 main {
   display: flex;
-  margin: 40px;
+  margin: 20px;
 }
 
 a {
   text-decoration: none;;
 }
-
-/* img {
-  width: 300px;
-} */
