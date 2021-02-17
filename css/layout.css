@@ -143,11 +143,13 @@
 /* styles for the search results */
 
 .search {
-  position: absolute;
-  width: 100%;
-  background-color: #fff;
-  top: 88px;
   min-height: 100%;
+  position: absolute;
+  top: 134px;
+  right: 0;
+  width: 80%;
+
+  background-color: #fff;
 }
 
 .search__input-container {
@@ -210,7 +212,8 @@
 
   /* styles for the search results */
   .search {
-    top: 49px;
+    top: 100px;
+    width: 100%;
   }
 
   .search__input {
