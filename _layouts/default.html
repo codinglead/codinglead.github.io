@@ -47,8 +47,12 @@
     {% include nav.html %}
 
     <div class="container">
-      {{ content }}
+      <div class="search__input-container">
+        <input type="text" id="search-input" placeholder="search.." class="search__input" />
+      </div>
+      
 
+      {{ content }}
 
       <!-- html for search -->
 
