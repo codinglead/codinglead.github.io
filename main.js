@@ -17,10 +17,10 @@ searchBox.addEventListener('keyup', function () {
   // otherwise show the results
   // hide the post on the page
   if (!(searchBoxResultContainer.classList[1] === 'hide') && searchBox.value === '') {
-    searchBoxResultContainer.classList = 'search hide';
+    searchBoxResultContainer.classList.add('hide');
     mainContent.classList = 'posts';
   } else if (searchBox.value !== '') {
-    searchBoxResultContainer.classList = 'search';
+    searchBoxResultContainer.classList.remove('hide');
     mainContent.classList = 'posts hide';
   }
 })
