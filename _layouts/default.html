@@ -51,13 +51,10 @@
       {{ content }}
 
       <!-- html for search -->
-
-      <section class="search hide">
+      <section class="search {% if page.onHomePage == true %}search--home{% endif %} hide">
         <ul class="posts post--search" id="results-container"></ul>
       </section>
-
-
-
+      
       <!-- initialized the search functionality -->
       <script>
         SimpleJekyllSearch({
