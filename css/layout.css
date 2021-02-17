@@ -145,11 +145,15 @@
 .search {
   min-height: 100%;
   position: absolute;
-  top: 134px;
+  top: 216px;
   right: 0;
   width: 80%;
 
   background-color: #fff;
+}
+
+.search--home {
+  top: 134px;
 }
 
 .search__input-container {
@@ -212,8 +216,12 @@
 
   /* styles for the search results */
   .search {
-    top: 100px;
+    top: 196px;
     width: 100%;
+  }
+
+  .search--home {
+    top: 100px;
   }
 
   .search__input {
