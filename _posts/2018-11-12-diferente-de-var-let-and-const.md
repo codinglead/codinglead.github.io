@@ -266,7 +266,7 @@ const greeting = "hola";
 ```
 <span class="highlight__code">const</span> debe ser inicializado cuando se declara.
 
-just like <span class="highlight__code">let</span> <span class="highlight__code">const</span> es hoisted pero no inicializado.
+como <span class="highlight__code">let</span> y <span class="highlight__code">const</span> es hoisted pero no inicializado.
 
 <p class="highlight__file-desc">JavaScript</p>
 
