@@ -30,18 +30,19 @@
 
 .post {
   width: 49%;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  border: 1px solid #dcdcdc;
+  margin-bottom: 20px;
   border-radius: 5px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  transition: all 0.5s ease;
 }
 
 .post:hover {
-  background-color: #f1e8e0;
+  transform: scale(1.02);
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
 }
 
 .posts {
@@ -51,6 +52,7 @@
   
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .post--search {
@@ -72,25 +74,24 @@
 }
 
 .post__tags {
-  margin-top: 8px;
-  margin-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
 .post__link {
   padding: 20px 54px 40px 10px;  
   flex: 1;
+  border: 1px solid #dcdcdc;
 }
 
 /* tags on every post styles */
 
 .tag {
-  width: 40%;
-  padding: 8px;
-
   display: block;
-  
-  border-radius: 3px;
+  width: 33.33%;
+  padding: 8px;
+    
   color: #424242;
   font-weight: 700;
 }
