@@ -10,7 +10,7 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-<code class="highlight__code">localStorage</code> allows you to access an object that lets you store strings with key-value pairs the browser. If you store data that isn't a string it will convert it into a string. <code class="highlight__code">localStorage</code> does not have an expiration date.
+<code class="highlight__code">localStorage</code> allows you to access an object that lets you store strings with key-value pairs in the browser. If you store data that isn't a string it will convert it into a string. <code class="highlight__code">localStorage</code> does not have an expiration date.
 
 ## how to access local storage
 
