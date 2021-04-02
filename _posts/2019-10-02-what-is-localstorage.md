@@ -20,6 +20,8 @@ localStorage uses built in methods to access and modify it. It gets them from th
 
 The <code class="highlight__code">localStorage.setItem()</code> method allows you to add an item to localStorage.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 localStorage.setItem('isBrianCool', 'yes');
 localStorage.isBrianCool // "yes"
@@ -39,6 +41,7 @@ When storing an object into localStorage the browser will try to convert it into
 
 To fix this you will have to use <code class="highlight__code">JSON.stringify(object)</code> and when you want to access it later you would have to use <code class="highlight__code">JSON.parse(object)</code>.
 
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 let brian = {
@@ -54,6 +57,8 @@ localStorage.brian
 
 Now we can store objects and access them later by using <code class="highlight__code">JSON.parse(object)</code>
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 
 let brianObj = JSON.parse(brian);
@@ -65,6 +70,8 @@ console.log(brianObj);
 ### get items
 
 There are two ways to get items you can either use <code class="highlight__code">localStorage.getItem(item)</code> method or access it how you would normally access an object with a key.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 // storing the value yes inside the property brianIsCool
@@ -82,6 +89,9 @@ localStorage.getItem('brianIsCool');
 
 Items are removed by using the method <code class="highlight__code">localStorage.removeItem(item)</code>.
 
+
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 // storing the value yes inside the property youAreCool
 localStorage.setItem('youAreCool', 'yes');
@@ -96,6 +106,8 @@ localStorage
 ### remove all items
 
 If you want to clear localStorage you can use <code class="highlight__code">localStorage.clear()</code> method.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 
