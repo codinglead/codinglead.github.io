@@ -48,7 +48,8 @@ div.center {
   font-style: italic;
 }
 
-.language-javascript .p {
+.language-javascript .p,
+.language-javascript .se {
   color: #fff;
 }
 
