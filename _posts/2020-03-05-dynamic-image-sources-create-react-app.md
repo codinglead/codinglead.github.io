@@ -17,6 +17,8 @@ Recently I had to load many images with part of the URL coming from an API and d
 
 I will be showing you the code inside the <code class="highlight__code">render()</code> method.
 
+<p class="highlight__file-desc">React</p>
+
 ```javascript
 render() {
   const { post } = this.state
