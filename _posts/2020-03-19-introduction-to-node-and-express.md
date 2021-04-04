@@ -1,8 +1,8 @@
 ---
 layout: project
-title: intro to node and express
+title: introduction to node and express
 date: 2020-03-19 8:30 -0700
-meta: intro to node and express
+meta: introduction to node and express
 pic: images/node.svg
 imgAlt: the node logo
 tags: ["backend"]
@@ -10,19 +10,18 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /backend/:title
 ---
 
-Node and Express is a easy way to get started with using the backend.
+Node and Express is a easy way to get started with writing backend code.
+
+
+## what is Node and Express
 
 Node is an asynchronous event driven JavaScript runtime. 
 
 Express is a minimalist web application framework. 
 
-## exporting an node script
+## exporting a node script
 
-To use anything from other libaries or from own code export code from node module.
-
-use <span class="highlight__code">module.exports</span> and <span class="highlight__code">exports</span>.
-
-exports is an alias to module export.
+To export code that will be used in a different file use <span class="highlight__code">module.exports</span> and <span class="highlight__code">exports</span>.
 
 <p class="highlight__file-desc">
   node
@@ -30,21 +29,28 @@ exports is an alias to module export.
 
 ```javascript
 module.exports = {
-  message: "hi there"
+  message: "Hi 😎️"
 }
+
+exports.message = "Hello 😀️";
 ```
 
-## import into node script
-To import a node module you will have to use the require method to fetch the script.
+## how to import node modules
 
-If you pass in a path, it will run the script. if you pass in a string, it will look in node module folder. Everything you exported from the module will be put into the variable.
+To import a node module you will have to use the <span class="highlight__code">require</span> method to fetch the script.
+
+If you pass in a path to a file, it will look for it relatively and run the file.
+
+If you pass in a string, it will look for it in the node modules folder and run the file. 
+
+Everything you exported from the module will be put into the variable.
 
 <p class="highlight__file-desc">
   node
 </p>
 
 ```javascript
-// will look in the node module folder
+// will look in the node modules folder and run it
 var message = require("message");
 
 // will look in the same directory and run it
@@ -52,11 +58,9 @@ var message = require("./message");
 ```
 
 
-## Node Modules
+## information about Node Modules
 
-Similar to libaries in c or python. 
-
-There are more than 350k modules in NPM.
+There are more than 1.3 million modules in NPM.
 
 ### NPM - Node Package Manager
 
@@ -66,15 +70,15 @@ Install packages with <span class="highlight__code">npm install [-g] package_nam
 
 <span class="highlight__code">-g</span>: Installs the package globally instead of a certain directory.
 
-### Package.json
+### package.json
 
 Defines configuration for application
 
-Some tags defined metadata:
+Some configuration:
 * manadatory name
 * version
 
-Define scripts in "scripts" object which are commands that you can store and just call simply by running <span class="highlight__code">npm run [script-name]</span>
+Define scripts in "scripts" object which are commands that you can store and call by running <span class="highlight__code">npm run [script-name]</span>
 
 ### how to add to package.json
 
@@ -82,7 +86,7 @@ use <span class="highlight__code">npm install --save [package name]</span> to ad
 
 ### why have a package.json file?
 
-A package.json file is included because if you were release the code people that are going to download your code wouldn't have to download all the node packages. They will only need to download your code and run <span class="highlight__code">npm install</span> to get all the node packages needed for your code.
+A package.json file is included because people who install your node package wouldn't have to download all node packages. They will only need to download your code and run <span class="highlight__code">npm install</span> to get all the node packages needed for your code.
 
 ## NPM commands
 
@@ -95,23 +99,33 @@ A package.json file is included because if you were release the code people that
 
 ## express routing
 
-It is very powerful very quick to setup routes.
+Express is powerful and quick to setup routes.
+
+
+Here is an example of setting up routes.
+
+
+<p class="highlight__file-desc">
+  node
+</p>
 
 ```javascript
 app.http-method(path, callback)
 ```
 
-Most common http methods.
-* get - read data
-* post - send data
-* put - update data
-* delete - delete data
+Most common http methods
+* <span class="highlight__code">get</span> - read data
+* <span class="highlight__code">post</span> - send data
+* <span class="highlight__code">put</span> - update data
+* <span class="highlight__code">delete</span> - delete data
 
-A http method is a lowercase HTTP request method. path is the visited path usually made by a user. Callback is a function that takes 2 - 3 parameters.
+A http method is a lowercase HTTP request method. 
+* <span class="highlight__code">path</span> is the visited path usually made by a user. 
+* <span class="highlight__code">callback</span> is a function that takes 2 - 3 parameters.
 
 In the callback function it has 3 parameters that are passed in.
 
-* req - request object
-* res - response object
-* next - optional callback function
+* <span class="highlight__code">req</span> - request object
+* <span class="highlight__code">res</span> - response object
+* <span class="highlight__code">next</span> - optional callback function
 
