@@ -10,14 +10,7 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /backend/:title
 ---
 
-Node and Express is a easy way to get started with writing backend code.
-
-
-## what is Node and Express
-
-Node is an asynchronous event driven JavaScript runtime. 
-
-Express is a minimalist web application framework. 
+using Node with Express makes it easy to create an API.
 
 ## exporting a node script
 
@@ -39,9 +32,9 @@ exports.message = "Hello 😀️";
 
 To import a node module you will have to use the <span class="highlight__code">require</span> method to fetch the script.
 
-If you pass in a path to a file, it will look for it relatively and run the file.
+If you want to use code that you created pass in a path to the file, it will look for it relatively and run the file.
 
-If you pass in a string, it will look for it in the node modules folder and run the file. 
+If you want to use a code from NPM pass in the name of the package, it will look for it in the node modules folder and run the file. 
 
 Everything you exported from the module will be put into the variable.
 
@@ -64,7 +57,7 @@ There are more than 1.3 million modules in NPM.
 
 ### NPM - Node Package Manager
 
-Automates installing, upgrading, removing modules.
+Automates installing, upgrading, and removing modules.
 
 Install packages with <span class="highlight__code">npm install [-g] package_name</span>
 
