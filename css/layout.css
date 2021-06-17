@@ -11,7 +11,8 @@
 .course__link {
   display: inline-block;
   padding: 10px;
-  border: 1px solid #eee;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px 0px #00000040;
   color: #000;
   border-radius: 2px;
   text-decoration: none;
