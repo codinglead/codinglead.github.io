@@ -1,5 +1,5 @@
 ---
-title: javascript fetch reddit api part 3
+title: javascript fetch Reddit API part 3
 layout: project
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---
@@ -8,19 +8,20 @@ What we want to do now is display the title and a picture of the post if it has 
 
 [starter files for part 3](https://github.com/colorlessenergy/fetch-reddit/tree/part2)
 
-We will send the array of objects we got from the reddit api to a external function so it makes it easier to understand and read.
-
 go the main.js file it will look like this
+
+<p class="highlight__file-desc">main.js</p>
+
 ```javascript
 fetch("https://www.reddit.com/r/programmerhumor.json")
   .then(function (response) {
     return response.json();
   }).then(function (json) {
     return json.data.children;
-  })
+  });
 ```
 
-Now we will make a function that takes in data as a parameter and displays it on the browser. We will pass in the array with objects with the data we got with the <span class="highlight__code">fetch()</span> call.
+Now we will make a function that takes in data as a parameter and displays it on the browser. We will pass in the array with objects with the data we got from the <span class="highlight__code">fetch()</span> call.
 
 We will store the data we want to display in an array then pass the array and the link to the post to another function which will display it on the browser. The data we want is the title of the post and the image if it exist.
 
@@ -31,18 +32,17 @@ function dataToDom(arr) {
   let data = [];
 
   // looping through the array of objects
-  // that we got from the reddit api
+  // that we got from the Reddit API
   arr.forEach(function (obj) {
     // pass in a object with the data
-    // we want and the element ot append
+    // we want and the element to append
     // the data with
-
     data.push({
       data: obj.data.title,
       element: 'h1'
     });
 
-    // checking if a image exist
+    // checking if an image exist
     if (obj.data.url.includes('jpg')) {
       data.push({
         data: obj.data.preview.images[0].source.url,

@@ -1,5 +1,5 @@
 ---
-title: javascript fetch reddit api part 1
+title: javascript fetch Reddit API part 1
 layout: project
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---
@@ -31,4 +31,4 @@ HTML
 
 This form will be used to take user input.
 
-In [part2](../part2) we will use the function <span class="highlight__code">fetch()</span> to hit a endpoint and receive json data from the reddit api.
+In [part 2](../part2) we will use the function <span class="highlight__code">fetch()</span> to hit a endpoint and receive json data from the Reddit api.
