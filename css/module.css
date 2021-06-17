@@ -258,6 +258,16 @@
   border-bottom: 4px solid rgba(255, 237, 210, 0.3);
 }
 
+.blog-image-container {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.blog-image-container img {
+  width: 100%;
+}
+
 @media screen and (max-width: 900px) {
   .posts {
     margin: 0;
