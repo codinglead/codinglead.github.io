@@ -10,7 +10,7 @@ title: Courses
   {% if course.url contains 'index' %}
   <a class="course__link" href="{{ course.url }}">
     <img class="course__img" src="{{ site.baseurl }}/courses-images/{{ course.image }}" alt="{{ course.title }}">
-    <p>fetch api</p>
+    <p>{{ course.title }}</p>
   </a>
   {% endif %}
   {% endfor %}
