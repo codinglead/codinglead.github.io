@@ -257,11 +257,19 @@
   color: #555;
 }
 
-.proj ul li, .proj ul li {
+.proj ul li {
   margin-bottom: 15px;
   padding-bottom: 13px;
   font-size: 22px;
-  border-bottom: 4px solid rgba(255, 237, 210, 0.3);
+}
+
+.proj ul li ul {
+    margin-bottom: 0;
+}
+
+.proj ul li ul li {
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .blog-image-container {
@@ -292,10 +300,6 @@
 .dark .blogs-heading__title,
 .dark .course h1 {
   color: #00b4db;
-}
-
-.dark .proj ul li {
-  border-bottom: 4px solid #efefef;
 }
 
 .dark .post__title,
