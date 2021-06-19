@@ -268,6 +268,49 @@
   width: 100%;
 }
 
+.dark,
+.dark .search {
+  background-color: #1a1d24;
+}
+
+.dark .sidebar__list a,
+.dark .proj a,
+.dark .blogs-heading__title,
+.dark .course h1 {
+  color: #00b4db;
+}
+
+.dark .proj ul li {
+  border-bottom: 4px solid #efefef;
+}
+
+.dark .post__title,
+.dark .post__meta,
+.dark .proj h1,
+.dark .proj p,
+.dark .blog-pagination__title,
+.dark a.social__author,
+.dark .sidebar__title,
+.dark .course__link,
+.dark .proj ul li,
+.dark .post--search,
+.dark .footer {
+  color: #efefef;
+}
+
+.dark svg path {
+  fill: #ffffff;
+}
+
+.dark .social__author {
+  background-color: rgba(65, 218, 176, 0.5);
+}
+
+.dark .highlight__code {
+  background-color: rgba(236, 48, 48, 0.4);
+  border-bottom: 2px solid rgba(236, 48, 48, 0.6);
+}
+
 @media screen and (max-width: 900px) {
   .posts {
     margin: 0;
