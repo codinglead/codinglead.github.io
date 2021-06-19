@@ -32,7 +32,6 @@ window.addEventListener('load', () => {
     }
 
     let themeSelector = document.querySelector('#themeSelector');
-    themeSelector.textContent = localStorage.getItem('theme');
     let body = document.body;
     if (localStorage.getItem('theme') === 'dark') {
         body.classList.add('dark');
