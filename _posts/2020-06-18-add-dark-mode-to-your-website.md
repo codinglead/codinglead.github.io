@@ -84,7 +84,7 @@ Now we have to create the functionality to:
 * add conditions to check if the theme value is "dark" or "light" 
 * if the value of the theme is "light"
     * set the theme value in localStorage to be "dark"
-    * set the text content of the button to be a son emoji
+    * set the text content of the button to be a sun emoji
 * otherwise
     * set the theme value in localStorage to be "light"
     * set the text content of the button to be a moon emoji
