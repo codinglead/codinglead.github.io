@@ -25,3 +25,31 @@ if (searchBox) {
         }
     });
 }
+
+window.addEventListener('load', () => {
+    if (!localStorage.getItem('theme')) {
+        localStorage.setItem('theme', 'light');
+    }
+
+    let themeSelector = document.querySelector('#themeSelector');
+    themeSelector.textContent = localStorage.getItem('theme');
+    let body = document.body;
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark');
+        themeSelector.textContent = '🌙️';
+    } else {
+        themeSelector.textContent = '☀️';
+    }
+    
+    themeSelector.addEventListener('click', () => {
+        if (localStorage.getItem('theme') === 'light') {
+            localStorage.setItem('theme', 'dark');
+            themeSelector.textContent = '🌙️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeSelector.textContent = '☀️';
+        }
+
+        body.classList.toggle('dark');
+    });
+});
