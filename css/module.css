@@ -26,6 +26,12 @@
   color: rgba(255,255,255,0.7);
 }
 
+.nav__buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* styles for all the post on the home page */
 
 .post {
