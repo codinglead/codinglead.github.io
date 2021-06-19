@@ -36,18 +36,18 @@ window.addEventListener('load', () => {
     let body = document.body;
     if (localStorage.getItem('theme') === 'dark') {
         body.classList.add('dark');
-        themeSelector.textContent = '🌙️';
-    } else {
         themeSelector.textContent = '☀️';
+    } else {
+        themeSelector.textContent = '🌙️';
     }
     
     themeSelector.addEventListener('click', () => {
         if (localStorage.getItem('theme') === 'light') {
             localStorage.setItem('theme', 'dark');
-            themeSelector.textContent = '🌙️';
+            themeSelector.textContent = '☀️';
         } else {
             localStorage.setItem('theme', 'light');
-            themeSelector.textContent = '☀️';
+            themeSelector.textContent = '🌙️';
         }
 
         body.classList.toggle('dark');
