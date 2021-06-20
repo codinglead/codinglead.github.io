@@ -28,7 +28,7 @@ if (searchBox) {
 
 window.addEventListener('load', () => {
     if (!localStorage.getItem('theme')) {
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem('theme', 'dark');
     }
 
     let themeSelector = document.querySelector('#themeSelector');
