@@ -44,4 +44,4 @@ render() {
 }
 ```
 
-we only could of used <code class="highlight__code">require()</code> because <code class="highlight__code">import</code> statements are only allowed at the top of the file.
+we used <code class="highlight__code">require()</code> instead of <code class="highlight__code">import</code> statements because they are only allowed at the top of the file.
