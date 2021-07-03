@@ -21,7 +21,7 @@ We will Use the data we get from the fetch call to display the title and a pictu
 
 [part4](../part4):
 
-What we will do is make the form work with JavaScript to search different subreddits.
+In part 4 we will create an AJAX request when the form is submitted to search different subreddits.
 
 [part5](../part5):
 

@@ -4,13 +4,13 @@ layout: project
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---
 
-What we are trying to do is take user input from the form we made in the HTML to search different subreddits.
+What we are trying to do is take user input from the form and create a AJAX request to search in different subreddits.
 
 [starter files for part 4](https://github.com/colorlessenergy/fetch-reddit/tree/part3)
 
-We first are going to have to get access to the form and the input tags from the html. We will give the form a event listener of submit so if the user is focus on the input and presses enter or if the user presses the button it will submit the form and we will use JavaScript to handle it. This will be at the top of the file after the <span class="highlight__code">post</span> variable.
+We first are going get access to the form and the input tags. We will give the form an event listener of submit so if the user is focus on the input and presses enter or if the user presses the submit button it will submit the form and we will use JavaScript to handle it. This will be at the top of the file after the <span class="highlight__code">post</span> variable.
 
-<p class="higlight__file-desc">main.js</p>
+<p class="highlight__file-desc">main.js</p>
 
 ```javascript
 // get the form and input from the HTML
@@ -26,7 +26,7 @@ form.addEventListener('submit', function (event) {
 });
 ```
 
-now we need to get the user input's value and pass into the search function we made in the last blog.
+Now we need to get the user input value and pass into the search function we made in the previous part.
 
 ```javascript
 form.addEventListener('submit', function (event) {
