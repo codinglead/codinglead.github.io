@@ -2,8 +2,8 @@ baseurl: ''
 exclude: ['README.md', '.gitignore']
 permalink: pretty
 
-description: coding lead web docs provides information about HTML, CSS and JavaScript.
-title: Front End web development - coding lead
+description: codinglead web docs provides information about HTML, CSS and JavaScript.
+title: Front End web development - codinglead
 
 collections:
   courses:
