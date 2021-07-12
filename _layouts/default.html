@@ -61,7 +61,8 @@
           searchInput: document.getElementById('search-input'),
           resultsContainer: document.getElementById('results-container'),
           json: '/search.json',
-          searchResultTemplate: '<li class="post"> <a class="post__link" href="{{ site.baseurl }}{url}">  <div> <h3 class="post__title">{title}</h3> <p class="post__meta">{content}</p> </div></a> </li>'
+          searchResultTemplate: '<li class="post"> <a class="post__link" href="{{ site.baseurl }}{url}">  <div> <h3 class="post__title">{title}</h3> <p class="post__meta">{content}</p> </div></a> </li>',
+          noResultsText: '<li class="no-results">no results</li>'
         })
       </script>
 

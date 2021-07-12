@@ -176,9 +176,10 @@
 
 /* no results found styles */
 
-#result-container {
+.no-results {
+  color: #424242;
   font-size: 20px;
-  text-align: center;
+  font-weight: 700;
 }
 
 .hide {
