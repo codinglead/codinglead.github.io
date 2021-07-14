@@ -10,9 +10,7 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-it's all of them...
-
-Javascript is a single-threaded, synchronous language. A function that takes a long time to run it will cause the page to become unresponsive .Javascript does have functions that act asynchronously.
+Javascript is a single-threaded, synchronous language. A function that takes a long time to run will cause the page to become unresponsive. Javascript does have functions that act asynchronously such as <span class="highlight__code">fetch</span>.
 
 It is single threaded which means it doesn't have any other processes going on at a single time. It is also Synchronous which means it can't move on until something is done.
 
@@ -22,24 +20,22 @@ It is single threaded which means it doesn't have any other processes going on a
 
 ```javascript
 function hang(seconds) {
- // gets the current time in ms
- let now = new Date().getTime();
+    // gets the current time in ms
+    const now = new Date().getTime();
 
- while(
-   new Date().getTime() <
-   now + (seconds * 1000)
-   )
- {/* do nothing */ }
+    while(new Date().getTime() < now + (seconds * 1000)) {
+        /* do nothing */ 
+    }
 }
 ```
 
-Since javascript is single threaded and synchronous, the while loop in the hang function will keep running which makes the page unresponsive because it is taking up the only thread JavaScript has.
+The while loop in the hang function makes the page unresponsive because it is taking up the only thread JavaScript has.
 
 This is terrible because if you have a lot of functions that take more then a second to run the page will be really slow and bad.
 
-This problem is the reason that javascript has asynchronous functions.
+This problem is the reason that JavaScript has asynchronous functions.
 
-## asynchronous javascript
+## asynchronous JavaScript
 
 Some terms you may have heard of.
 
@@ -48,41 +44,41 @@ Some terms you may have heard of.
 * function queue
 * event loop
 
-These are very powerful to getting things done without blocking the user.
-
 ### execution stack
 
-The exeuction stack is whatever javascript is running. runs synchronously. Determines what order things are ran. if you have a bunch of functions on the stack it pops them off then runs it.
+The execution stack run synchronously and it is whatever JavaScript is running. It determines what order things are ran. If you have a bunch of functions on the stack it pops them off one by one then runs them.
 
-### browser apis
+### browser APIs
 
-A bunch of functions that is provided by the browser. Also known as the window object.
+A bunch of functions that is provided by the browser .
 
 ![window object]({{ site.baseurl }}/images/window-object.png)
 
-If we call one of the browser api it is ran separately.
+If we call one of the browser APIs it is ran separately.
 
-Some browser apis are <span class="highlight__code">setTimeout()</span>, <span class="highlight__code">setInterval()</span>.
+Some browser APIs are <span class="highlight__code">setTimeout()</span>, <span class="highlight__code">setInterval()</span>.
 
 ### function queue
 
-Queues up functions that are ready to be runned. These functions are pulled from the browser api.
+Queues up functions that are ready to be ran. These functions are pulled from the browser API.
 
 ### event loop
 
-When the execution stack is cleared it says I need to do something else. The event loop tells the execution stack that there is a function waiting on the function queue then puts one on the stack.
+When the execution stack is cleared it says I need to do something else then the event loop tells the execution stack that there is a function waiting on the function queue then puts one on the stack.
 
 ## how it works all together
 
-This javascript code is ran.
+<p class="highlight__file-desc">
+    JavaScript
+</p>
 
 ```javascript
 setTimeout(function () {
- console.log('runned after 1 second')
-}, 1000)
+    console.log('ran after 1 second');
+}, 1000);
 ```
 
-It just console log something after 1 second of waiting. it will get executed then sent to the browser api to get the function and run <span class="highlight__code">setTimeout()</span> then it will wait for the time that was given in this case it is 1 second then the function will get to sent to the function queue then the event loop will send it back to the execution stack to be ranned.
+After the JavaScript is executed it console logs something after 1 second of waiting. once it is executed the <span class="highlight__code">setTimeout</span> function is sent to the browser API to run the function then it will wait for the time that was given in this case it is 1 second then the function will get to sent to the function queue then the event loop will send it back to the execution stack to be ran.
 
 
 ```javascript
@@ -144,11 +140,11 @@ greetUser();
 
 ```
 
-## promises
+## reasons to use promises
 
-alleviates 'callback hell'
-allows you to write code that assumes a value is returned within a success function
-only needs a single error handlers
+* alleviates 'callback hell'
+* allows you to write code that assumes a value is returned within a success function
+* only needs a single error handler
 
 ## conclusion
 
