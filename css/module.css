@@ -312,6 +312,10 @@
   color: #efefef;
 }
 
+.dark .proj h3 {
+  color: #8ddff4;
+}
+
 .dark svg path {
   fill: #ffffff;
 }
