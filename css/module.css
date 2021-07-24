@@ -308,6 +308,7 @@
 .dark .course__link,
 .dark .proj ul li,
 .dark .post--search,
+.dark .no-results,
 .dark .footer {
   color: #efefef;
 }
