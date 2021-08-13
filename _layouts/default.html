@@ -55,21 +55,21 @@
         <ul class="posts post--search" id="results-container"></ul>
       </section>
       
-      <!-- initialized the search functionality -->
-      <script>
-        SimpleJekyllSearch({
-          searchInput: document.getElementById('search-input'),
-          resultsContainer: document.getElementById('results-container'),
-          json: '/search.json',
-          searchResultTemplate: '<li class="post"> <a class="post__link" href="{{ site.baseurl }}{url}">  <div> <h3 class="post__title">{title}</h3> <p class="post__meta">{content}</p> </div></a> </li>',
-          noResultsText: '<li class="no-results">no results</li>'
-        })
-      </script>
-
       <!-- footer -->
       <footer class="footer">
         <p>&copy; codinglead 2021</p>
       </footer>
     </div>
+
+    <!-- initialized the search functionality -->
+    <script>
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<li class="post"> <a class="post__link" href="{{ site.baseurl }}{url}">  <div> <h3 class="post__title">{title}</h3> <p class="post__meta">{content}</p> </div></a> </li>',
+            noResultsText: '<li class="no-results">no results</li>'
+        })
+    </script>
   </body>
 </html>
