@@ -1,8 +1,9 @@
 ---
 layout: project
-title: logical operators in javascript
+title: logical operators in JavaScript
 date: 2018-12-21 4:00 -0700
-meta: Logical operators are used when doing comparisons of boolean values. if Booleans are being used it will either return true or false. If non-boolean values are used for operands if will return one of the specified operands. The logical operators look like (||) or (&&).
+updated: 2020-06-12 11:40 -0700
+meta: Logical operators are used when doing comparisons of boolean values. if Booleans are being used it will either return true or false. If non-boolean values are used for operands if will return one of the specified operands. The logical operators look like (||), (&&) and (!).
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -26,6 +27,8 @@ When the logical operators <code class="highlight__code">(||)</code> and <code c
 
 The <span class="highlight__code">&&</span> will return the first expression if it converts to false otherwise the second expression will be returned.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 let ex1 = false && false; // return false
 let ex2 = "" && false; // return ""
@@ -35,12 +38,22 @@ let ex5 = 2 && ""; // return ""
 let ex5 = 2 && 3; // return 3
 ```
 
-<span class="highlight__code">ex1</span> returned false because the first expression evaluated to a falsy value. <span class="highlight__code">ex2</span> returned a empty string because the first expression evaluated to a falsy value. <span class="highlight__code"> ex3</span> and <span class="highlight__code">ex4</span> returned false because the first expression evaluated to a falsy value. <span class="highlight__code">ex5</span> returned a empty string because the first expression evaluated to true so it had to evaulate the second expression and it was false. <span class="highlight__code">ex6</span> returned 3 because the first expression and second expression evaluated to true so it returned the last expression that was evaluated.
+<span class="highlight__code">ex1</span> returned false because the first expression evaluated to a falsy value.
+
+<span class="highlight__code">ex2</span> returned a empty string because the first expression evaluated to a falsy value.
+
+<span class="highlight__code"> ex3</span> and <span class="highlight__code">ex4</span> returned false because the first expression evaluated to a falsy value.
+
+<span class="highlight__code">ex5</span> returned a empty string because the first expression evaluated to true so it had to evaulate the second expression and it was false. 
+
+<span class="highlight__code">ex6</span> returned 3 because the first expression and second expression evaluated to true so it returned the last expression that was evaluated.
 
 
 ## how logical OR works (||)
 
 The <span class="highlight__code">||</span> will return the first expression if it converts to true otherwise the second expression will be returned.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 let ex1 = false || false; // return false
@@ -51,11 +64,23 @@ let ex5 = (1 === 3) || false; // return false
 let ex6 = 2 || ""; // return 2
 ```
 
-<span class="highlight__code">ex1</span> returned false because the first and second expression evaluated to falsy values. <span class="highlight__code">ex2</span> returned true because the first expression evaluated to a truthy value. <span class="highlight__code">ex3</span> returned "Lime" because the first expression evaluated to a truthy value. <span class="highlight__code">ex4</span> returned "Lemon" because the first expression evaluated to a truthy value. <span class="highlight__code">ex5</span> returned false because the first and second expression evaluated to falsy values. <span class="highlight__code">ex6</span> returned 2 because the first expression evaluated to a truthy value.
+<span class="highlight__code">ex1</span> returned false because the first and second expression evaluated to falsy values. 
+
+<span class="highlight__code">ex2</span> returned true because the first expression evaluated to a truthy value. 
+
+<span class="highlight__code">ex3</span> returned "Lime" because the first expression evaluated to a truthy value. 
+
+<span class="highlight__code">ex4</span> returned "Lemon" because the first expression evaluated to a truthy value. 
+
+<span class="highlight__code">ex5</span> returned false because the first and second expression evaluated to falsy values.
+
+<span class="highlight__code">ex6</span> returned 2 because the first expression evaluated to a truthy value.
 
 ## how logical NOT works (!)
 
-If will convert the expression into a boolean if it isn't already a boolean. It will convert the value into the boolean value.
+logical NOT will convert the expression into a boolean if it isn't already a boolean. 
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 let ex1 = !true; // false
@@ -65,4 +90,4 @@ let ex3 = !'dragon'; // false
 
 ## conclusion
 
-Now you know how the AND, OR and NOT logical operators work. You are 1 step closer to being a javascript master. These are tools that will enhance your ability to write complex code.
+Logical operators are used when making conditions. AND and OR operator are short circuited.
