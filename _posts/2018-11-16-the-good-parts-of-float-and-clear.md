@@ -2,7 +2,8 @@
 layout: project
 title: the good parts of float and clear
 date: 2018-11-14 6:30 -0700
-meta: floats and clear is still important to know because you never know when you are going to be working on legacy code.
+updated: 2020-06-12 11:19 -0700
+meta: floats and clear are important to know because you never know when you are going to be working on legacy code.
 pic: images/css-logo.svg
 imgAlt: the CSS3 logo
 tags: ["html", "css"]
@@ -10,19 +11,19 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /css/:title
 ---
 
-<span class="highlight__code">flexbox</span> and <span class="highlight__code">css grid</span> are the new boys in the block but you will never know when you are going to need to know how <span class="highlight__code">float</span> and <span class="highlight__code">clear</span> works.
+<span class="highlight__code">flexbox</span> and <span class="highlight__code">css grid</span> are the new boys in the block but you will never know when you are going to need to know how <span class="highlight__code">float</span> and <span class="highlight__code">clear</span> work.
 
-<span class="highlight__code">float</span> and <span class="highlight__code">clear</span> is not that difficult once you understand what is happening. It is Important to know because you never know when you are going to be working on legacy code.
+<span class="highlight__code">float</span> and <span class="highlight__code">clear</span> are not difficult once you understand what is happening.
 
 ## basic understanding
 
-It looks like when you float an element, all other elements that are not floated wrap around the floated element.
+It looks like when you <span class="highlight__code">float</span> an element, all other elements that are not floated wrap around the floated element.
 
-<p class="text-center">
-  <img width="400" src="{{site.baseurl}}/images/float-and-clear__basic-understanding.png" alt="box floated to the left">
-</p>
+<div class="text-center">
+  <img src="{{site.baseurl}}/images/float-and-clear__basic-understanding.png" alt="box floated to the left">
+</div>
 
-the code for the image above.
+The code for the image above.
 
 <p class="highlight__file-desc">HTML</p>
 
@@ -52,7 +53,6 @@ It is a good assumption that everything wraps around floated element but really 
 
 When giving the blue box opacity you can see the red box is underneath the blue one. Only the text is wrapped around the floated element.
 
-
 *Note: using the same code from the previous one just adding a opacity to the blue box.*
 
 <p class="highlight__file-desc">CSS</p>
@@ -63,15 +63,15 @@ When giving the blue box opacity you can see the red box is underneath the blue 
 }
 ```
 
-<p class="text-center">
-  <img width="400" src="{{site.baseurl}}/images/float-and-clear__basic-understanding2.png" alt="box floated to the left">
-</p>
+<div class="text-center">
+  <img src="{{site.baseurl}}/images/float-and-clear__basic-understanding2.png" alt="box floated to the left">
+</div>
 
 You can think of float as a element that is floating in the air and everything but text goes underneath it.
 
-How would we fix it that the red box doesn't go underneath the blue box.
+How would we fix it so that the red box doesn't go underneath the blue box?
 
-The answer is <span class="higlight__code">clear</span>.
+The answer is <span class="highlight__code">clear</span>.
 
 <p class="highlight__file-desc">CSS</p>
 
@@ -81,9 +81,9 @@ The answer is <span class="higlight__code">clear</span>.
 }
 ```
 
-<p class="text-center">
-  <img width="400" src="{{site.baseurl}}/images/float-and-clear__fix-float.png" alt="box floated to the left">
-</p>
+<div class="text-center">
+  <img src="{{site.baseurl}}/images/float-and-clear__fix-float.png" alt="box floated to the left">
+</div>
 
 When we add <span class="highlight__code">clear: both</span> it moves the element out of where the floating elements are.
 
@@ -95,7 +95,7 @@ When we add <span class="highlight__code">clear: both</span> it moves the elemen
 Float will be most likely used when trying to make columns.
 
 <p class="text-center">
-  <img width="400" src="{{site.baseurl}}/images/float-and-clear__practical-example.png" alt="box floated to the left">
+  <img src="{{site.baseurl}}/images/float-and-clear__practical-example-1.png" alt="two boxes one floated to the left and right">
 </p>
 
 The code for above picture. This is the most common case you will find people using float.
@@ -140,9 +140,9 @@ You might be wondering what if we put another element that isn't floated what wi
 </section>
 ```
 
-<p class="text-center">
-  <img width="400" src="{{site.baseurl}}/images/float-and-clear__practical-example2.png" alt="box floated to the left">
-</p>
+<div class="text-center">
+  <img src="{{site.baseurl}}/images/float-and-clear__practical-example-2.png" alt="text between two floated elements">
+</div>
 
 The section we add just goes in the middle how would we fix this ?
 
@@ -159,11 +159,11 @@ section {
 }
 ```
 
-<p class="text-center">
-  <img width="400" src="{{site.baseurl}}/images/float-and-clear__practical-example3.png" alt="box floated to the left">
-</p>
+Once we add <span class="highlight__code">clear: both</span> it moves the element away from the floating elements.
 
-Once we add <span class="highlight__code">clear: both</span> it moves the element out of where the floating elements are.
+<div class="text-center">
+  <img src="{{site.baseurl}}/images/float-and-clear__practical-example-3.png" alt="element moved away from the floating elements">
+</div>
 
 ## why you shouldn't use float and clear
 
@@ -171,4 +171,4 @@ There is no practical reason to use float and clear. use flexbox when trying to 
 
 ## conclusion
 
-Float and clears are outdated css and should never be used. It is important to know how they work because you will see a lot of it in old legacy code. Use flex when trying to achieve layouts float gives you.
+Use flex instead of float and clear because they are outdated. It is important to know how they work because you will see a lot of it in old legacy code. 
