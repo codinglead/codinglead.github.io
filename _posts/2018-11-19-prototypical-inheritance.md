@@ -2,7 +2,7 @@
 layout: project
 title: prototypical inheritance
 date: 2018-11-19 4:00 -0700
-updated: 2020-08-12 18:33 -0700
+updated: 2020-08-15 18:33 -0700
 meta: What is prototype inheritance in javascript. It is an object with methods and properties that are given to non-primitive types.
 pic: images/javascript.png
 imgAlt: the JavaScript logo
