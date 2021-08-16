@@ -2,7 +2,8 @@
 layout: project
 title: prototypical inheritance
 date: 2018-11-19 4:00 -0700
-meta: What is prototype inheritance in javascript. Also known as prototypical inheritance. It is just a object with methods and properties that is given to non-primitive types.
+updated: 2020-08-12 18:33 -0700
+meta: What is prototype inheritance in javascript. It is an object with methods and properties that are given to non-primitive types.
 pic: images/javascript.png
 imgAlt: the JavaScript logo
 tags: ["javascript"]
@@ -10,11 +11,11 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-In JavaScript there are non primitive types that have methods that you call on them.
+In JavaScript there are <span class="highlight__code">non-primitive</span> types that have methods and properties that can be called on them.
 
-<span class="highlight__code">non primitive types</span> are functions, objects and arrays.
+<span class="highlight__code">non-primitive</span> values are functions, objects and arrays.
 
-Prototypical inheritance is just a object with methods and properties that is given to non primitive types.
+Prototypical inheritance It is an object with methods and properties that are given to non-primitive types..
 
 ## non-primitive types have a few properties or methods associated with them
 
@@ -41,9 +42,9 @@ arr.test() // hi
 
 Every object stores a reference to its prototype.
 
-In the example above the array stored a test method and in the Array prototype and also stored a test method on the array instance.
+In the previous example the test function was stored on the array and in the <span class="highlight__code">Array</span> prototype.
 
-When calling the test method on the array, JavaScript looks for method on the prototype chain starting from the variable instance. When the method we are looking is found JavaScript stops looking for it in the prototype chain and uses it.
+When executing the test method on the array, JavaScript looks for method on the prototype chain starting from the variable instance. When the method we are looking for is found JavaScript stops looking for it in the prototype chain and uses it.
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -51,20 +52,13 @@ When calling the test method on the array, JavaScript looks for method on the pr
 arr.test() // hi
 ```
 
-The prototype chain will look like this for the example above. JavaScript starts looking from the bottom and looks upwards.
-
-* null
-* object
-* array
-* instance of variable
+The prototype chain will look like this for the example above. 
 
 instance of variable => array => object => null
 
 You can think of the prototype chain as the way JavaScript looks for a method when it is being called on a object.
 
-note: almost everything in JavaScript is a object.
-
-JavaScript found the test method on the array instance, this is why the test method on the array was executed instead of the test method on the Array prototype.
+JavaScript found the test method on the array instance first, this is why the test method on the array was executed instead of the test method on the <span class="highlight__code">Array</span> prototype.
 
 ## primitive types have object wrappers
 
@@ -76,7 +70,7 @@ JavaScript found the test method on the array instance, this is why the test met
 
 JavaScript has object wrappers that you can declare so you have access to methods on the prototype.
 
-JavaScript will automatically "box" wrap primitives values so you have access to methods
+JavaScript will automatically "box" wrap primitives values so you have access to methods.
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -86,7 +80,7 @@ JavaScript will automatically "box" wrap primitives values so you have access to
 var x = 42;
 x.toString() // "42"
 x._proto__ // access to proto
-x.instanceof Number // false
+x instanceof Number // false
 ```
 
 When declaring a variable to be a primitive type it will wrap the primitive object wrapper.
@@ -102,7 +96,3 @@ The alternative is storing it at the instance instead on the prototype.
 ## the danger of using reference to the prototype
 
 Change something on one prototype changes it in every single instance.
-
-happy coding :)
-
-Any question feel free to contact me brianmunozdev@gmail.com
