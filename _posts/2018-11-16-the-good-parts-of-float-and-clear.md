@@ -2,7 +2,7 @@
 layout: project
 title: the good parts of float and clear
 date: 2018-11-14 6:30 -0700
-updated: 2020-06-12 11:19 -0700
+updated: 2020-08-12 11:19 -0700
 meta: floats and clear are important to know because you never know when you are going to be working on legacy code.
 pic: images/css-logo.svg
 imgAlt: the CSS3 logo
