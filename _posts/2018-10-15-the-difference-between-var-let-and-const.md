@@ -2,6 +2,7 @@
 layout: project
 title: the difference between var, let, and const
 date:  2018-10-15 3:19 -0700
+updated: 2020-06-12 18:11 -0700
 meta: a explanation of why and how to use const, let, and var variable declarations in javascript.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -179,8 +180,6 @@ console.log(greet)
 
 Since <span class="highlight__code">var</span> gets redefined it messes with the global scope version of the variable.
 
-Overall only use <span class="highlight__code">var</span> as a stylistic choice by showing the reader that you are planning to use <span class="highlight__code">var</span> all over your code.
-
 ## The significance of let
 
 <span class="highlight__code">let</span> is usually the variable declaration that is used over <span class="highlight__code">var</span> because it has better features than <span class="highlight__code">var</span> does.
@@ -330,7 +329,3 @@ Most of the time use <span class="highlight__code">let</span> and <span class="h
 3. <span class="highlight__code">var</span> declarations are globally or function scoped while <span class="highlight__code">let</span> and <span class="highlight__code">const</span> are block scoped.
 
 4. use <span class="highlight__code">const</span> when wanting to declare a variable that shouldn't change.
-
-happy coding!
-
-
