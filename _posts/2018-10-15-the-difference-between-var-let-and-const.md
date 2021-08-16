@@ -2,7 +2,7 @@
 layout: project
 title: the difference between var, let, and const
 date:  2018-10-15 3:19 -0700
-updated: 2020-06-12 18:11 -0700
+updated: 2020-08-15 18:11 -0700
 meta: a explanation of why and how to use const, let, and var variable declarations in javascript.
 pic: images/javascript.png
 imgAlt: the javascript logo

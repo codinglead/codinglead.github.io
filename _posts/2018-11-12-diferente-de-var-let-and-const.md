@@ -2,7 +2,7 @@
 layout: project
 title: la diferencia entre var, let, y const
 date:  2018-11-12 3:02 -0700
-updated: 2020-06-12 18:11 -0700
+updated: 2020-08-15 18:11 -0700
 meta: explicación cuando usar const, let y var declaración cuando usando javascript
 pic: images/javascript.png
 imgAlt: the javascript logo
