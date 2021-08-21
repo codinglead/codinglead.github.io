@@ -1,7 +1,7 @@
 ---
 layout: project
 title: add dark mode to your website
-date: 2020-06-18 21:30 -0700
+date: 2021-06-18 21:30 -0700
 meta: how to add dark mode to your website 
 pic: images/javascript.png
 imgAlt: the javascript logo
