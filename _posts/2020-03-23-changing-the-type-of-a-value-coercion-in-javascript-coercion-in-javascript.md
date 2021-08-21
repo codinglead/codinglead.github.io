@@ -2,7 +2,7 @@
 layout: project
 title: changing the type of a value - coercion in javascript
 date: 2020-03-23 8:00 -0700
-updated: 2020-08-21 14:13 -0700
+updated: 2021-08-21 14:13 -0700
 meta: Changing the type of a value can sometimes be confusing because JavaScript tries to be helpful and implicitly change the type for you.
 pic: images/javascript.png
 imgAlt: the javascript logo
