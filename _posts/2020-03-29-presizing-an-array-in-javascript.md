@@ -2,6 +2,7 @@
 layout: project
 title: presizing an array in JavaScript
 date: 2020-03-29 9:00 -0700
+published: false
 meta: Presizing an array in JavaScript
 pic: images/javascript.png
 imgAlt: the javascript logo
