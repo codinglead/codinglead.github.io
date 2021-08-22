@@ -2,6 +2,7 @@
 layout: project
 title: concatenate string javascript
 date: 2019-04-19 1:00 -0700
+published: false
 meta: concatenating strings are really useful when you are trying to embed a variable inbetween two strings.
 pic: images/javascript.png
 imgAlt: the JavaScript logo

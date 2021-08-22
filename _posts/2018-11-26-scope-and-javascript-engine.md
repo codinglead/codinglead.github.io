@@ -2,6 +2,7 @@
 layout: project
 title: Scope and the JavaScript engine
 date: 2018-11-26 7:40 -0700
+published: false
 meta: javascript scope and the javascript engine. this article will explain how variables are seen in javascript and how javascript runs your code.
 pic: images/javascript.png
 imgAlt: the javascript logo
