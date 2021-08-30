@@ -20,13 +20,13 @@ The function that is passed in is executed for every element in the array with t
 ```javascript
 const numbers = [3, 10, 40, 3];
 
-const newNumbers = arr.filter(function (number) {
+const newNumbers = numbers.filter(function (number) {
   return number >= 10;
 });
 
 console.log(numbers); // [3, 10, 40, 3]
 
-conosle.log(newNumbers); // [10, 40]
+console.log(newNumbers); // [10, 40]
 ```
 
 In the example above we are filtering out numbers that are greater than 10.
