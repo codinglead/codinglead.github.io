@@ -2,12 +2,14 @@
 layout: project
 title: What is array sort in JavaScript
 date: 2018-10-19 6:00 -0700
+updated: 2020-08-29 21:54 -0700
 meta: What is array sort in JavaScript. Really easy way to sort in alphabetical order and numerical order (ascending and descending).
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 permalink: /javascript/:title
+published: false 
 ---
 
 
