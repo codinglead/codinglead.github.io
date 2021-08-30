@@ -3,6 +3,7 @@ title: javascript fetch Reddit API
 layout: project
 image: fetch-reddit-thumbnail.png
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+published: false
 ---
 
 In this course we will learn how to make a <span class="highlight__code">GET</span> request to get data from Reddit public API and display it on a website. You can check out the complete [app here](https://github.com/colorlessenergy/fetch-reddit).
