@@ -2,7 +2,7 @@
 layout: project
 title: changing the type of a value - coercion in javascript
 date: 2020-03-23 8:00 -0700
-updated: 2021-08-21 14:13 -0700
+updated: 2021-09-04 14:17 -0700
 meta: Changing the type of a value can sometimes be confusing because JavaScript tries to be helpful and implicitly change the type for you.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -27,9 +27,9 @@ var explicit = String(x) // "42"
 var implicit = x + ""; // "42"
 ```
 
-The <span class="highlight__code">String()</span> object wrapper was used to 42 explicitly to a string.
+The <span class="highlight__code">String()</span> object wrapper was used to change 42 type explicitly to a string.
 
-To change 42 implicitly to a string we added a double quote to the number. 
+To change 42 type implicitly to a string we added a double quote to the number. 
 
 ## == vs ===
 
@@ -38,9 +38,9 @@ Values can be compared using the double equals or triple equals.
 * == coerces the type
 * === requires equivalent types
 
-The problem with double equal is what you expect to happen might not happen. You have to be a master at coercion to fully utilize the double equal and everyone else reading your code as well needs to have a good understanding of type coercion. 
+The problem with double equal is what you expect to happen might not happen. 
 
-If you know what the types will be use double equals when in doubt use triple equals.
+A good understanding of type coercion is needed to fully utilize double equal and everyone else reading your code will as well need to have a good understanding. 
 
 Here is a table showing equalities. [link to source](https://dorey.github.io/JavaScript-Equality-Table/unified/)
 
