@@ -2,6 +2,7 @@
 layout: project
 title: Semantic HTML
 date: 2019-09-02 12:25 -0700
+published: false
 meta: Semantic HTML are HTML tags that provide meaning to your code. There are many advantages to using semantic HTML tags such as SEO.
 pic: images/html-logo.svg
 imgAlt: the html logo
