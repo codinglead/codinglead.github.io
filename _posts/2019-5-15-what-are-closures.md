@@ -2,7 +2,7 @@
 layout: project
 title: what are closures
 date:  2019-5-15 4:22 -0700
-updated: 2020-08-16 08:08 -0700
+updated: 2020-09-11 08:57 -0700
 meta: A closure is when a inner function remembers its lexical scope even if it is executed outside of it.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -11,37 +11,39 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-## closures definition
-
 A closures is when a inner function can remember its lexical scope even if the function is executed outside of it.
 
 Which means if a function is executed outside where it is declared and is using a variable declared around the function it will remember it.
 
-## closures example
+## closure examples
 
-A example of a closure is when a function is used as a callback to another function.
+An example of a closure is when a function is used as a callback to another function.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 function bar () {
-var foo = "foo";
-function baz () {
-  console.log(foo)
-}
-  bam(baz);
+    var foo = "foo";
+    function baz () {
+        console.log(foo);
+    }
+    bam(baz);
 }
 
 function bam (baz) {
-  baz();
-  // remembers what 'foo' was
+    baz();
+    // remembers what 'foo' was
 }
 
 bar();
 // prints 'foo'
 ```
 
-When executing bam inside bar it passes in baz as a parameter. baz is executed inside a different scope, it still has reference to foo because of a closure that was made.
+When executing bam inside bar it passes in baz as an argument. baz is executed inside a different scope, it still has reference to foo because of a closure that was made.
 
-The JavaScript timer function could be used as a closure.
+The JavaScript timer function could be used as another example of closure.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 function foo () {
@@ -55,28 +57,34 @@ foo();
 // prints 'bar'
 ```
 
-The setTimeout is called a second later by the time it is called you would think that the function is done executing. Since closures exist bar is still stored in memory until it is not needed anymore. Once foo is executed and a second later passes it will still remember the value of the variable bar and print 'bar'.
+Once foo is executed and a second later passes it will still remember the value of the variable bar and print 'bar' because of closures.
 
-The event handler callback is another example of closure because it is enclosed in a function which means it remembers anything declared and defined around it. 
+The event handler callback could be another example of closure because it takes in a function.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 function foo () {
-var bar = "bar";
+    var bar = "bar";
 
-document.querySelector(".btn")
-  .addEventListener(function () {
-    console.log(bar)
-  })
+    document.querySelector(".button")
+        .addEventListener(function () {
+            console.log(bar);
+        });
 }
 
 foo()
-// prints 'bar'
+// prints 'bar' when the button is clicked
 // the value of bar is still remembered
 ```
 
-This is a closure because you never know when the button is going to be clicked and it will always print out 'bar' since it has a reference to it. To remove the closure you would have to unbind the event listener.
+This is a closure because you never know when the button is going to be clicked and it will always print out 'bar' since it has a reference to it.
 
-Another example would be using a setTimeout inside a for loop. The example below will print 6, 6 times in the console since the for loop is creating and referencing to only one one variable. 
+Another example of a closure would be using a setTimeout inside a for loop. 
+
+The example below will print 6, 6 times in the console instead of printing 1, 2, 3, 4 and 5 because the for loop is creating and referencing to only one variable. 
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 for (var i = 0; i <= 5; i++) {
@@ -91,6 +99,8 @@ There are a lot of ways to fix this, a way to fix this is use 'let' instead of '
 
 'let' is block scope and doesn't pollute the global scope. This means the variable 'i' will not be on the global scope.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
 for (let i = 0; i <= 5; i++) {
   setTimeout(function () {
@@ -102,7 +112,9 @@ for (let i = 0; i <= 5; i++) {
 console.log(i);
 // Uncaught ReferenceError: i is not defined
 ```
-variables are still remembered if they are reference even after the function is returned.
+Variables are still remembered if they are reference even after the function is returned.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 function makeHelloFunction() {
@@ -116,10 +128,11 @@ function makeHelloFunction() {
 }
 ```
 
-Within <span class="highlight__code">makeHelloFunction()</span> we are creating the <span class="highlight__code">message</span> variable, and using the variable within a new function that is being returned.
+Within the <span class="highlight__code">makeHelloFunction()</span> we are creating the <span class="highlight__code">message</span> variable and using the variable within a new function that is being returned.
 
-in the function <span class="highlight__code">logMessage()</span> no where in it message is defined. It gets it from the parent function.
+In the function <span class="highlight__code">logMessage()</span> no where in it message is defined. It gets it from the parent function.
 
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 function makeHelloFunction() {
@@ -141,47 +154,55 @@ If we run <span class="highlight__code">makeHelloFunction()</span> it will decla
 
 It still prints 'hello, world' because a closure was made.
 
+In the next example we have a function that creates an array of functions and returns that array.
+
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
-function makeFunctionArray() {
-  let arr = [];
+function makeArrayOfFunctions() {
+  let array = [];
 
   for (var i = 0; i < 5; i++) {
-    arr.push(function () {
+    array.push(function () {
       console.log(i);
     });
   }
 
-  return arr;
+  return array;
 }
 
-let arrWithNumbers = makeFunctionArray();
+let arrayOfFunctions = makeArrayOfFunctions();
 ```
 
-We have a function that creates an array. In the for loop the initializer is declared with the <span class="highlight__code">var</span> keyword. A function is pushed into an array that console logs i then the array is returned.
+The for loop initializer is declared with the <span class="highlight__code">var</span> keyword. A function is pushed into an array that console logs i. The array with the functions are returned.
 
 Now lets try calling one of the functions in the array we just created.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
-function makeFunctionArray() {
-  var arr = [];
+function makeArrayOfFunctions () {
+  let array = [];
 
   for (var i = 0; i < 5; i++) {
-    arr.push(function () {
+    array.push(function () {
       console.log(i);
     });
+  }
+
+  return array;
 }
 
-  return arr;
-}
+let arrayOfFunctions = makeArrayOfFunctions();
 
-var arrWithNumbers = makeFunctionArray();
-
-arrWithNumbers[0]();
+arrayOfFunctions[0]();
 // 5
 ```
 What ? it prints 5?
 
-It prints 5 because a closure was made to reference the i that was created in the for loop. It does this because the i isn't block scoped. Only 1 variable is created and only 1 variable is referenced.
+It prints 5 because a closure was made to reference the i that was created in the for loop. It does this because the variable i is created with <span class="highlight__code">var</span> which isn't block scoped. Only one variable is created and only one variable is referenced through out the for loop.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 for (var i = 0; i < 5; i++) {
@@ -189,7 +210,9 @@ for (var i = 0; i < 5; i++) {
 }
 ```
 
-the JavaScript compiler will compile the code to look like this.
+The JavaScript compiler will compile the code to look like this.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 var i;
@@ -201,7 +224,7 @@ for (i = 0; i < 5; i++) {
 
 The declaration of i is moved to the nearest scope.
 
-To fix this use the variable declarations <span class="highlight__code">let</span> or <span class="highlight__code">const</span> or encapsulate it inside a IIFE.
+Some ways to fix this is use the variable declarations <span class="highlight__code">let</span> or <span class="highlight__code">const</span> or encapsulate it inside a IIFE.
 
 now what is a IIFE ?
 
@@ -213,6 +236,8 @@ now what is a IIFE ?
 
 
 This is how a IIFE looks like
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 (function () {
@@ -231,27 +256,29 @@ Use IIFE so your global scope doesn't get polluted or when you want to create a 
 
 Now let's fix the problem we had earlier.
 
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
-function makeFunctionArray() {
-  var arr = [];
+function makeArrayOfFunctions () {
+  var array = [];
 
   for (var i = 0; i < 5; i++) {
-    arr.push(
+    array.push(
       (function (x) {
         return function () {
-          console.log(x)
+          console.log(x);
         }
       // pass in i as an argument
-      })(i);
+      })(i)
     );
   }
 
-  return arr;
+  return array;
 }
 
-var arrWithNumbers = makeFunctionArray();
+let arrayOfFunctions = makeArrayOfFunctions();
 
-console.log(arrWithNumbers[0]();)
+console.log(arrayOfFunctions[0]());
 // 0
 ```
 
