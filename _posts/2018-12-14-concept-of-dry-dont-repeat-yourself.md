@@ -8,6 +8,7 @@ imgAlt: the javascript logo
 tags: ["javascript"]
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 permalink: /javascript/:title
+published: false
 ---
 
 A explanation of the concept dry, don't repeat yourself, in programming. It is important for your code to be dry because it will make it easier to read the next time you look at it.
