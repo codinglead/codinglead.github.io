@@ -18,7 +18,7 @@ In JavaScript there are <span class="highlight__code">non-primitive</span> types
 ## example of methods stored on the prototype
 
 * Array.prototype.push();
-* string.prototype.toUpperCase();
+* String.prototype.toUpperCase();
 
 ## properties and methods can be shadowed
 
