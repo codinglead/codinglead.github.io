@@ -2,8 +2,8 @@
 layout: project
 title: prototypical inheritance
 date: 2018-11-19 4:00 -0700
-updated: 2020-08-15 18:33 -0700
-meta: What is prototype inheritance in javascript. It is an object with methods and properties that are given to non-primitive types.
+updated: 2021-09-19 11:21 -0700
+meta: prototypical inheritance in JavaScript is an object with methods and properties that are given to non-primitive types.
 pic: images/javascript.png
 imgAlt: the JavaScript logo
 tags: ["javascript"]
@@ -13,30 +13,43 @@ permalink: /javascript/:title
 
 In JavaScript there are <span class="highlight__code">non-primitive</span> types that have methods and properties that can be called on them.
 
-<span class="highlight__code">non-primitive</span> values are functions, objects and arrays.
+<span class="highlight__code">non-primitive</span> types are <span class="highlight__code">functions</span>, <span class="highlight__code">objects</span> and <span class="highlight__code">arrays</span>
 
-Prototypical inheritance It is an object with methods and properties that are given to non-primitive types..
-
-## non-primitive types have a few properties or methods associated with them
-
-Some examples of methods stored on the prototype are.
+## example of methods stored on the prototype
 
 * Array.prototype.push();
 * string.prototype.toUpperCase();
 
-Almost everything is a object in JavaScript. Each object stores a reference to its prototype. Properties or methods defined most tightly to the instance have priority of being called.
+## properties and methods can be shadowed
+
+This means that properties or methods defined closest to the instance have priority of being called then properties defined in the prototype.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-let arr = [2];
-arr.test = function () { console.log('hi') }
+let array = [2];
+array.test = function () { console.log('hi') }
 Array.prototype.test = function () { console.log('hi somewhere else') }
 
-arr.test() // hi
+array.test(); // hi
 ```
 
 "hi" was console logged instead of "hi somewhere else" because it was defined closer to the instance of the array that was created.
+
+### how to call methods on the prototype
+
+The prototype can be accessed by the <span class="highlight__code">__proto__</span> property.
+
+<p class="highlight__file-desc">JavaScript</p>
+
+```javascript
+let array = [2];
+array.test = function () { console.log('hi') }
+Array.prototype.test = function () { console.log('hi somewhere else') }
+
+array.__proto__.test(); // hi somewhere else
+```
+
 
 ## prototype chain
 
@@ -44,7 +57,7 @@ Every object stores a reference to its prototype.
 
 In the previous example the test function was stored on the array and in the <span class="highlight__code">Array</span> prototype.
 
-When executing the test method on the array, JavaScript looks for method on the prototype chain starting from the variable instance. When the method we are looking for is found JavaScript stops looking for it in the prototype chain and uses it.
+When executing the test method on the array, JavaScript looks for method on the prototype chain starting from the variable instance. When the method is found JavaScript stops looking for it in the prototype chain and uses it.
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -77,22 +90,12 @@ JavaScript will automatically "box" wrap primitives values so you have access to
 ```javascript
 42.toString() // Error
 
-var x = 42;
+let x = 42;
 x.toString() // "42"
 x._proto__ // access to proto
 x instanceof Number // false
 ```
 
-When declaring a variable to be a primitive type it will wrap the primitive object wrapper.
+When declaring a variable to a primitive type it will wrap the primitive object wrapper.
 
 In this case we declare the variable to be equal to 42 which then gets wrapped by the Number() object wrapper. This will give us access to the Number prototype.
-
-## why use reference to prototype
-
-it saves spaces.
-
-The alternative is storing it at the instance instead on the prototype.
-
-## the danger of using reference to the prototype
-
-Change something on one prototype changes it in every single instance.
