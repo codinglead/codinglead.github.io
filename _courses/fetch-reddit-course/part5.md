@@ -2,6 +2,7 @@
 title: javascript fetch reddit api part 5
 layout: project
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+published: false
 ---
 
 What we are trying to do is add styling so it looks nice.

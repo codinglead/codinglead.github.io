@@ -2,6 +2,7 @@
 title: javascript fetch Reddit API part 1
 layout: project
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+published: false
 ---
 
 [starting files for part 1](https://github.com/colorlessenergy/fetch-reddit/tree/starter-files)

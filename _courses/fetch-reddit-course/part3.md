@@ -2,6 +2,7 @@
 title: javascript fetch Reddit API part 3
 layout: project
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+published: false
 ---
 
 What we want to do now is display the title and a picture of the post if it has one.

@@ -2,6 +2,7 @@
 title: javascript fetch Reddit API part 2
 layout: project
 author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+published: false
 ---
 
 This is part 2 of the javascript fetch Reddit API we will be using the fetch function to make a <span class="highlight__code">GET</span> request to the programmerhumor subreddit Reddit API.
