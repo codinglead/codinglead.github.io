@@ -2,7 +2,7 @@
 layout: project
 title: what are closures
 date:  2019-5-15 4:22 -0700
-updated: 2020-09-22 08:45 -0700
+updated: 2020-09-22 08:59 -0700
 meta: A closure is when a inner function remembers its lexical scope even if it is executed outside of it.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -29,7 +29,7 @@ function addSnackbar (text) {
     // removes snackbar from the screen
     snackbar.remove();
 
-    console.log(text)
+    console.log(text);
   }, 1000);
 }
 
@@ -37,7 +37,7 @@ addSnackbar('a new todo was added');
 // prints 'a new todo was added'
 ```
 
-Once addSnackbar is executed and a second later passes it will still remember the value of the variable text and console log it because of closures.
+Once addSnackbar is executed and a second later passes it will still remember the value of the variable text and snackbar because of closures.
 
 The <span class="highlight__code">addEventListener()</span> method could be used as another example of closure because it takes in a function.
 
