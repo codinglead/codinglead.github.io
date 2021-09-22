@@ -37,7 +37,7 @@ addSnackbar('a new todo was added');
 // prints 'a new todo was added'
 ```
 
-Once addSnackbar is executed and a second later passes it will still remember the value of the variable text and snackbar because of closures.
+Once <span class="highlight__code">addSnackbar()</span> is executed and a second later passes it will still remember the variables text and snackbar because of closures.
 
 The <span class="highlight__code">addEventListener()</span> method could be used as another example of closure because it takes in a function.
 
