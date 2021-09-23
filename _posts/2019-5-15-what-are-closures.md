@@ -2,7 +2,7 @@
 layout: project
 title: what are closures
 date:  2019-5-15 4:22 -0700
-updated: 2020-09-22 08:59 -0700
+updated: 2020-09-22 12:46 -0700
 meta: A closure is when a inner function remembers its lexical scope even if it is executed outside of it.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -123,91 +123,12 @@ now we can add 10 to any number by calling <span class="highlight__code">add10</
 
 x is remembered because of closures.
 
-In the next example we have a function that creates an array of functions and returns that array.
+## what is a immediately invoked function expression
 
-<p class="highlight__file-desc">JavaScript</p>
+**note: also known as IIFE**
 
-```javascript
-function makeArrayOfFunctions() {
-  let array = [];
-
-  for (var i = 0; i < 5; i++) {
-    array.push(function () {
-      console.log(i);
-    });
-  }
-
-  return array;
-}
-
-let arrayOfFunctions = makeArrayOfFunctions();
-```
-
-The for loop initializer is declared with the <span class="highlight__code">var</span> keyword. 
-
-A function is pushed into an array that console log i. 
-
-The array with the functions are returned.
-
-Now lets try calling one of the functions in the array we just created.
-
-<p class="highlight__file-desc">JavaScript</p>
-
-```javascript
-function makeArrayOfFunctions () {
-  let array = [];
-
-  for (var i = 0; i < 5; i++) {
-    array.push(function () {
-      console.log(i);
-    });
-  }
-
-  return array;
-}
-
-let arrayOfFunctions = makeArrayOfFunctions();
-
-arrayOfFunctions[0]();
-// 5
-```
-What? it prints 5?
-
-It prints 5 because a closure was made to reference the i that was created in the for loop. 
-
-It does this because the variable i is created with <span class="highlight__code">var</span> which isn't block scoped. Only one variable is created and only one variable is referenced through out the for loop.
-
-<p class="highlight__file-desc">JavaScript</p>
-
-```javascript
-for (var i = 0; i < 5; i++) {
- // do stuff
-}
-```
-
-The JavaScript compiler will compile the code to look like this.
-
-<p class="highlight__file-desc">JavaScript</p>
-
-```javascript
-var i;
-
-for (i = 0; i < 5; i++) {
- // do stuff
-}
-```
-
-The declaration of i is moved to the nearest scope.
-
-Some ways to fix this is use the variable declarations <span class="highlight__code">let</span> or <span class="highlight__code">const</span> or encapsulate it inside a IIFE.
-
-now what is a IIFE?
-
-## immediately invoked function expression
-
-* A function expression that get invoked immediately
-* Doesn't add to or modify the global object
-
+* a function expression that get invoked immediately
+* doesn't add to or modify the global object
 
 This is how a IIFE looks like
 
@@ -219,44 +140,15 @@ This is how a IIFE looks like
   // after console.log is executed
   let x = 42;
 
-  console.log('hi')
+  console.log('hi');
 })();
 // will console log hi
 ```
 
-Why use IIFE?
+### Why use IIFE
 
-Use IIFE so your global scope doesn't get polluted or when you want to create a closure.
-
-Now let's fix the problem we had earlier.
-
-<p class="highlight__file-desc">JavaScript</p>
-
-```javascript
-function makeArrayOfFunctions () {
-  var array = [];
-
-  for (var i = 0; i < 5; i++) {
-    array.push(
-      (function (x) {
-        return function () {
-          console.log(x);
-        }
-      // pass in i as an argument
-      })(i)
-    );
-  }
-
-  return array;
-}
-
-let arrayOfFunctions = makeArrayOfFunctions();
-
-console.log(arrayOfFunctions[0]());
-// 0
-```
-
-A IIFE is created for every iteration of the for loop, it returns an anonymous function that console logs x. x is the parameter that is passed into the parent function which means the child function will be able to use it because it has reference to the scope of the parent function. a new value is created for every iteration that the IFFE is in because primitives are passed by value and not by reference. A closure is created from the parent to the child.
+* global scope doesn't get polluted 
+* when you want to utilize a closure
 
 ## conclusion
 
