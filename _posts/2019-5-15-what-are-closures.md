@@ -59,7 +59,7 @@ addEventListenerToButton();
 
 This is a closure because you never know when the button is going to be clicked and it will always print out the added at date.
 
-Another example of a closure is warpping a setTimeout method in an IFFE inside a for loop. 
+Another example of a closure is warpping a setTimeout method in an IIFE inside a for loop. 
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -74,9 +74,9 @@ for (var i = 1; i <= 5; i++) {
 }
 ```
 
-This is a closure because the currentI is stored into the scope of the IFFE and the currentI is referenced inside the setTimeout.
+This is a closure because the currentI is stored into the scope of the IIFE and the currentI is referenced inside the setTimeout.
 
-If you don't understand what IFFEs are there is an explanation later on.
+If you don't understand what IIFEs are there is an explanation later on.
 
 Another example of closure is returning a inner function from an outer function while referencing a variable from the outer function.
 
