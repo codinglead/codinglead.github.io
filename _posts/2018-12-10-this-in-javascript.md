@@ -123,8 +123,6 @@ person.greet.apply(student, argumentsArray)
 // hi Daniel
 ```
 
-<p class="highlight__file-desc">JavaScript</p>
-
 ## arrow function
 
 a quicker way to write a function.
