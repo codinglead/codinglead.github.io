@@ -208,11 +208,9 @@ let favoriteFruit = 'orange';
 
 function danielFavoriteFruit () {
     let favoriteFruit = 'apple';
-    console.log(favoriteFruit)
 }
 
 danielFavoriteFruit();
-// apple
 
 console.log(favoriteFruit);
 // orange
