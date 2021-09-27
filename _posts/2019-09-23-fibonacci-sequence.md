@@ -2,7 +2,8 @@
 layout: project
 title: what is the Fibonacci Sequence
 date: 2019-09-16 8:00 -0700
-meta: The Fibonacci Sequence is a series of numbers. To find the next number in the series you will have to find the sum of the last two numbers before it.
+updated: 2020-09-26 19:32 -0700
+meta: The Fibonacci Sequence is a series of numbers that starts at 0 and 1. The next number in the series is the sum of the last two numbers.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -10,69 +11,57 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-If you make the width of the boxes the Fibonacci Sequence you will get this spiral.
-
-<div class="center">
-  <img src="{{ site.baseurl }}/images/fibonacci-sequence/fibonacci.png" alt="fibonacci sequence spiral" title="fibonacci sequence spiral">
-</div>
-
-The <code class="highlight__code">Fibonacci Sequence</code> can be found in nature.
-
-## what is the Fibonacci Sequence
-
 The <code class="highlight__code">Fibonacci Sequence</code> is a series of numbers. 
 
-The sequence goes like this
+The sequence looks like this
 
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...
 
-
 To find the next number in the <code class="highlight__code">Fibonacci Sequence</code> you will have to find the sum of the two numbers before it.
 
-
-## example
- 
-How to find the 4th number in the <code class="highlight__code">Fibonacci Sequence</code>. When looking for a number it starts from 0 instead of 1 so the 0th number is 0 and the 4th number is 3. 
+To get the 4th number you will have to add 1 and 2 because 1 is the second number and 2 is the third number.
 
 0, 1, 1, 2, 3
 
-```javascript
-1 + 2 // 3
-```
-The 4th number is equal to three because two numbers before it are 1 and 2.
-
-
-## how to implement using JavaScript
+## a way to to implement using JavaScript
  
-To implement the <code class="highlight__code">Fibonacci Sequence</code> I will be using an iterative solution with a for loop.
+A way to implement the <code class="highlight__code">Fibonacci Sequence</code> is using a for loop that loops to the position you want to find.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-function fib(n){
-  // starting point of the
-  // Fibonacci Sequence
-  let arr = [0, 1];
+function fibonacciSequence (position) {
+  // starting point
+  let array = [0, 1];
 
-  for (let i = 2; i <= n; i++){
-    // push a number to the array
-    arr.push(arr[i - 2] + arr[i -1]);
+  for (let i = 2; i <= position; i++){
+    // add the previous two value of the fibonacci sequence and push it into the array
+    array.push(arr[i - 2] + arr[i -1]);
   }
 
-  // return the number in the array at the index given
- return arr[n]
+  // return the number in the array at the position passed into the function
+  return array[position];
 }
 ```
+
 The function takes in a number and returns the number in the Fibonacci Sequence in that position.
 
-The function creates an array that holds the Fibonacci Sequence by repeatedly adding the last two numbers in the array and pushing that to the array.
+The function creates an array that holds the Fibonacci Sequence by repeatedly adding the last two numbers in the array.
 
-It will repeat until the array includes the index of, n, which is passed to the function as an argument.
+It will repeat until the array includes the index of, position, which is passed to the function as an argument.
 
-The function will return the nth position of the array. 
+The position passed into the function is used to return a element from the array.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-fib(4); // 3
+fibonacciSequence(4); // 3
 ```
  
 ## conclusion
  
-<code class="highlight__code">Fibonacci Sequence</code> can be found in nature.
+This spiral can be made with the <code class="highlight__code">Fibonacci Sequence</code>.
+
+<div class="center background-color-white">
+  <img src="{{ site.baseurl }}/images/fibonacci-sequence/fibonacci.png" alt="fibonacci sequence spiral" title="fibonacci sequence spiral">
+</div>
