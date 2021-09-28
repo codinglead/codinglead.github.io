@@ -13,8 +13,6 @@ permalink: /javascript/:title
 
 <code class="highlight__code">this</code> refers to a object that set at the creation of a new execution context.
 
-The value of <code class="highlight__code">this</code> is the object it is invoked on. 
-
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
@@ -22,16 +20,17 @@ function whatIsThis() {
     console.log(this);
 }
 
+// function is called on the global scope so
+// this is set to the global object
 whatIsThis();
 // Window {}
 ```
 
-Everything is invoked on the global object.
+To find the value of <code class="highlight__code">this</code> you have to figure out where the code it is being executed.
 
-Everything that is defined on the global scope is stuck on the global object that is why
-this refers to the window / global object.
+<code class="highlight__code">whatIsThis()</code> is executed on the global scope so <code class="highlight__code">this</code> is set to the global object.
 
-If the function is called as a method of an object <code class="highlight__code">this</code> is bounded to the object the method is called on.
+If a function is called as a method of an object <code class="highlight__code">this</code> is bounded to the object the method is called on.
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -48,7 +47,7 @@ person.greet();
 // hi, Brian
 ```
 
-The greet function is called on the person object so this is bounded to the person object.
+The greet function is called on the person object so <code class="highlight__code">this</code> is bounded to the person object.
 
 <code class="highlight__code">this</code> only cares about where it is executed.
 
