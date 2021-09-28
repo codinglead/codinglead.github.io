@@ -2,7 +2,7 @@
 layout: project
 title: is JavaScript synchronous, asynchronous or single-threaded
 date: 2018-12-07 10:58 -0700
-updated: 2021-09-28 08:50 -0700
+updated: 2021-09-28 08:54 -0700
 meta: JavaScript is synchronous and single-threaded with capability to do asynchronous calls.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -129,7 +129,6 @@ callbacks can be used to control the flow of asynchronous calls.
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-// simulate fetching data from a database
 function getFruitFromDatabase (callback) {
     setTimeout(function () {
         callback(
