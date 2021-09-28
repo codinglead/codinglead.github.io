@@ -2,7 +2,7 @@
 layout: project
 title: first class functions in JavaScript
 date: 2018-12-03 3:35 -0700
-updated: 2021-09-27 22:02 -0700
+updated: 2021-09-27 22:05 -0700
 meta: Functions are first class citizens which mean they are treated like any other variable.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -51,4 +51,4 @@ console.log(filteredClothes);
 // (4) ["sweater", "pants", "pants", "sweater"]
 ```
 
-Some examples of other higher order functions are map(), find() and reduce().
+Some other higher-order functions are map(), find() and reduce().
