@@ -30,3 +30,7 @@ main {
 a {
   text-decoration: none;;
 }
+
+.proj img {
+  width: 100%;
+}
