@@ -2,7 +2,7 @@
 layout: project
 title: what is the Fibonacci Sequence
 date: 2019-09-16 8:00 -0700
-updated: 2020-09-26 19:32 -0700
+updated: 2020-10-01 09:32 -0700
 meta: The Fibonacci Sequence is a series of numbers that starts at 0 and 1. The next number in the series is the sum of the last two numbers.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -21,7 +21,7 @@ To find the next number in the <code class="highlight__code">Fibonacci Sequence<
 
 To get the 4th number you will have to add 1 and 2 because 1 is the second number and 2 is the third number.
 
-0, 1, 1, 2, 3
+0, 1, 1, 2, <span class="highlight__code">3</span>
 
 ## a way to to implement using JavaScript
  
