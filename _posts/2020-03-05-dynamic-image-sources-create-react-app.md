@@ -2,7 +2,7 @@
 layout: project
 title: dynamic image source create-react-app
 date: 2020-03-06 7:00 -0700
-updated: 2020-08-12 18:47 -0700
+updated: 2021-10-03 14:03 -0700
 meta: how to load images with different sources / url with create react app
 pic: images/react.jpeg
 imgAlt: the react logo
@@ -21,27 +21,22 @@ I will be showing you the code inside the <code class="highlight__code">render()
 
 ```javascript
 render() {
-  const { post } = this.state
-
-  // looping through all the post that were retrieve from an API
-  let posts = post ? post.map(function (post) {
-
-    // here we are dynamically creating a path to the image
-    // require() returns a string to the path of the image
-    const image = require('../../assets/' + post.character + '.png');
-
-    return (
-      {/* we put the image variable we made earlier into the src attribute */}
-      <img key={post._id} src={image} alt={post.title} />
-    )
-  }) : (<p>loading</p>);
-
   return (
     <div>
-      { posts }
+      {/* looping through all the post that were retrieve from an API */}
+      { this.props.posts.map(post => {
+        // here we are dynamically creating a path to the image
+        // require() returns a string to the path of the image
+        const image = require('../../assets/' + post.character + '.png');
+
+        return (
+          // we put the image variable we made earlier into the src attribute
+          <img key={ post.id } src={ image } alt={`image of ${ post.character }`} />
+        );
+      }) }
     </div>
   );
 }
 ```
 
-We used <code class="highlight__code">require()</code> instead of <code class="highlight__code">import</code> statements because they are only allowed at the top of the file.
+We used <code class="highlight__code">require()</code> instead of an <code class="highlight__code">import</code> statement because they are only allowed at the top of the file.
