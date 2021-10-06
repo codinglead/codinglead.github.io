@@ -315,7 +315,8 @@
   color: #efefef;
 }
 
-.dark .proj h3 {
+.dark .proj h3,
+.dark .proj h4 {
   color: #8ddff4;
 }
 
