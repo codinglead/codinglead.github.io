@@ -2,8 +2,8 @@
 layout: project
 title: the difference between var, let, and const
 date:  2018-10-15 3:19 -0700
-updated: 2020-08-15 18:11 -0700
-meta: a explanation of why and how to use const, let, and var variable declarations in javascript.
+updated: 2021-10-12 11:42 -0700
+meta: an explanation of var, let, and const variable declarations in JavaScript.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -11,69 +11,79 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-## what is var, let, and const
+<span class="highlight__code">var</span>, <span class="highlight__code">let</span>, and <span class="highlight__code">const</span> are ways to declare variables.
 
-<span class="highlight__code">var</span>, <span class="highlight__code">let</span>, and <span class="highlight__code">const</span> are ways to declare variables. Each way has a slight difference on how they work. It is important to use these declarations the right way because they were made to benefit the developer and make code easier to understand.
+It is important to use these declarations the right way because they were made to benefit the developer and make code easier to understand.
+
+### they are declared and defined like this
 
 <p class="highlight__file-desc">
   JavaScript
 </p>
 
 ```javascript
-// they are declared like this
-
 // it is block scoped
-// should only be used on stuff that is constant
+// should only be used for stuff that is constant
 // can not be reassign
 const name = "Brian";
 
 // it is block scoped
-// can be assign a new value
+// can be assign and reassign
 let age = 18;
 
-// the usual way to declare var before es6 syntax
+// it is function scoped
+// can be assign and reassign
 var state = "California"
 ```
 
-## first let's talk about scope
+## first let's talk about scope in JavaScript
 
-Scope is the way JavaScript finds and locates declarations. Block scope and function scope are really similar looking but have small differences.
+Scope is the way JavaScript finds declarations.
 
+There are <span class="highlight__code">Block scope</span> and <span class="highlight__code">Function scope</span>.
 
-### what is block scope
+### what is Block scope
 
-a block scope is defined with curly braces. when using var in a block scope it doesn't conceal the variables from the outside. When using const or let inside curly braces it keeps the variables hidden from the outside.
+A <span class="highlight__code">Block scope</span> is defined with curly braces.
+
+Using <code class="highlight__code">var</code> in a <span class="highlight__code">Block scope</span> doesn't prevent the variables from being accessible outside it. 
+
+Using <code class="highlight__code">const</code> or <code class="highlight__code">let</code> in a <span class="highlight__code">Block scope</span> prevents the variables from being accessible outside it.
 
 <p class="highlight__file-desc">
   JavaScript
 </p>
 
 ```javascript
-// this is normal javascript
 {
-  var a = 10
-  console.log(a) // 10
+  var varDeclaration = "I am a var in a block scope";
+  console.log(varDeclaration); // I am a var in a block scope
 }
-console.log(a) // 10
+// varDeclaration is accessible outside the block scope
+console.log(varDeclaration); // I am a var in a block scope
 
 {
-  let b = "I am let in a block scoped"
-  console.log(b) // I am let in a block scoped
+  let letDeclaration = "I am let in a block scoped";
+  console.log(letDeclaration); // I am let in a block scoped
 }
-console.log(b) // Uncaught ReferenceError: b is not defined
+console.log(letDeclaration);
+// Uncaught ReferenceError: letDeclaration is not defined
 
 {
-  const c = "I am a const in a block scoped"
-  console.log(c) // I am a const in a block scoped
+  const constDeclaration = "I am a const in a block scoped";
+  console.log(constDeclaration); // I am a const in a block scoped
 }
-console.log(c) // Uncaught ReferenceError: c is not defined
+console.log(constDeclaration);
+// Uncaught ReferenceError: constDeclaration is not defined
 ```
 
-Anything with a opening curly braces and closing curly brace creates a block scope. Other examples are if else statements and for loops.
+Anything with a opening curly braces and closing curly brace creates a <span class="highlight__code">Block scopes</span>.
+
+Examples of <span class="highlight__code">Block scopes</span> are if else statements and for loops.
 
 ### What is Function Scope
 
-function scope is anything inside a function. It has the same rules as block scope just the way it is declared is different.
+<span class="highlight__code">Function scope</span> is anything inside a function. Everything declared inside a function isn't accessible outside it. 
 
 
 <p class="highlight__file-desc">
@@ -81,68 +91,70 @@ function scope is anything inside a function. It has the same rules as block sco
 </p>
 
 ```javascript
-let greet = "hi how are you";
+const sayApples = "Apples from global scope";
 
-function greetPerson() {
-  let greet = "the function is saying hi";
-  console.log(greet);
+function sayFruit () {
+  let sayApples = "Apples from sayFruit()";
+  const sayBananas = "Bananas from sayFruit()";
+  var sayOranges = "Oranges from sayFruit()";
+  console.log(sayApples);
 }
 
-greetPerson();
-  // print 'the function is saying hi'
+sayFruit(); // Apples from sayFruit()
+
+console.log(sayApples); // Apples from global scope
+
+console.log(sayBananas);
+// Uncaught ReferenceError: sayBananas is not defined
+
+console.log(sayOranges);
+// Uncaught ReferenceError: sayOranges is not defined
 ```
 
-when calling <span class="highlight__code">greetPerson()</span> JavaScript finds the function and walks into the scope. It first checks the scope where <span class="highlight__code">console.log()</span> was executed, which is the function scope, then looks for the the variable greet it keeps going outwards until it reaches the global scope. This is why greet declared inside the function is printed in the console instead of the greet declared in the global scope.
+When executing <code class="highlight__code">sayFruit()</code> "Apples from sayFruit()" is printed instead of "Apples from global scope" because the sayApples in the function is defined in the same scope as where <code class="highlight__code">conosle.log()</code> is executed.
+
+When looking for variables it starts at where the variable is referenced and it goes up scope until it reaches the global scope.
 
 ## The significance of var
 
-<span class="highlight__code">var</span> was the way to declare variables before ES6.
+<code class="highlight__code">var</code> can be redeclared and reassigned.
 
-It can be redeclared and reassigned.
-
-<p class="highlight__file-desc">
-JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-var greet = "hello";
-greet = "hi";
-var greet = "cheers";
+var fruit = "Orange";
+greet = "Apple";
+var greet = "Banana";
 
-console.log(greet);
-  // print cheers
+console.log(greet); // Banana
 ```
 
 <span class="highlight__code">var</span> is hoisted and initialized to undefined.
 
-<p class="highlight__file-desc">
-JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-console.log(hoisted) // undefined
-var hoisted = "hi"
-
+console.log(hoisted); // undefined
+var hoisted = "hi";
 ```
 
-<span class="highlight__code">var</span> doesn't care about block scope. If there is no <span class="highlight__code">var</span> declaration JavaScript assumes you meant to make it a variable and puts it in the global scope.
+<span class="highlight__code">var</span> doesn't care about block scope. 
 
-<p class="highlight__file-desc">
-JavaScript
-</p>
+If there is no <span class="highlight__code">var</span> declaration JavaScript assumes you meant to make it a variable and puts it in the global scope.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 if (true) {
-  var hello = "hello"
+  var fruit = "Orange";
 }
 
 if (true) {
-  // never do this
-  hi = "hi"
+  vegetable = "Carrot";
 }
 
-console.log(hello) // hello
-console.log(hi) // hi
+console.log(fruit); // Orange
+console.log(vegetable) // Carrot
 ```
 
 ### why var sucks
@@ -156,48 +168,44 @@ JavaScript
 ```javascript
 for (var i = 0; i < 10; i++) {
   // code
-};
+}
 
 // i is on the global scope even though we don't need it
 console.log(i); // 10
 ```
 
-let's say you have thousands of lines of code and don't realize you used the same variable twice. Now you have a hard to find bug.
+Allows variables to be redeclared.
 
-<p class="highlight__file-desc">
-JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-var greet = "hi";
+var task = "be cool.";
 if (true) {
-  var greet = "say this instead";
+  var task = "be awesome.";
 }
 
-console.log(greet)
-  // print say this instead
+console.log(task) // be awesome.
 ```
 
-Since <span class="highlight__code">var</span> gets redefined it messes with the global scope version of the variable.
+The global scope version of the variable is changed.
 
 ## The significance of let
 
 <span class="highlight__code">let</span> is usually the variable declaration that is used over <span class="highlight__code">var</span> because it has better features than <span class="highlight__code">var</span> does.
 
-It can not be redeclared but can be redefined. This fixes the problem with var that we might accidentally redeclare a variable we didn't want too.
+It can not be redeclared but can be redefined.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-let greet = "hello there"
+let favoriteJuice = "Orange juice";
 
-greet = "say this"
+favoriteJuice = "Apple juice";
 
-console.log(greet)
-  // print say this
+console.log(favoriteJuice); // Apple juice
 
-let greet = "hello there again";
-// Uncaught SyntaxError: Identifier 'greet' has already been declared
+let favoriteJuice = "Cranberry juice";
+// Uncaught SyntaxError: Identifier 'favoriteJuice' has already been declared
 ```
 
 <span class="highlight__code">let</span> is hoisted but not initialized.
@@ -210,21 +218,19 @@ console.log(hoisted);
 
 let hoisted = "Hi I am hoisted but not initialized";
 ```
-
-<span class="highlight__code">let</span> uses block scope which means it can only be referenced in the same scope it was defined. This fixes the problem we had with <span class="highlight__code">var</span>.
+<span class="highlight__code">let</span> uses block scope which means it can only be access in the scope it was defined in.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
+let favoriteFruit = "Oranges";
 if (true) {
-  let greet = "hello";
-  console.log(greet);
+  let favoriteFruit = "Bananas";
+  console.log(favoriteFruit); // Bananas
 }
 
-console.log(greet);
-// Uncaught ReferenceError: greet is not defined
+console.log(favoriteFruit); // Oranges
 ```
-
 
 ### why use let over var
 
@@ -241,28 +247,28 @@ console.log(i)
 // Uncaught ReferenceError: i is not defined
 ```
 
-<span class="highlight__code">let</span> is block scope which means the problem we had with <span class="highlight__code">var</span> doesn't apply to <span class="highlight__code">let</span>.
+<span class="highlight__code">let</span> is <span class="highlight__code">Block scope</span> which means the problems we had with <span class="highlight__code">var</span> doesn't apply to <span class="highlight__code">let</span>.
 
 
 ## The significance of const
 
-variables declared with <span class="highlight__code">const</span> values should be constants.
+variables declared with <span class="highlight__code">const</span> should hold values that are constant.
 
-<span class="highlight__code">const</span> cannot be redeclared or reassigned
+<span class="highlight__code">const</span> cannot be redeclared or reassigned.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-const greeting = "hello";
-greeting = "hi";
-// Uncaught TypeError: Assignment to constant variable
+const isJavaScriptCool = true;
+isJavaScriptCool = false;
+// Uncaught TypeError: Assignment to constant variable.
 
-const greeting = "hi";
-// Uncaught SyntaxError: Identifier 'greeting' has already been declared
+const isJavaScriptCool = "maybe";
+// Uncaught SyntaxError: Identifier 'isJavaScriptCool' has already been declared
 ```
-<span class="highlight__code">const</span> must be initialized when declared
+<span class="highlight__code">const</span> must be initialized when declared.
 
-just like <span class="highlight__code">let</span> <span class="highlight__code">const</span> is hoisted but not initialized
+Just like <span class="highlight__code">let</span> <span class="highlight__code">const</span> is hoisted but not initialized.
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -279,52 +285,56 @@ const hoisted = "Hi I am hoisted but not initialized";
 
 ```javascript
 if (true) {
-  const greet = "hello";
-  console.log(greet);
+  const areYouAwesome = true;
+  console.log(areYouAwesome); // true
 }
 
-console.log(greet);
-// Uncaught ReferenceError: greet is not defined
+console.log(areYouAwesome);
+// Uncaught ReferenceError: areYouAwesome is not defined
 ```
+
 ### const isn't really constant
 
-you can still change some value with a <span class="highlight__code">const</span> variable declaration.
+Some values can be changed with a <span class="highlight__code">const</span> variable declaration.
 
-In objects you can still change values.
+values can be changed in <code class="highlight__code">objects</code>.
 
 ```javascript
-const Brian = {
-  name: 'Brian',
-  language: 'JavaScript'
+const beanBurritoRecipe = {
+  tortilla: "flour",
+  bean: "pinto beans"
 }
 
-Brian.language = "HTML"
+beanBurritoRecipe.tortilla = "corn";
 
-console.log(Brian)
-// {name: "Brian", language: "HTML"}
+console.log(beanBurritoRecipe)
+// { "tortilla": "corn", "bean": "pinto beans" }
 ```
 
-Add and remove elements from arrays.
+Add, modify, and remove elements from an <code class="highlight__code">array</code>.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-const arr = [1,2,3];
-​
-arr.pop();
-​
-console.log(arr) // [1, 2]
-​
-arr.push(5)
-​
-console.log(arr) // [1,2,5]
+const numbers = [1, 2, 3];
+
+numbers.pop();
+console.log(numbers); // [1, 2]
+
+numbers.push(5);
+console.log(numbers); // [1, 2, 5]
+
+numbers[1] = 10;
+console.log(numbers); // [1, 10, 5]
 ```
 
 ## summary of the differences
 
-Most of the time use <span class="highlight__code">let</span> and <span class="highlight__code">const</span>. Only should use <span class="highlight__code">var</span> when you are trying to use it as a stylistic choice.
+Most if not all the time use <span class="highlight__code">let</span> and <span class="highlight__code">const</span>. 
 
 1. <span class="highlight__code">let</span> and <span class="highlight__code">var</span> don't have to be initialized when declared. <span class="highlight__code">const</span> has to be initialized when declared.
 
-2. <span class="highlight__code">var</span> can be redefined and redeclared; <span class="highlight__code">let</span> can be redefined but not redeclared; <span class="highlight__code">const</span> can't be redefined or redeclared.
+2. <span class="highlight__code">var</span> can be redefined and redeclared, <span class="highlight__code">let</span> can be redefined but not redeclared, <span class="highlight__code">const</span> can't be redefined or redeclared.
 
 3. <span class="highlight__code">var</span> declarations are globally or function scoped while <span class="highlight__code">let</span> and <span class="highlight__code">const</span> are block scoped.
 
