@@ -2,8 +2,8 @@
 layout: project
 title: what is localStorage
 date: 2019-10-02 8:00 -0700
-updated: 2020-09-25 12:05 -0700
-meta: localStorage allows you to store, modify and access strings in your browser.
+updated: 2021-10-12 09:49 -0700
+meta: localStorage allows you to store and access strings in your browser.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -11,7 +11,7 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-<code class="highlight__code">localStorage</code> allows you to store, modify and access strings in your browser. If you store data that isn't a string it will convert it into a string. 
+<code class="highlight__code">localStorage</code> allows you to store and access strings in your browser. If data that isn't a string is stored it will convert it into a string. 
 
 <code class="highlight__code">localStorage</code> does not have an expiration date.
 
@@ -37,8 +37,8 @@ localStorage.setItem('favoriteFruit', 'oranges');
 localStorage.favoriteFruit // "oranges"
 
 localStorage.setItem('brian', { cool: true });
-// huh ?
 localStorage.brian // "[object Object]"
+// huh ?
 ```
 
 When storing an object into localStorage the browser will try to convert it into a string that is why we get <code class="highlight__code">"[object Object]"</code>.
@@ -102,6 +102,6 @@ localStorage
 
 ## conclusion
 
-The <code class="highlight__code">localStorage</code> allows you store data in the browser. 
+<code class="highlight__code">localStorage</code> allows you store data in a browser. 
 
 It can be used to persist a theme and to create an offline experience.
