@@ -2,7 +2,7 @@
 layout: project
 title: the difference between var, let, and const
 date:  2018-10-15 3:19 -0700
-updated: 2021-10-12 11:42 -0700
+updated: 2021-10-14 10:16 -0700
 meta: an explanation of var, let, and const variable declarations in JavaScript.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -111,7 +111,7 @@ console.log(sayOranges);
 // Uncaught ReferenceError: sayOranges is not defined
 ```
 
-When executing <code class="highlight__code">sayFruit()</code> "Apples from sayFruit()" is printed instead of "Apples from global scope" because the sayApples in the function is defined in the same scope as where <code class="highlight__code">conosle.log()</code> is executed.
+When executing <code class="highlight__code">sayFruit()</code> "Apples from sayFruit()" is printed instead of "Apples from global scope" because the variable <code class="highlight__code">sayApples</code> in the function is defined in the same scope as where <code class="highlight__code">console.log()</code> is executed.
 
 When looking for variables it starts at where the variable is referenced and it goes up scope until it reaches the global scope.
 
