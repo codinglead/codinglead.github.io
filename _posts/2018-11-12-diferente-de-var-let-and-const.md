@@ -1,9 +1,9 @@
 ---
 layout: project
 title: la diferencia entre var, let, y const
-date:  2018-11-12 3:02 -0700
-updated: 2020-08-15 18:11 -0700
-meta: explicación cuando usar const, let y var declaración cuando usando javascript
+date:  2018-10-12 3:02 -0700
+updated: 2021-11-14 10:13 -0700
+meta: explicación de const, let, y var declaración cuando usando JavaScript
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -11,195 +11,190 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-## Que es var, let, y const
+<span class="highlight__code">var</span>, <span class="highlight__code">let</span>, y <span class="highlight__code">const</span> son formas para declarar variables.
 
-<span class="highlight__code">var</span>, <span class="highlight__code">let</span>, y <span class="highlight__code">const</span> son formas para declarar variables. cada uno trabajan differente. es importante a usar las declaraciones correctas para ayudar el desarrollador y hacer el codigo mas facil para leer.
+Cada uno trabajan differente. es importante a usar las declaraciones correctas para ayudar el desarrollador y hacer el codigo mas facil para leer.
 
-<p class="highlight__file-desc">
-  JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
+
+### se declaran y definen así
 
 ```javascript
-// estan declarados asi
-
-// estan block scoped
+// estan Block scoped
 // solamente usar cunado el valor es constante
-// no se puede reasignar
+// no se puede reasignar or redeclara
 const nombre = "Brian";
 
-// estan block scoped
-// no se puede reasignar con un nuevo
+// estan Block scoped
+// se puede reasignar y redeclara
 let anos = 18;
 
-// como declarar antes de es6
-var estado = "California"
+// estan Function scoped
+// se puede reasignar y redeclara
+var estado = "California";
 ```
 
-## primero hablar sobre "scope"
+## que es scope
 
-"scope" es como JavaScript encontra declaraciones. Block Scope y function scope son similares pero tienen una pequeña diferencia.
+"scope" es como JavaScript encontra declaraciones.
+
+hay <span class="highlight__code">Block scope</span> y <span class="highlight__code">Function scope</span>.
 
 ### que es block scope
 
-Puedes definir un Block scope con "curly braces". cunado usas let y const en un block scope no puedes usarlo afuera de un block scope. Cuando usas var en un block scope (pero que no sea un function scope) si puedes usarlo afurea de block scope.
+Puedes definir un <span class="highlight__code">Block scope</span> con "curly braces".
 
-<p class="highlight__file-desc">
-  JavaScript
-</p>
+Cunado usas <span class="highlight__code">let</span> y <span class="highlight__code">const</span> en un block scope no puedes usarlo afuera.
+
+Cuando usas var en un <span class="highlight__code">Block scope</span> si puedes usarlo afurea.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-// esta es normale javascript
 {
-  var a = 10
-  console.log(a) // 10
+  var varDeclaracion = "soy var en Block Scoped";
+  console.log(varDeclaracion); // soy var en Block Scoped
 }
+console.log(varDeclaracion); // soy var en Block Scoped
 
 {
-  let b = "soy let en block scoped"
-  console.log(b) // soy let en block scoped
+  let letDeclaracion = "soy let en Block scoped";
+  console.log(letDeclaracion); // soy let en Block scoped
 }
+console.log(letDeclaracion); // Uncaught ReferenceError: letDeclaracion is not defined
 
 {
-  const c = "soy const en block scoped"
-  console.log(c) // soy let en block scoped
+  const constDeclaracion = "soy const en Block scoped";
+  console.log(constDeclaracion); // soy const en Block scoped
 }
+console.log(constDeclaracion) // Uncaught ReferenceError: constDeclaracion is not defined
 
-console.log(a) // 10
-console.log(b) // Uncaught ReferenceError: b is not defined
-console.log(c) // Uncaught ReferenceError: c is not defined
 ```
 
-"curly braces" crea un block scope. otro ejemplos son if-else declaraciones y for-loops.
+"curly braces" crea un <span class="highlight__code">Block scope</span>.
+
+Otro ejemplos son if-else declaraciones y for-loops.
 
 ### que es Function Scope
 
-function scope es cualquier cosa dentro una function. Tiene lo mismo reglas como block scope solamente como se declara es diferente.
+<span class="highlight__code">Function scope</span> es cualquier cosa dentro una function. Todo lo declarado dentro de una función no es accesible afuera.
 
-
-<p class="highlight__file-desc">
-  JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-let saludar = "Hola! Cómo estás";
+const diManzanas = "manzanas de global scope";
 
-function saludarPersona() {
-  let saludar = "la función está diciendo hola";
-  console.log(saludar);
+function decirFruta () {
+  let diManzanas = "manzanas de decirFruta()";
+  const diPlatanos = "platanos de decirFruta()";
+  var diNaranjas = "Naranjas de decirFruta()";
+  console.log(diManzanas);
 }
 
-saludarPersona();
-  // impresión 'la función está diciendo hola'
+decirFruta(); // manzanas de decirFruta()
+
+console.log(diManzanas); // manzanas de global scope
+
+console.log(diPlatanos);
+// Uncaught ReferenceError: diPlatanos is not defined
+
+console.log(diNaranjas);
+// Uncaught ReferenceError: diNaranjas is not defined
 ```
 
-cuando llamas <span class="highlight__code">saludarPersona()</span> JavaScript encontrar la función y camina dentro el "scope". primero JavaScript cheques el "scope" dónde <span class="highlight__code">console.log()</span> estaba ejecutado, cual es  function scope, entonces mira para el variable saludar. si no puede encontrar entro el scope, sigue adelante fuera hasta "global scope".esta es la razón por saludar declarar dentro el funcion está impreso en la consola en lugar de saludar declarado en el "global scope".
+Cunando ejecutar <span class="highlight__code">decirFruta()</span> se imprime "manzanas de decirFruta()" en lugar de "manzanas de global scope" porque <span class="highlight__code">diManzanas<span> en la función se define en el mismo scope que donde se ejecuta <span class="highlight__code">console.log()</span>.
+
+Cunando buscando variables comienza donde se hace referencia y sube el scope hasta llegue <span class="highlight__code">global scope</span>
 
 ## el significado de var
 
-<span class="highlight__code">var</span> era la primero manera a declarar antes de es6.
+<span class="highlight__code">var</span> puedes redeclarado y reasignado.
 
-* puedes redeclarado y reasignado.
-
-<p class="highlight__file-desc">
-JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-var saludar = "Hola";
-saludar = "Cómo estás";
-var saludar = "aclamaciones";
+var fruta = "Naranjas";
+fruta = "Manzanas";
+var fruta = "Platanos";
 
-console.log(saludar);
-  // impresión aclamaciones
+console.log(fruta); // Platanos
 ```
 
 <span class="highlight__code">var</span> esta <span class="highlight__code">hoisted</span> y inicializado a <span class="highlight__code">undefined</span>.
 
-<p class="highlight__file-desc">
-JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 console.log(hoisted) // undefined
 var hoisted = "hola";
-
 ```
 
-<span class="highlight__code">var</span> no le importa block scope. si no hay <span class="highlight__code">var</span> declaración JavaScript asume tú querías hacer un variable y pone el variable dentro el "global scope".
+<span class="highlight__code">var</span> no le importa block scope.
 
-<p class="highlight__file-desc">
-JavaScript
-</p>
+si no hay <span class="highlight__code">var</span> declaración JavaScript asume tú querías hacer un variable y pone el variable dentro el <span class="highlight__code">global scope</span>.
+
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 if (true) {
-  var hola = "hola";
+  var fruta = "Naranjas";
 }
 
 if (true) {
-  // nunca hagas esto
-  saludar = "saludar";
+  vegetal = "Zanahoria";
 }
 
-console.log(hola)
-  // impresión hola
-console.log(saludar)
-  // impresión saludar
+console.log(fruta); // Naranjas
+console.log(vegetal); // Carrot
 ```
 
 ### por qué var es malo
 
-<span class="highlight__code">var</span> contamina el "global scope".
+<span class="highlight__code">var</span> contamina el <span class="highlight__code">global scope</span>.
 
-<p class="highlight__file-desc">
-JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 for (var i = 0; i < 10; i++) {
   // code
-};
+}
 
 // i está en el "scope" global, ya no lo necesitamos el variable i
 console.log(i); // 10
 ```
 
-Ejemplo tenes un mil lines de codigo y no te das cuenta que usastes el mismo variable dos veces. ahora tu tienes un difícil de encontrar error.
+<span class="highlight__code">var</span> se puede redeclara.
 
-<p class="highlight__file-desc">
-JavaScript
-</p>
+<p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-var saludar = "hola";
+var tarea = "mira las estrellas.";
 if (true) {
-  var saludar = "hi";
+  var tarea = "ve al zoológico.";
 }
 
-console.log(saludar)
-  // impresión hi
+console.log(tarea); // ve al zoológico.
 ```
 
-porque <span class="highlight__code">var</span> se puede redefinir, se mete con el "global scope" versión de el variable.
+El <span class="highlight__code">global scope</span> versión de el variable se cambia.
 
 ## el significante de let
 
 <span class="highlight__code">let</span> es usualmente el variable declaración que se usa sobre <span class="highlight__code">var</span> porque tiene mejores características que <span class="highlight__code">var</span> tiene.
 
-no puedes redeclarado pero puede ser redefinido. esto arregla el problema con var que podríamos accidentalmente redeclar un variable no queríamos.
+no se puedes redeclarado, pero se puede redefinir.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-let saludar = "hola";
+let jugoFavorito = "jugo de naranja";
 
-saludar = "hola, como estas"
+jugoFavorito = "jugo de manzana";
 
-console.log(saludar)
-  // impresión hola, como estas
+console.log(jugoFavorito); // jugo de manzana
 
-let saludar = "hola, otra vez";
-// Uncaught SyntaxError: Identifier 'saludar' has already been declared
+let jugoFavorito = "jugo de arándano";
+// Uncaught SyntaxError: Identifier 'jugoFavorito' has already been declared
 ```
 
 <span class="highlight__code">let</span> esta hoisted pero no inicializado.
@@ -210,28 +205,27 @@ let saludar = "hola, otra vez";
 console.log(hoisted);
 // Uncaught ReferenceError: hoisted is not defined
 
-let hoisted = "Hola, estoy hoisted pero no inicializado";
+let hoisted = "estoy hoisted pero no inicializado";
 ```
 
-<span class="highlight__code">let</span> usando block scope solamante puede referenciado en el mismo "scope" se definió. Esto soluciona el problema que tuvimos con <span class="highlight__code">var</span>.
+<span class="highlight__code">let</span> usa <span class="highlight__code">Block scope</span>, lo que significa que solo se puede acceder en el scope en el que se definió.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
+let frutaFavorita = "Naranjas";
 if (true) {
-  let saludar = "hola";
-  console.log(saludar);
-    // impresión hola
+  let frutaFavorita = "Platanos";
+  console.log(frutaFavorita); // Platanos
 }
 
-console.log(saludar);
-// Uncaught ReferenceError: saludar is not defined
+console.log(frutaFavorita); // Naranjas
 ```
 
 
-### Por que let es mejor de var
+### Por que usar let over var
 
-<span class="highlight__code">let</span> no contamina el "global scope".
+<span class="highlight__code">let</span> no contamina el <span class="highlight__code">global scope</span>.
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -249,23 +243,23 @@ console.log(i)
 
 ## el significante de const
 
-variables declarado con <span class="highlight__code">const</span> los valores deben ser constants.
+Las variables declaradas con <span class="highlight__code">const</span> deben contener valores que sean constantes
 
-<span class="highlight__code">const</span> no puede ser redeclarado o redefinido.
+<span class="highlight__code">const</span> no puede ser redeclarado o reasignar.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-const greeting = "hola";
-greeting = "hola, como estas";
-// Uncaught TypeError: Assignment to constant variable
+const colorFavorito = "verde";
+colorFavorito = "rojo";
+// Uncaught TypeError: Assignment to constant variable.
 
-const greeting = "hola";
-// Uncaught SyntaxError: Identifier 'greeting' has already been declared
+const colorFavorito = "amarillo";
+// Uncaught SyntaxError: Identifier 'colorFavorito' has already been declared
 ```
 <span class="highlight__code">const</span> debe ser inicializado cuando se declara.
 
-como <span class="highlight__code">let</span> y <span class="highlight__code">const</span> es hoisted pero no inicializado.
+Al igual que <span class="highlight__code">let</span> <span class="highlight__code">const</span> es hoisted pero no se inicializa.
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -273,67 +267,63 @@ como <span class="highlight__code">let</span> y <span class="highlight__code">co
 console.log(hoisted);
 // Uncaught ReferenceError: hoisted is not defined
 
-const hoisted = "Hola, estoy hoisted pero no inicializado";
+const hoisted = "estoy hoisted pero no inicializado";
 ```
 
-<span class="highlight__code">const</span> variable declaraciones son block scoped como <span class="highlight__code">let</span>
+<span class="highlight__code">const</span> variable declaraciones son <span class="highlight__code">Block scoped</span> como <span class="highlight__code">let</span>
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 if (true) {
-  const saludar = "Hola";
-  console.log(saludar);
+  const eresBrillante = true;
+  console.log(eresBrillante); // true
 }
 
-console.log(saludar);
-// Uncaught ReferenceError: saludar is not defined
+console.log(eresBrillante);
+// Uncaught ReferenceError: eresBrillante is not defined
 ```
 ### const no es constante
 
-Todavía puedes cambiar algo de valor con <span class="highlight__code">const</span> variable declaración.
+Algunos valores se pueden cambiar con <span class="highlight__code">const</span> variable declaración.
 
-En los objetos todavía puedes cambiar los valores.
+los valores se pueden cambiar en los <span class="highlight__code">objetos</span>.
 
 ```javascript
-const Brian = {
-  nombre: 'Brian',
-  idioma: 'JavaScript'
-}
+const recetaBurritoFrijoles = {
+  tortilla: "harina",
+  frijoles: "pintos"
+};
 
-Brian.idioma = "HTML"
+recetaBurritoFrijoles.tortilla = "maiz";
 
-console.log(Brian)
-// {name: "Brian", language: "HTML"}
+console.log(recetaBurritoFrijoles);
+// { tortilla: 'maiz', frijoles: 'pintos' }
 ```
 
-
-añadir y eliminar elementos de arrays.
+poner, modifique y quitar elementos de una <span class="highlight__code">array</span>.
 
 ```javascript
-const arr = [1,2,3];
-​
-arr.pop();
-​
-console.log(arr)
-  // [1, 2]
-​
-arr.push(5)
-​
-console.log(arr)
-  // [1,2,5]
+const numeros = [1, 2, 3];
+
+numeros.pop();
+console.log(numeros); // [1, 2]
+
+numeros.push(5);
+console.log(numeros); // [1, 2, 5]
+
+numeros[1] = 10;
+console.log(numeros); // [1, 10, 5]
 ```
 
 ## resumen de las diferencias
 
-
-
-uso <span class="highlight__code">let</span> y <span class="highlight__code">const</span> la mayor parte del tiempo. solo usa <span class="highlight__code">var</span> Cuando intentas usarlo como una opción estilística.
+La mayoría, si no todo el tiempo, usa <span class="highlight__code">let</span> y <span class="highlight__code">const</span>.
 
 1. <span class="highlight__code">let</span> y <span class="highlight__code">var</span> no tiene que ser inicializado cuando se declara. <span class="highlight__code">const</span> Tiene que ser inicializado cuando se declara.
 
-2. <span class="highlight__code">var</span> Se puede redefinir y redeclar; <span class="highlight__code">let</span> se puede redfinir pero no redeclarado; <span class="highlight__code">const</span> no puede ser redefinido o redeclarado.
+2. <span class="highlight__code">var</span> Se puede redefinir y redeclara, <span class="highlight__code">let</span> se puede redfinir pero no redeclarado, <span class="highlight__code">const</span> no se puede redefinido o redeclarado.
 
-3. <span class="highlight__code">var</span>declaraciones son globales o de función, mientras que<span class="highlight__code">let</span> and <span class="highlight__code">const</span> son bloque de ámbito.
+3. <span class="highlight__code">var</span>declaraciones estans <span class="highlight__code">Function scoped</span> mientras <span class="highlight__code">let</span> y <span class="highlight__code">const</span> estan <span class="highlight__code">Block scoped</span>.
 
-4. usar <span class="highlight__code">const</span> cuando querer declarar una variable no debería cambiar.
+4. usar <span class="highlight__code">const</span> cuando querer declarar una variable que no debería cambiar.
