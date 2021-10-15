@@ -3,7 +3,8 @@ let responsiveNav = document.querySelector('.responsive-nav');
 
 menuHamburger.addEventListener('click', function () {
   menuHamburger.classList.toggle('animate');
-  responsiveNav.classList.toggle('responsive-nav__open')
+  responsiveNav.classList.toggle('responsive-nav__open');
+  document.body.classList.toggle('overflow-y-hidden');
 });
 
 let searchBox = document.getElementById('search-input');

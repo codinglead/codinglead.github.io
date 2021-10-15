@@ -278,6 +278,10 @@
   width: 100%;
 }
 
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
 .theme-selector {
   border: 0;
 
