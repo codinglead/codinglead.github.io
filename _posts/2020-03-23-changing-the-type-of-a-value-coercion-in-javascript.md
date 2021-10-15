@@ -2,8 +2,8 @@
 layout: project
 title: changing the type of a value - coercion in javascript
 date: 2020-03-23 8:00 -0700
-updated: 2021-10-15 08:40 -0700
-meta: Changing the type of a value can sometimes be confusing because JavaScript tries to be helpful and implicitly change the type for you.
+updated: 2021-10-15 08:48 -0700
+meta: Using a value in a comparison can be confusing sometimes because JavaScript tries to be helpful and implicitly change the type for you.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -11,9 +11,11 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-Changing the type of a value can sometimes be confusing because JavaScript tries to be helpful and implicitly change the type for you.
+Using a value in a comparison can be confusing sometimes because JavaScript tries to be helpful and implicitly change the type for you.
 
-You can change the type of a value implicitly and explicitly. Implicit coercion plays a huge role when using double equals in comparisons.
+The type of a value can be changed implicitly and explicitly.
+
+Implicit coercion plays a huge role when using double equals in comparisons.
 
 ## explicit vs implicit coercion
 
@@ -21,13 +23,16 @@ Explicit coercion is telling JavaScript to change the type.
 
 Implicit coercion is not telling JavaScript to change the type directly.
 
+
+<p class="highlight__file-desc">JavaScript</p>
+
 ```javascript
-var x = 42;
-var explicit = String(x) // "42"
-var implicit = x + ""; // "42"
+let number = 42;
+let explicitToString = String(number) // "42"
+let implicitToString = number + ""; // "42"
 ```
 
-The <span class="highlight__code">String()</span> object wrapper was used to change 42 type explicitly to a string.
+The <span class="highlight__code">String()</span> object wrapper is used to change 42 type explicitly to a string.
 
 To change 42 type implicitly to a string we added a double quote to the number. 
 
