@@ -36,15 +36,15 @@ var estado = "California";
 
 ## que es scope
 
-"scope" es como JavaScript encontra declaraciones.
+Scope es como JavaScript encontra declaraciones.
 
-hay <span class="highlight__code">Block scope</span> y <span class="highlight__code">Function scope</span>.
+Hay <span class="highlight__code">Block scope</span> y <span class="highlight__code">Function scope</span>.
 
 ### que es block scope
 
 Puedes definir un <span class="highlight__code">Block scope</span> con "curly braces".
 
-Cunado usas <span class="highlight__code">let</span> y <span class="highlight__code">const</span> en un block scope no puedes usarlo afuera.
+El uso de <span class="highlight__code">let</span> o <span class="highlight__code">const</span> en <span class="highlight__code">Block scope</span> evitar que las variables sean accesibles fuera de él.
 
 Cuando usas var en un <span class="highlight__code">Block scope</span> si puedes usarlo afurea.
 
@@ -67,8 +67,7 @@ console.log(letDeclaracion); // Uncaught ReferenceError: letDeclaracion is not d
   const constDeclaracion = "soy const en Block scoped";
   console.log(constDeclaracion); // soy const en Block scoped
 }
-console.log(constDeclaracion) // Uncaught ReferenceError: constDeclaracion is not defined
-
+console.log(constDeclaracion); // Uncaught ReferenceError: constDeclaracion is not defined
 ```
 
 "curly braces" crea un <span class="highlight__code">Block scope</span>.
@@ -102,7 +101,7 @@ console.log(diNaranjas);
 // Uncaught ReferenceError: diNaranjas is not defined
 ```
 
-Cunando ejecutar <span class="highlight__code">decirFruta()</span> se imprime "manzanas de decirFruta()" en lugar de "manzanas de global scope" porque <span class="highlight__code">diManzanas<span> en la función se define en el mismo scope que donde se ejecuta <span class="highlight__code">console.log()</span>.
+Cunando ejecutar <span class="highlight__code">decirFruta()</span> se imprime "manzanas de decirFruta()" en lugar de "manzanas de global scope" porque <span class="highlight__code">diManzanas</span> en la función se define en el mismo scope que donde se ejecuta <span class="highlight__code">console.log()</span>.
 
 Cunando buscando variables comienza donde se hace referencia y sube el scope hasta llegue <span class="highlight__code">global scope</span>
 
