@@ -2,7 +2,7 @@
 layout: project
 title: the difference between var, let, and const
 date:  2018-10-15 3:19 -0700
-updated: 2021-10-14 10:16 -0700
+updated: 2021-10-16 11:13 -0700
 meta: an explanation of var, let, and const variable declarations in JavaScript.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -123,10 +123,10 @@ When looking for variables it starts at where the variable is referenced and it 
 
 ```javascript
 var fruit = "Orange";
-greet = "Apple";
-var greet = "Banana";
+fruit = "Apple";
+var fruit = "Banana";
 
-console.log(greet); // Banana
+console.log(fruit); // Banana
 ```
 
 <span class="highlight__code">var</span> is hoisted and initialized to undefined.
