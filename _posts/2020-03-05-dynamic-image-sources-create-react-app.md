@@ -2,7 +2,7 @@
 layout: project
 title: dynamic image source create-react-app
 date: 2020-03-06 7:00 -0700
-updated: 2021-10-03 14:03 -0700
+updated: 2021-10-16 10:19 -0700
 meta: how to load images with different sources / url with create react app
 pic: images/react.jpeg
 imgAlt: the react logo
@@ -31,7 +31,7 @@ render() {
 
         return (
           // we put the image variable we made earlier into the src attribute
-          <img key={ post.id } src={ image } alt={`image of ${ post.character }`} />
+          <img key={ post.id } src={ image } alt={ post.character } />
         );
       }) }
     </div>
