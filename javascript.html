@@ -16,6 +16,9 @@ changefreq: weekly
 
   <ul class="posts">
     {% for post in site.tags["javascript"] %}
+    {% if post.redirect %}
+        {% continue %}
+    {% endif %}
     <li class="post">
       <div class="post__tags">
           {% for tag in post.tags %}

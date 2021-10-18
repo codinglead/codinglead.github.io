@@ -3,6 +3,9 @@
 
 [
   {% for post in site.posts %}
+  {% if post.redirect %}
+      {% continue %}
+  {% endif %}
   {
     "title": "{{ post.title | escape }}",
     "category": "{{ post.category }}",
