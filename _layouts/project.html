@@ -1,25 +1,82 @@
 ---
-layout: default
 title: blog
 ---
 
-<article class="proj">
-  <div class="proj__contain">
-    <h1>{{ page.title }}</h1>
-    <div class="social">
-      <a class="social__icon" href="{{ page.author[2] }}">
-        {% include github-svg.html %}
-      </a>
-      <p>
-        <a class="social__author" href="{{ page.author[1] }}">
-          {{ page.author[0] }}
-        </a>
-      </p>
-    </div>
-    {{ content }}
-  </div>
-</article>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127390342-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-{% unless page.url contains 'courses' %}
-{% include blog-footer.html prev=page.previous next=page.next %}
-{% endunless %}
+      gtag('config', 'UA-127390342-1');
+    </script>
+
+    <link rel="shortcut icon" href="{{ site.baseurl }}/images/logo.ico" type="image/x-icon">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- seo -->
+    <meta name="description" content="{% if page.meta %}{{ page.meta }} {{ site.title }}{% else %}{{ site.description }}{% endif %}">
+
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{% if page.meta %}{{ page.meta }} {{ site.title }}{% else %}{{ site.description }}{% endif %}">
+    <title>
+      {%if page.title %}
+        {{ page.title }} · {{ site.title }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </title>
+
+    <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html',''}}">
+
+    <meta itemprop="keywords" content="{{ page.tags | join: ',' }}" />
+    {% for tag in page.tags %}
+    <meta property="article:tag" content="{{ tag }}">
+    {% endfor %}
+
+    <script src="{{ site.baseurl }}/main.js" defer> </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/globals.css">
+  </head>
+  <body>
+    {% include nav.html %}
+
+    <div class="blog">
+        <div class="blog__head">
+            <h1>
+                {{ page.title }}
+            </h1>
+
+            <div class="flex flex-direction-column align-items-center">
+                <a href="{{ page.author[1] }}">
+                    <svg class="blog__github" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path fill="#FFFFFF" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+
+                <a
+                    href="{{ page.author[1] }}"
+                    class="highlight__text-green">
+                    {{ page.author[0] }}
+                </a>
+            </div>
+        </div>
+
+        {{ content }}
+    </div>
+
+    {% unless page.url contains 'courses' %}
+      {% include blog-footer.html prev=page.previous next=page.next %}
+    {% endunless %}
+
+    {% include footer.html %}
+  </body>
+</html>

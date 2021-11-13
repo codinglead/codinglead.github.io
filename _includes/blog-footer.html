@@ -1,24 +1,39 @@
-<!-- for pagination -->
-<article class="blog-pagination">
-  {% if include.prev %}
-  <div class="blog-pagination__wrapper">
-    <a class="blog-pagination__link" href="{{ include.prev.url }}">
-      <div class="blog-pagination__img" style="background-image:url({{ site.baseurl }}/{{ include.prev.pic }})"></div>
-      <div class="blog-pagination__contain">
-        <h3 class="blog-pagination__title">{{ include.prev.title }}</h3>
-      </div>
-    </a>
-  </div>
-  {% endif %}
+<article class="flex flex-direction-column flex-direction-row-md justify-content-between-md mt-1 container">
+    {% if include.prev %}
+        <a href="{{ site.baseurl }}{{ include.prev.url }}"
+            class="blog-link">
+            <div class="flex">
+            {% for tag in include.prev.tags %}
+                <div
+                    href="/{{ tag }}"
+                    class="tag tag--{{ tag }}">
+                    {{ tag }}
+                </div>
+            {% endfor %}
+            </div>
+            <div class="mt-1 text-1 font-weight-700">
+                {{ include.prev.title }}
+            </div>
+            <p>{{ include.prev.meta }}</p>
+        </a>
+    {% endif %}
 
-  {% if include.next %}
-  <div class="blog-pagination__wrapper">
-    <a class="blog-pagination__link" href="{{ include.next.url }}">
-      <div class="blog-pagination__img" style="background-image:url({{ site.baseurl }}/{{ include.next.pic }})"></div>
-      <div class="blog-pagination__contain">
-        <h3 class="blog-pagination__title">{{ include.next.title }}</h3>
-      </div>
-    </a>
-  </div>
-  {% endif %}
+    {% if include.next %}
+        <a href="{{ site.baseurl }}{{ include.next.url }}"
+            class="blog-link">
+            <div class="flex">
+            {% for tag in include.next.tags %}
+                <div
+                    href="/{{ tag }}"
+                    class="tag tag--{{ tag }}">
+                    {{ tag }}
+                </div>
+            {% endfor %}
+            </div>
+            <div class="mt-1 text-1 font-weight-700">
+                {{ include.next.title }}
+            </div>
+            <p>{{ include.next.meta }}</p>
+        </a>
+    {% endif %}
 </article>

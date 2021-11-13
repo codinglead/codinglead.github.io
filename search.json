@@ -9,7 +9,7 @@
   {
     "title": "{{ post.title | escape }}",
     "category": "{{ post.category }}",
-    "tags": "{{ post.tags | join: ', ' }}",
+    "tags": "{{ post.tags | join: ' ' }}",
     "url": "{{ site.baseurl }}{{ post.url }}",
     "date": "{{ post.date | date: '%A, %B %-d, %Y' }}",
     "content": "{{ post.meta  }}",

@@ -1,33 +1,68 @@
 ---
 layout: default
 priority: 1.0
-onHomePage: true
 ---
 
-{% include search-input.html %}
-
-<!-- blog posts -->
-<main>
-  {% include sidebar.html %}
-
-  <ul class="posts">
-    {% for post in site.posts %}
-    {% if post.redirect %}
-        {% continue %}
-    {% endif %}
-    <li class="post">
-       <div class="post__tags">
-          {% for tag in post.tags %}
-          <a href="/{{tag}}" class="tag tag--{{tag}}">{{tag}}</a>
-          {% endfor %}
+<div class="flex flex-direction-column-reverse flex-direction-row-lg">
+    <div class="pb-1 p-0-lg pt-4-lg w-15-lg">
+        <div class="text-3 mb-1">
+            Authors
         </div>
-      <a class="post__link" href="{{ site.baseurl }}{{ post.url }}">
-        <div>
-          <h3 class="post__title">{{ post.title }}</h3>
-          <p class="post__meta">{{ post.meta }}</p>
+
+        <ul class="mb-1">
+            <li>
+                <a href="https://brianmunoz.co/"
+                    class="text-1 color-blue-2">
+                    Brian Munoz
+                </a>
+            </li>
+
+            <li>
+                <a href="https://danielmunoz.me/"
+                    class="text-1 color-blue-2">
+                    Daniel Munoz
+                </a>
+            </li>
+        </ul>
+
+        <div class="text-3 mb-1">
+            Projects
         </div>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
-</main>
+
+        <ul>
+            <li>
+                <Link href="https://popular-answers.vercel.app/">
+                    <a class="text-1 color-blue-2">
+                        popular answers
+                    </a>
+                </Link>
+            </li>
+        </ul>
+    </div>
+
+    <div id="posts" class="flex justify-content-between flex-wrap flex-1">
+        {% for post in site.posts %}
+            {% if post.redirect %}
+                {% continue %}
+            {% endif %}
+            <a href="{{ site.baseurl }}{{ post.url }}"
+                class="blog-link">
+                <div class="flex">
+                {% for tag in post.tags %}
+                    <div
+                        href="/{{ tag }}"
+                        class="tag tag--{{ tag }}">
+                            {{ tag }}
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="mt-1 text-1 font-weight-700">
+                    {{ post.title }}
+                </div>
+                <p>{{ post.meta }}</p>
+            </a>
+        {% endfor %}
+    </div>
+
+    <section id="search-results-container" class="flex justify-content-between flex-wrap flex-1 d-none"></section>
+</div>

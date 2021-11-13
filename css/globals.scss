@@ -1,0 +1,87 @@
+---
+---
+
+@import 'variables.scss';
+@import 'normalize.scss';
+@import 'base.scss';
+@import 'utilities.scss';
+@import 'module.scss';
+@import 'theme.scss';
+
+@media (min-width: 700px) {
+    .blog-link {
+        width: 47%;
+    }
+}
+
+@media (min-width: 800px) {
+    .blog-link {
+        padding: $space-2;
+    }
+
+    .blog {
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+    .blog h1 {
+        font-size: 42px;
+    }
+
+    .blog h2 {
+        font-size: 30px;
+    }
+
+    .blog p {
+        font-size: 21px;
+    }
+
+    .vw-30-md {
+        width: 30vw;
+    }
+
+    .w-initial-md {
+        width: initial;
+    }
+
+    .mb-0-md {
+        margin-bottom: 0;
+    }
+    
+    .flex-direction-row-md {
+        flex-direction: row;
+    }
+
+    .justify-content-between-md {
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1080px) {
+    .flex-direction-row-lg {
+        flex-direction: row;
+    }
+
+    .p-0-lg {
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+    }
+
+    .pt-4-lg {
+        padding-top: $space-4;
+    }
+
+    .w-15-lg {
+        width: 15%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .container {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+}

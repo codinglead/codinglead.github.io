@@ -1,28 +1,14 @@
-let menuHamburger = document.querySelector('#menu-hamburger');
-let responsiveNav = document.querySelector('.responsive-nav');
-
-menuHamburger.addEventListener('click', function () {
-  menuHamburger.classList.toggle('animate');
-  responsiveNav.classList.toggle('responsive-nav__open');
-  document.body.classList.toggle('overflow-y-hidden');
-});
-
-let searchBox = document.getElementById('search-input');
+const searchBox = document.getElementById('search-input');
+const posts = document.getElementById('posts');
 if (searchBox) {
-    let searchBoxResultContainer = document.getElementsByClassName('search')[0];
-    let mainContent = document.querySelector('.container .posts')
+    const searchResultContainer = document.getElementById('search-results-container');
     searchBox.addEventListener('keyup', function () {
-        // if on the search box and the value is empty string
-        // hide the search results
-        // show all the post on the page
-        // otherwise show the results
-        // hide the post on the page
-        if (!(searchBoxResultContainer.classList[1] === 'hide') && searchBox.value === '') {
-            searchBoxResultContainer.classList.add('hide');
-            mainContent.classList = 'posts';
-        } else if (searchBox.value !== '') {
-            searchBoxResultContainer.classList.remove('hide');
-            mainContent.classList = 'posts hide';
+        if (searchBox.value !== '') {
+            searchResultContainer.classList.remove('d-none');
+            posts.classList.add('d-none');
+        } else {
+            searchResultContainer.classList.add('d-none');
+            posts.classList.remove('d-none');
         }
     });
 }
@@ -31,23 +17,24 @@ if (!localStorage.getItem('theme')) {
     localStorage.setItem('theme', 'dark');
 }
 
-let themeSelector = document.querySelector('#themeSelector');
-let body = document.body;
-if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
-    themeSelector.textContent = '☀️';
-} else {
-    themeSelector.textContent = '🌙️';
+const lightModeImage = document.querySelector('#light-mode');
+const darkModeImage = document.querySelector('#dark-mode');
+if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+    lightModeImage.classList.toggle('d-none');
+    darkModeImage.classList.toggle('d-none');
 }
 
+const themeSelector = document.querySelector('#theme-selector');
 themeSelector.addEventListener('click', () => {
-    if (localStorage.getItem('theme') === 'light') {
-        localStorage.setItem('theme', 'dark');
-        themeSelector.textContent = '☀️';
-    } else {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('light');
         localStorage.setItem('theme', 'light');
-        themeSelector.textContent = '🌙️';
+    } else {
+        document.body.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
     }
 
-    body.classList.toggle('dark');
+    lightModeImage.classList.toggle('d-none');
+    darkModeImage.classList.toggle('d-none');
 });

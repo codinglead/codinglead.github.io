@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
+<head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127390342-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'UA-127390342-1');
+        gtag('config', 'UA-127390342-1');
     </script>
 
     <link rel="shortcut icon" href="{{ site.baseurl }}/images/logo.ico" type="image/x-icon">
@@ -18,17 +18,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- seo -->
-    <meta name="description" content="{% if page.meta %}{{ page.meta }} {{ site.title }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="description"
+        content="{% if page.meta %}{{ page.meta }} {{ site.title }}{% else %}{{ site.description }}{% endif %}">
 
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:title"
+        content="{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="{% if page.meta %}{{ page.meta }} {{ site.title }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:description"
+        content="{% if page.meta %}{{ page.meta }} {{ site.title }}{% else %}{{ site.description }}{% endif %}">
     <title>
-      {%if page.title %}
+        {% if page.title %}
         {{ page.title }} · {{ site.title }}
-      {% else %}
+        {% else %}
         {{ site.title }}
-      {% endif %}
+        {% endif %}
     </title>
 
     <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html',''}}">
@@ -39,37 +42,30 @@
     {% endfor %}
 
     <script src="{{ site.baseurl }}/main.js" defer> </script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/globals.css">
     <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
-  </head>
-  <body>
+</head>
+<body>
     {% include nav.html %}
 
     <div class="container">
+        {{ content }}
 
-      {{ content }}
-
-      <!-- html for search -->
-      <section class="search {% if page.onHomePage == true %}search--home{% endif %} hide">
-        <ul class="posts post--search" id="results-container"></ul>
-      </section>
-      
-      <!-- footer -->
-      <footer class="footer">
-        <p>&copy; codinglead 2021</p>
-      </footer>
+        {% include footer.html %}
     </div>
 
     <!-- initialized the search functionality -->
     <script>
         SimpleJekyllSearch({
             searchInput: document.getElementById('search-input'),
-            resultsContainer: document.getElementById('results-container'),
+            resultsContainer: document.getElementById('search-results-container'),
             json: '/search.json',
-            searchResultTemplate: '<li class="post"> <a class="post__link" href="{{ site.baseurl }}{url}">  <div> <h3 class="post__title">{title}</h3> <p class="post__meta">{content}</p> </div></a> </li>',
-            noResultsText: '<li class="no-results">no results</li>'
+            searchResultTemplate: '<a href="{{ site.baseurl }}{url}" class="blog-link"> <div class="flex"> <div class="tag"> {tags} </div> </div> <div class="mt-1 text-1 font-weight-700"> {title} </div> <p>{content}</p> </a>',
+            noResultsText: '<div>no results</div>'
         })
     </script>
-  </body>
+</body>
 </html>
