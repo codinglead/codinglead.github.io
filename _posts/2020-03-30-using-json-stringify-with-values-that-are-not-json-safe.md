@@ -1,8 +1,9 @@
 ---
 layout: project
-title: using JSON.stringify with values that are not JSON-safe
+title: using JSON.stringify() with values that are not JSON-safe
 date: 2020-03-29 9:00 -0700
-meta: When using JSON.stringify you will most likely run into the issue of having some properties that are not JSON-safe.
+updated: 2021-11-13 18:16 -0700
+meta: When using JSON.stringify() you will most likely run into the issue of having some properties that are not JSON-safe.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -12,49 +13,63 @@ permalink: /javascript/:title
 
 When using <code class="highlight__code">JSON.stringify()</code> you will most likely run into the issue of having some properties that are not JSON-safe.
 
-When running JSON.stringify on an object you can declare a <code class="highlight__code">.toJSON()</code> method on it that returns a JSON-safe version of the object.
+When running <code class="highlight__code">JSON.stringify()</code> on an object a <code class="highlight__code">.toJSON()</code> method can be defined to return a JSON-safe version of the object.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-var includesUnsafeJSON = {
-  b: undefined,
-  c: [1,2,3],
-  d: function () { return 'hi' }
+const includesUnsafeJSON = {
+  favoriteWater: undefined,
+  favoriteColors: ['red', 'green', 'blue'],
+  multiplyByTwo (number) {
+    return number * 2
+  }
 };
 
 includesUnsafeJSON.toJSON = function() {
-  // only have the 'c' property
-  return { c: this.c };
+  return {
+    ...this
+  };
 };
 
-JSON.stringify(includeUnsafeJSON);
-// "{"c":[1,2,3]}"
+JSON.stringify(includesUnsafeJSON);
+// '{"favoriteColors":["red","green","blue"]}'
 ```
 
-<code class="highlight__code">JSON.stringify()</code> takes in a optional second argument known as replacer. The passed in argument can be an <code class="highlight__code">Array</code> or <code class="highlight__code">Function</code>. It is used to tell <code class="highlight__code">JSON.stringify()</code> what properties to include.
+<code class="highlight__code">JSON.stringify()</code> takes in a optional second argument known as replacer which can be an <code class="highlight__code">Array</code> or a <code class="highlight__code">Function</code>.
 
-If an <code class="highlight__code">Array</code> was passed in it will only include the properties with the key values in the array.
+It is used to tell <code class="highlight__code">JSON.stringify()</code> what properties to keep.
 
-If a <code class="highlight__code">Function</code> was passed in it will only include the properties that the value was returned. If you don't want to include a property return undefined.
+If an <code class="highlight__code">Array</code> is passed in
+
+* it will only include the properties with the key values in the array
+
+If a <code class="highlight__code">Function</code> is passed in
+
+* it will only include the properties that the value was returned
+* If you don't want to include a property return <code class="highlight__code">undefined</code>
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-var obj = {
-  a: '32',
-  b: 32,
-  c: [0, 1, 2]
+const food = {
+  fruits: ['apples', 'oranges'],
+  vegetables: ['carrots', 'potatoes'],
+  getFruits () {
+    return this.fruits;
+  },
+  getVegetables () {
+    return this.vegetables;
+  },
 };
 
-JSON.stringify(obj, ['a', 'b']);
-//"{"a":"32","b":32}"
+JSON.stringify(food, ['fruits', 'vegetables']);
+// '{"fruits":["apples","oranges"],"vegetables":["carrots","potatoes"]}'
 
-// passed in arguments are key, value
-JSON.stringify(obj, function (k, v) {
-  if (k !== 'b') {
-    return v;
+JSON.stringify(food, (key, value) => {
+  if (key !== 'getFruits' && key !== 'getVegetables') {
+    return value;
   }
 });
-// "{"a":"32","c":[0,1,2]}"
+// '{"fruits":["apples","oranges"],"vegetables":["carrots","potatoes"]}'
 ```
