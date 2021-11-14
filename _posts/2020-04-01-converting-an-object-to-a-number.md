@@ -2,7 +2,7 @@
 layout: project
 title: converting an object to a number
 date: 2020-04-01 8:22 -0700
-updated: 2021-08-21 14:25 -0700
+updated: 2021-11-13 17:28 -0700
 meta: What happens when trying to convert an object to a number.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -11,25 +11,27 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-When coercing an object to a number it will first check if it has a <code class="highlight__code">valueOf()</code>
-method if it does and returns a primitive value that value will be used for coercion. If <code class="highlight__code">valueOf()</code> doesn't exist or doesn't return a primitive value it will check if it has a <code class="highlight__code">toString()</code> method and use the value that was returned for coercion.
-
-If none of the operations can find a primitive value, a TypeError will be thrown.
-
-If the converted primitive value isn't a number it will coerce it to a number.
+When converting an object to a number it will first check if the <code class="highlight__code">valueOf()</code> method exists if it does and returns a primitive that will will be used.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
-var a = {
+const a = {
   valueOf: function () {
     return '12';
   }
 };
 
 Number(a); // 12
+```
 
-var b = {
+
+If <code class="highlight__code">valueOf()</code> method doesn't exist or doesn't return a primitive value it will check if it has a <code class="highlight__code">toString()</code> method and use the returned value.
+
+<p class="highlight__file-desc">JavaScript</p>
+
+```javascript
+const b = {
   toString: function () {
     return 20;
   }
@@ -37,19 +39,7 @@ var b = {
 
 Number(b); // 20
 
-var c = {
-  valueOf: function () {
-    return ['a', 'b', 'c'];
-  }
-};
-
-Number(c); // NaN
-
-var d = Object.create(null);
-
-Number(d); // Uncaught TypeError: Cannot convert object to primitive value
-
-var e = {
+const c = {
   valueOf: function () {
     return function s() {};
   },
@@ -59,5 +49,15 @@ var e = {
   }
 };
 
-Number(e); // 2
+Number(c); // 2
+```
+
+If none of the attempts to convert an object to a number can find a primitive value, a TypeError will be thrown.
+
+<p class="highlight__file-desc">JavaScript</p>
+
+```javascript
+const d = Object.create(null);
+
+Number(d); // Uncaught TypeError: Cannot convert object to primitive value
 ```
