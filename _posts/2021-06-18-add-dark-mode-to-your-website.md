@@ -2,6 +2,7 @@
 layout: project
 title: add dark mode to your website
 date: 2021-06-18 21:30 -0700
+updated: 2021-11-13 17:33 -0700
 meta: how to add dark mode to your website 
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -66,11 +67,10 @@ JavaScript
 window.addEventListener('load', () => {
    // previous code
    
-    let themeSelector = document.querySelector('#themeSelector');
-    let body = document.body;
+    const themeSelector = document.querySelector('#themeSelector');
     if (localStorage.getItem('theme') === 'dark') {
         // this class will be used to override styles
-        body.classList.add('dark');
+        document.body.classList.add('dark');
         themeSelector.textContent = '☀️';
     } else {
         themeSelector.textContent = '🌙️';
@@ -107,7 +107,7 @@ window.addEventListener('load', () => {
             themeSelector.textContent = '🌙️';
         }
 
-        body.classList.toggle('dark');
+        document.body.classList.toggle('dark');
     });
 });
 ```
@@ -137,10 +137,9 @@ window.addEventListener('load', () => {
         localStorage.setItem('theme', 'light');
     }
 
-    let themeSelector = document.querySelector('#themeSelector');
-    let body = document.body;
+    const themeSelector = document.querySelector('#themeSelector');
     if (localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark');
+        document.body.classList.add('dark');
         themeSelector.textContent = '☀️';
     } else {
         themeSelector.textContent = '🌙️';
@@ -155,7 +154,7 @@ window.addEventListener('load', () => {
             themeSelector.textContent = '🌙️';
         }
 
-        body.classList.toggle('dark');
+        document.body.classList.toggle('dark');
     });
 });
 ```
