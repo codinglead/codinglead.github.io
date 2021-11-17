@@ -2,8 +2,8 @@
 layout: project
 title: what are closures
 date:  2019-5-15 4:22 -0700
-updated: 2021-11-16 07:30 -0700
-meta: A closure is when a inner function remembers its lexical scope even if it is executed outside of it.
+updated: 2021-11-17 07:10 -0700
+meta: A closures is when a function can remember its lexical scope even if the function is executed outside of it.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -11,9 +11,9 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-A closures is when a inner function can remember its lexical scope even if the function is executed outside of it.
+A closures is when a function can remember its lexical scope even if the function is executed outside of it.
 
-Which means if a function inside another function is executed outside where it is declared and is using a variable declared around the function it will be able to access them.
+Which means if a function is executed outside where it is declared and is using a variable declared around the function it will be able to access them.
 
 ## examples of closures
 
@@ -151,4 +151,4 @@ This is how a <code class="highlight__code">IIFE</code> looks like
 
 ## conclusion
 
-A closure is a function that uses variables declared by a parent function even when it is executed outside the scope it was created in.
+A closure is a function that can use variables declared around it even when it is executed outside the scope it was created in.
