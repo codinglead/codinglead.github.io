@@ -2,8 +2,8 @@
 layout: project
 title: this in JavaScript
 date: 2018-12-10 10:58 -0700
-updated: 2020-09-27 08:37 -0700
-meta: this refers to a object that set is at the creation of a new execution context.
+updated: 2021-11-21 19:57 -0700
+meta: this refers to a object that is set is at the creation of a new execution context.
 pic: images/javascript.png
 imgAlt: the javascript logo
 tags: ["javascript"]
@@ -11,7 +11,7 @@ author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.co
 permalink: /javascript/:title
 ---
 
-<code class="highlight__code">this</code> refers to a object that set at the creation of a new execution context.
+<code class="highlight__code">this</code> refers to a object that is set at the creation of a new execution context.
 
 <p class="highlight__file-desc">JavaScript</p>
 
@@ -26,9 +26,9 @@ whatIsThis();
 // Window {}
 ```
 
-To find the value of <code class="highlight__code">this</code> you have to figure out where the code it is being executed.
+To find the value of <code class="highlight__code">this</code> you have to figure out where the code is being executed.
 
-<code class="highlight__code">whatIsThis()</code> is executed on the global scope so <code class="highlight__code">this</code> is set to the global object.
+<code class="highlight__code">whatIsThis()</code> is executed on the global scope so <code class="highlight__code">this</code> is set to the <code class="highlight__code">window</code> object.
 
 If a function is called as a method of an object <code class="highlight__code">this</code> is bounded to the object the method is called on.
 
@@ -37,7 +37,6 @@ If a function is called as a method of an object <code class="highlight__code">t
 ```javascript
 const person = {
     firstName: 'Brian',
-    lastName: 'Munoz',
     greet: function () {
         console.log('hi, ' + this.firstName);
     }
@@ -71,7 +70,7 @@ greetFunction();
 // hi, undefined
 ```
 
-The greet function is now being called on the global scope <code class="highlight__code">this</code> is set to the window object.
+The greet function is now being called on the global scope <code class="highlight__code">this</code> is set to the <code class="highlight__code">window</code> object.
 
 ## reassign this
 
@@ -86,7 +85,6 @@ You can reassign <code class="highlight__code">this</code> by using <span class=
 ```javascript
 const person = {
     firstName: 'Brian',
-    lastName: 'Munoz',
     whatIsThis: function() {
         console.log(this); 
     },
@@ -98,28 +96,28 @@ const person = {
 person.whatIsThis();
 // person object
 
-person.greet('hi')
+person.greet('hi');
 // hi Brian
 
 const student = {
-    firstName: 'Daniel'
+    firstName: 'Joe'
 }
 
-// returns function with this bounded and arguments set
+// returns a function with this bounded and arguments set
 const greetStudent = person.greet.bind(student, 'hi');
 greetStudent();
-// hi Daniel
+// hi Joe
 
 // call and apply immediate runs the function
 person.greet.call(student, 'hi')
-// hi Daniel
+// hi Joe
 
-// use apply when you
+// apply could be used when you
 // don't know how many parameters
-// you will pass into the function
+// will be passed into the function
 let argumentsArray = ['hi']
 person.greet.apply(student, argumentsArray)
-// hi Daniel
+// hi Joe
 ```
 
 ## arrow function
@@ -169,7 +167,7 @@ person.greet();
 ```
 The <code class="highlight__code">greet</code> function is created in the person object which is defined on the global scope.
 
-<code class="highlight__code">this</code> is the window object because it is not within another function. It is defined in the global execution.
+<code class="highlight__code">this</code> is the <code class="highlight__code">window</code> object because it is defined on the global execution.
 
 ### how to fix this
 
@@ -205,11 +203,11 @@ An explanation of lexical scoping.
 ```javascript
 let favoriteFruit = 'orange';
 
-function danielFavoriteFruit () {
+function theBestFruit () {
     let favoriteFruit = 'apple';
 }
 
-danielFavoriteFruit();
+theBestFruit();
 
 console.log(favoriteFruit);
 // orange
@@ -217,20 +215,20 @@ console.log(favoriteFruit);
 
 orange is logged because it is on the global scope. 
 
-we do not have access to the <code class="highlight__code">favoriteFruit</code> variable defined in <code class="highlight__code">danielFavoriteFruit()</code> because it is inside a function.
+we do not have access to the <code class="highlight__code">favoriteFruit</code> variable defined in <code class="highlight__code">theBestFruit()</code> because it is inside a function.
 
 <p class="highlight__file-desc">JavaScript</p>
 
 ```javascript
 let favoriteFruit = 'orange';
 
-function danielFavoriteFruit () {
+function theBestFruit () {
     let favoriteFruit = 'apple';
 
     console.log(favoriteFruit);
 }
 
-danielFavoriteFruit();
+theBestFruit();
 // apple
 ```
 
