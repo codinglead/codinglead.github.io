@@ -96,13 +96,10 @@ You specify the pseudo-element at the end of the selector, and then specify the 
 <p class="highlight__file-desc">HTML</p>
 
 ```html
-<h1>Long Beach Programmers: </h1>
+<h1>Cool Programmers: </h1>
 <ul>
-  <li><a href="https://colorlessenergy.github.io/growlypw/">Angel</a></li>
   <li><a href="http://colorlessenergy.github.io/">Brian</a></li>
-  <li><a href="https://christianprado.com/">Christian</a></li>
   <li><a href="https://planeswalker1.github.io/">Daniel</a></li>
-  <li><a href="https://genterpw.github.io/">David</a></li>
 </ul>
 ```
 
@@ -160,14 +157,10 @@ h1.reset-header {
 }
 </style>
 <body>
-<h1 class="reset-header">Long Beach Programmers: </h1>
+<h1 class="reset-header">Cool Programmers: </h1>
 <ul>
-  <li class="reset-border"><a class="css-pseudo-link" href="https://colorlessenergy.github.io/growlypw/">Angel</a></li>
   <li class="reset-border"><a class="css-pseudo-link" href="http://colorlessenergy.github.io/">Brian</a></li>
-  <li class="reset-border"><a class="css-pseudo-link" href="https://christianprado.com/">Christian</a></li>
   <li class="reset-border"><a class="css-pseudo-link" href="https://planeswalker1.github.io/">Daniel</a></li>
-  <li class="reset-border"><a class="css-pseudo-link"
-   href="https://genterpw.github.io/">David</a></li>
 </ul>
 </body>
 
