@@ -61,15 +61,11 @@ Examples include:
 </style>
 <body>
   <div class="block">
-    <h1 class="block__heading">Long Beach Programmers: </h1>
+    <h1 class="block__heading">Cool programmers: </h1>
     <p class="block__text">Donec tristique dignissim ipsum, vel egestas erat dignissim sit amet. Etiam ante mauris, elementum et sapien in, feugiat fringilla elit. Sed est dolor, condimentum vitae velit iaculis, pharetra sollicitudin nulla. Donec nec augue metus. Proin eleifend felis vitae mauris aliquam, in pretium eros lobortis. Nulla sapien quam, porta ac sollicitudin sed, facilisis sit amet ex. Nullam suscipit eu sapien eget volutpat. Donec imperdiet lectus vitae ipsum imperdiet lacinia. Aliquam id mattis justo. Vivamus nisi lacus, posuere non nunc in, aliquam porta mauris. Duis nisl tellus, tristique quis enim ac, lobortis consequat dolor. Phasellus at dictum velit. In hac habitasse platea dictumst. Praesent porttitor tellus sed velit semper sodales. Vestibulum a sapien gravida ipsum mattis scelerisque ut sagittis metus.</p>
     <ul>
-      <li class="block__item"><a class="css-pseudo-link" href="https://colorlessenergy.github.io/growlypw/">Angel</a></li>
       <li class="block__item"><a class="css-pseudo-link" href="http://colorlessenergy.github.io/">Brian</a></li>
-      <li class="block__item"><a class="css-pseudo-link" href="https://christianprado.com/">Christian</a></li>
       <li class="block__item"><a class="css-pseudo-link" href="https://planeswalker1.github.io/">Daniel</a></li>
-      <li class="block__item"><a class="css-pseudo-link"
-      href="https://genterpw.github.io/">David</a></li>
     </ul>
   </div>
 </body>
