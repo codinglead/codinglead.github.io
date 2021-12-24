@@ -2,7 +2,7 @@
 layout: project
 title: what are closures
 date:  2019-5-15 4:22 -0700
-updated: 2021-11-17 07:10 -0700
+updated: 2021-12-24 06:43 -0700
 meta: A closure is when a function can access its scope even if the function is executed outside of it.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -132,7 +132,7 @@ This is how a <code class="highlight__code">IIFE</code> looks like
 
 ```javascript
 (function () {
-  // this variable will not exist
+  // these variable will not exist
   // after console.log is executed
   let number = 42;
   const fruit = 'oranges';
