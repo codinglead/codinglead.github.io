@@ -77,4 +77,4 @@ console.log(numbers); // [1, 2, 3, 4, 5]
 
 Runs a function on every element in an array and allows you to turn the array into a single value. The initial value can be set by passing in another argument.
 
-In the end the final function called returned value is used.
+In the end the final function call returned value is used.
