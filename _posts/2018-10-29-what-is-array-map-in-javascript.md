@@ -24,7 +24,7 @@ A function that is executed for every element in the array is passed into <span 
 -   the index of the current element
 -   array that <span class="highlight__code">map()</span> is being called on
 
-An example of using <span class="highlight__code">map()</span> would be to multiply every element in the array by 10.
+An example of using <span class="highlight__code">map()</span> would be to multiply every element in an array by 10.
 
 <p class="highlight__file-desc">JavaScript</p>
 
