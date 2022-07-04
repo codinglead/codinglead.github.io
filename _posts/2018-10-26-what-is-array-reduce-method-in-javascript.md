@@ -1,8 +1,8 @@
 ---
 layout: project
-title: what is array reduce in JavaScript
+title: what is array reduce() in JavaScript
 date: 2018-10-26 5:07 -0700
-updated: 2022-06-05 12:09 -0700
+updated: 2022-07-04 08:55 -0700
 meta: reduce() method combines an array into one value
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -15,8 +15,6 @@ author:
     ]
 permalink: /javascript/:title
 ---
-
-Following a recipe is a way to think about how <span class="highlight__code">reduce()</span> works. When following a recipe we get the ingredients and combine them one by one.
 
 When using <span class="highlight__code">reduce()</span> it goes through every element in an array and allows you to combine them into a single value.
 
