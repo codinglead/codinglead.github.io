@@ -2,7 +2,7 @@
 layout: project
 title: logical operators in JavaScript
 date: 2018-12-21 4:00 -0700
-updated: 2022-09-19 09:30 -0700
+updated: 2022-09-19 09:56 -0700
 meta: Logical operators are used when doing comparisons of boolean values. if Booleans are being used it will either return true or false. If non-boolean values are used for operands if will return one of the specified operands. The logical operators look like (||), (&&) and (!).
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -76,7 +76,8 @@ Logical <code class="highlight__code">NOT</code> converts the expression into a 
 ```javascript
 !true; // false
 !false; // true
-!'dragon'; // false
+!"Lime"; // false
+!1000 // false
 ```
 
 ## conclusion
