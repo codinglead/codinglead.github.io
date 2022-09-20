@@ -15,7 +15,7 @@ Logical operators are used when doing comparisons of boolean values. If Booleans
 
 ## The OR and AND operators are short circuited
 
-When logical operators <code class="highlight__code">(||)</code> and <code class="highlight__code">(&&)</code> are being evaluated it tests for a "short circuit" which means as soon as one of the value is true for the OR operator or if one the value evaluate to false for the AND operator it will stop and return the value.
+When logical operators <code class="highlight__code">(||)</code> and <code class="highlight__code">(&&)</code> are being evaluated it tests for a "short circuit" which means as soon as one of the values is true for the OR operator or if one the values is false for the AND operator it will stop and return the value.
 
 * <code class="highlight__code">false && (anything)</code> is short-circuit evaluated to false.
 * <code class="highlight__code">true || (anything)</code> is short-circuit evaluated to true.
