@@ -2,7 +2,7 @@
 layout: project
 title: logical operators in JavaScript
 date: 2018-12-21 4:00 -0700
-updated: 2020-08-12 11:40 -0700
+updated: 2022-09-19 09:30 -0700
 meta: Logical operators are used when doing comparisons of boolean values. if Booleans are being used it will either return true or false. If non-boolean values are used for operands if will return one of the specified operands. The logical operators look like (||), (&&) and (!).
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -15,79 +15,70 @@ Logical operators are used when doing comparisons of boolean values. If Booleans
 
 ## The OR and AND operators are short circuited
 
-When the logical operators <code class="highlight__code">(||)</code> and <code class="highlight__code">(&&)</code> are being evaluated it tests for a "short circuit" which means as soon as one of the value is true for the OR operator or if one the value evaulate to false for the AND operator it will stop and return the value.
+When logical operators <code class="highlight__code">(||)</code> and <code class="highlight__code">(&&)</code> are being evaluated it tests for a "short circuit" which means as soon as one of the value is true for the OR operator or if one the value evaluate to false for the AND operator it will stop and return the value.
 
-* <span class="highlight__code">false && (anything)</span> is short-circuit evaluated to false.
-* <span class="highlight__code">true || (anything)</span> is short-circuit evaluated to true.
+* <code class="highlight__code">false && (anything)</code> is short-circuit evaluated to false.
+* <code class="highlight__code">true || (anything)</code> is short-circuit evaluated to true.
 
 **anything** means any value.
 
-
 ## how logical AND works (&&)
 
-The <span class="highlight__code">&&</span> will return the first expression if it converts to false otherwise the second expression will be returned.
+<code class="highlight__code">(&&)</code> will return the first expression if it is a falsy value otherwise the second expression will be returned.
 
-<p class="highlight__file-desc">JavaScript</p>
+<div class="highlight__file-desc">JavaScript</div>
 
 ```javascript
-let ex1 = false && false; // return false
-let ex2 = "" && false; // return ""
-let ex3 = false && ""; // return false
-let ex4 = (1 === 3) && false; // return false
-let ex5 = 2 && ""; // return ""
-let ex5 = 2 && 3; // return 3
+false && false; // false
+"" && false; // ""
+false && ""; // false
+(1 === 3) && false; // false
+// first expression evaluated to a falsy value
 ```
 
-<span class="highlight__code">ex1</span> returned false because the first expression evaluated to a falsy value.
+<code class="highlight__code">2 && ""; // ""</code>
 
-<span class="highlight__code">ex2</span> returned a empty string because the first expression evaluated to a falsy value.
+First expression evaluated to true so it had to evaulate the second expression and it was false.
 
-<span class="highlight__code"> ex3</span> and <span class="highlight__code">ex4</span> returned false because the first expression evaluated to a falsy value.
+<code class="highlight__code">2 && 3; // 3</code>
 
-<span class="highlight__code">ex5</span> returned a empty string because the first expression evaluated to true so it had to evaulate the second expression and it was false. 
-
-<span class="highlight__code">ex6</span> returned 3 because the first expression and second expression evaluated to true so it returned the last expression that was evaluated.
-
+First expression and second expression evaluated to true so it returned the last expression that was evaluated.
 
 ## how logical OR works (||)
 
-The <span class="highlight__code">||</span> will return the first expression if it converts to true otherwise the second expression will be returned.
+<code class="highlight__code">(||)</code> will return the first expression if its a truthy value otherwise the second expression will be returned.
 
-<p class="highlight__file-desc">JavaScript</p>
+<div class="highlight__file-desc">JavaScript</div>
 
 ```javascript
-let ex1 = false || false; // return false
-let ex2 = true || false; // return true
-let ex3 = "Lime" || "Lemon"; // return "Lime"
-let ex4 = "Lemon" || ""; // return "Lemon"
-let ex5 = (1 === 3) || false; // return false
-let ex6 = 2 || ""; // return 2
+(1 === 3) || false; // false
+// first and second expression are falsy values
+
+false || undefined; // undefined
+// first and second expression are falsy values
+
+true || false; // true
+// first expression evaluated to a truthy value
+
+"Lime" || "Lemon"; // "Lime"
+// first expression evaluated to a truthy value
+
+false || 1000; // 1000
+// second expression evaluated to a truthy value
 ```
-
-<span class="highlight__code">ex1</span> returned false because the first and second expression evaluated to falsy values. 
-
-<span class="highlight__code">ex2</span> returned true because the first expression evaluated to a truthy value. 
-
-<span class="highlight__code">ex3</span> returned "Lime" because the first expression evaluated to a truthy value. 
-
-<span class="highlight__code">ex4</span> returned "Lemon" because the first expression evaluated to a truthy value. 
-
-<span class="highlight__code">ex5</span> returned false because the first and second expression evaluated to falsy values.
-
-<span class="highlight__code">ex6</span> returned 2 because the first expression evaluated to a truthy value.
 
 ## how logical NOT works (!)
 
-logical NOT will convert the expression into a boolean if it isn't already a boolean. 
+Logical <code class="highlight__code">NOT</code> converts the expression into a boolean and inverts the boolean.
 
-<p class="highlight__file-desc">JavaScript</p>
+<div class="highlight__file-desc">JavaScript</div>
 
 ```javascript
-let ex1 = !true; // false
-let ex2 = !false; // true
-let ex3 = !'dragon'; // false
+!true; // false
+!false; // true
+!'dragon'; // false
 ```
 
 ## conclusion
 
-Logical operators are used when making conditions. AND and OR operator are short circuited.
+<code class="highlight__code">(&&)</code> and <code class="highlight__code">(||)</code> operators are used in conditions.
