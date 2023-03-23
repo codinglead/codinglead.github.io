@@ -2,7 +2,7 @@
 layout: project
 title: first class functions in JavaScript
 date: 2018-12-03 3:35 -0700
-updated: 2023-03-23 14:03 -0700
+updated: 2023-03-23 14:24 -0700
 meta: First class functions are functions that are treated like any other variable.
 pic: images/javascript.png
 imgAlt: the javascript logo
@@ -16,9 +16,9 @@ author:
 permalink: /javascript/:title
 ---
 
-First class functions are functions that are treated like any other variable.
+First class functions are functions that are treated like any other variable. This allows higher-order functions to be created.
 
-## allows for the creation of higher-order functions
+## higher-order functions
 
 A higher-order function can take in multiple functions and/or return a function.
 
