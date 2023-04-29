@@ -1,91 +1,87 @@
 ---
 layout: project
-title: 7 git commands that every developer should know.
+title: 7 Git commands that every developer should know
 date: 2018-11-23 5:00 -0700
-meta: An explanation on what is git and git commands everyone should know to be a sucessful developer.
+updated: 2023-04-29 10:31 -0700
+meta: Explanation of Git and 7 important Git commands.
 pic: images/javascript.png
 imgAlt: the javascript logo
-tags: ["javascript"]
-author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
+tags: ['javascript']
+author:
+    [
+        'Brian Munoz',
+        'https://colorlessenergy.github.io/',
+        'https://github.com/colorlessenergy'
+    ]
 permalink: /javascript/:title
 ---
 
-Everyone should know how to use a version control because it is important to be able to see your history of code you been working on.
+Git is powerful because you can see the history of your code.
 
-Git is a very powerful and a common version control system.
+## what is Git
 
-## what is git
+It is a popular version control system.
 
-It is a popular version control system
+-   tracks changes between files and creates commits which are checkpoints that you can revert to
+-   synchronize code between multiple people
+-   create alternate branches to store different versions of code
 
-* tracks changes between files, and creates commits which are checkpoints that you can revert to
-* synchronize code between multiple people
-* create alternate branches to store different versions of code
-
-## relevant commands
-
-There is a lot of commands. Here are a few important commands that everyone should know.
+## 7 Git commands
 
 ### git init
 
-* creates a git repository in your current directory
-* creates .git/ folder in your working directory
+creates
 
-This is where everything is stored.
+-   a git repository in your current directory
+-   .git/ folder in your working directory
 
 ### git clone [url]
 
-Copies a git repository located at url into a new directory in your working directory. Includes all files, history and branches.
+Copies a git repository located at a url into a new directory which includes all files, history and branches.
 
-A "fork" on Github will create your own copy of a repository. (makes you the owner of a new copy)
+A "fork" on GitHub will create a copy of a repository and make you the owner.
 
 ### git status
 
-Shows current state of the repository. Displays changed files, added files, and removed files.
+Shows the current state of the repository.
 
-In simple terms it shows you the status of everything.
+It can show changed, added and removed files.
 
 ### git add [path]
 
-Tell Git to include all the files at a [path] in the next commit. If you modify the files after git-adding them, git will remember their initial state when you added them.
+Tell Git to include all the files at a [path] in the next commit.
 
-To cancel the git add use the git reset. which just undos git add.
+If you modify the files after git-adding them, git will remember their initial state when you added them.
 
 ### git reset [path]
 
-* undoes a git add
-* remove files from the index
+Undoes <code class="highlight__code">git add</code> and removes files from the index.
 
 #### what is index
-Index is tracking the difference between the working directory and any commits you make. Index are things that are staged for next commit.
+
+Files added with <code class="highlight__code">git add</code> but not committed.
 
 ### git reset [--soft | --hard] [commit]
 
-restores state to a specific commit
+Restores repository to a specific commit.
 
--- soft flag will not affect  files
--- hard files will discard all changes
+-   --soft flag will not affect files
+-   --hard flag will discard all changes
 
-### git commit [-a] [-m [message]]
+### git commit -m [message]
 
-creates a new checkpoint in the project status along with a message. Stores the state of any added files.
+creates a new checkpoint in the project with a message. Stores the state of any added files.
 
-Use the -a flag to automatically add all tracked files (files already know to git from previous git add commands)
-
-Use -m flag to use the message as the commit message
+Use -m flag to use the message as the commit message.
 
 ## conclusion
 
-Git is a very powerful tool to help you keep your files safe.
+Git is a powerful tool to maintain a codebase.
 
-The commands every should know are...
-
-* git init
-* git clone [url]
-* git status
-* git add [path]
-* git reset [path]
-* git reset [soft | hard ] [commit]
-* git commit [-a] [-m [message]]
-
-happy coding
+-   git init
+-   git clone [url]
+-   git status
+-   git add [path]
+-   git reset [path]
+-   git reset [--soft / --hard] [commit]
+-   git commit -m [message]
